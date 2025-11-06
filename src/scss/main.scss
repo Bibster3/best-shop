@@ -1,0 +1,71 @@
+@import "abstracts/variables";
+@import "abstracts/mixins";
+
+@import "base/reset";
+@import "base/fonts";
+
+@import "components/buttons";
+@import "components/cards";
+
+@import "layouts/header";
+@import "layouts/footer";
+
+@import "pages/home";
+@import "pages/about";
+@import "pages/contact";    
+
+.header {
+  width: 100%;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+
+  &__container {
+    max-width: 1200px;        // keeps it centered
+    margin: 0 auto;
+    padding: 0 2rem;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__logo {
+    font-size: 1.3rem;
+    font-weight: 700;
+    text-decoration: none;
+    color: #000;
+  }
+
+  &__nav ul {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  &__nav a {
+    text-decoration: none;
+    color: #555;
+    font-weight: 500;
+    transition: color 0.2s ease;
+
+    &.active,
+    &:hover {
+      color: #e03577;   // your pink accent color
+    }
+  }
+
+  &__icons {
+    display: flex;
+    gap: 1rem;
+
+    a {
+      color: #000;
+      font-size: 1.1rem;
+      transition: opacity 0.2s ease;
+
+      &:hover {
+        opacity: 0.6;
+      }
+    }
+  }
+}

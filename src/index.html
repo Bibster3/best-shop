@@ -1,11 +1,176 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Best Shop - Home</title>
+    <link rel="stylesheet" href="../src/scss/main.scss" />
+  </head>
+  <!-- ======================= HEADER ======================= -->
 
-</body>
+  <body>
+    <header class="header">
+
+    <div class="social-icons">
+        <a href="#"><i class="icon-facebook"></i></a>
+        <a href="#"><i class="icon-twitter"></i></a>
+        <a href="#"><i class="icon-instagram"></i></a>
+      <div class="header_container">
+        <img src="../src/assets/images/briefcase_logo.png" alt="Suitcase" />
+        <a href="home.html" class="header__logo">BEST SHOP</a>
+        <nav class="header_nav">
+          <ul>
+            <li><a href="home.html" class="active">Home</a></li>
+            <li><a href="catalog.html">Catalog</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </nav>
+
+        <div class="header__icons">
+          <a href="#"><i class="icon-search"></i></a>
+          <a href="cart.html"><i class="icon-cart"></i></a>
+        </div>
+      </div>
+    </header>
+    <!-- ======================= HERO SECTION ======================= -->
+    <section class="hero">
+      <div class="hero__content">
+        <h1>Smart Styles for Every Destination</h1>
+        <p>Phasellus cursus turpis, pretium sit amet magna non.</p>
+        <a href="catalog.html" class="btn">View All Items</a>
+      </div>
+
+      <div class="hero__image">
+        <img src="../assets/images/hero-suitcase.png" alt="Suitcase" />
+      </div>
+    </section>
+
+    <!-- ======================= PROMO / DISCOUNT BANNER ======================= -->
+    <section class="promo">
+      <div class="promo__info">
+        <div class="promo__author">
+          <img src="../assets/images/avatar.png" alt="User Photo" />
+          <div>
+            <h4>Lilian Bennett</h4>
+            <span>Chief Marketing Officer</span>
+          </div>
+        </div>
+        <h3>Aliquam Faucibus Odionemoc.</h3>
+        <p>
+          Duis vestibulum velit nec neque pretium vulputate. Quisque scelerisque
+          dui mi, Dui auctor nulla non imperdiet.
+        </p>
+        <a href="#" class="btn">Learn more</a>
+      </div>
+
+      <div class="promo__discount">
+        <span class="promo__discount-badge">25% Discount</span>
+        <img src="../assets/images/promo-img.png" alt="Promo Suitcases" />
+        <a href="#" class="btn btn--primary">Get Discount</a>
+      </div>
+    </section>
+
+    <!-- ======================= CATEGORY GRID (Travel Suitcases) ======================= -->
+    <section class="categories">
+      <h2>Travel Suitcases</h2>
+      <p>Duis vestibulum elit vel neque pharetra</p>
+
+      <div class="categories__grid">
+        <!-- Category Card -->
+        <div class="category-card">
+          <img src="../assets/images/cat1.png" alt="Suitcase Category" />
+          <span>Vel vestibulum elit vel neque.</span>
+        </div>
+
+        <div class="category-card">
+          <img src="../assets/images/cat2.png" alt="Suitcase Category" />
+          <span>Neque vestibulum elit vel neque.</span>
+        </div>
+
+        <div class="category-card">
+          <img src="../assets/images/cat3.png" alt="Suitcase Category" />
+          <span>Etiam vestibulum elit vel neque.</span>
+        </div>
+
+        <div class="category-card">
+          <img src="../assets/images/cat4.png" alt="Suitcase Category" />
+          <span>Vestibulum elit vel neque.</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================= SELECTED PRODUCTS ======================= -->
+    <section class="products products--selected">
+      <h2>Selected Products</h2>
+      <p>Duis vestibulum elit vel neque pharetra</p>
+
+      <div class="products__grid" id="selected-products">
+        <!-- Product cards rendered via JS from data.json -->
+      </div>
+    </section>
+
+    <!-- ======================= OFFER OF THE MONTH ======================= -->
+    <section class="offer-month">
+      <div class="offer-month__content">
+        <h2><span>50%</span> Offer Of The Month</h2>
+        <p>Curabitur vestibulum elit vel neque. Aenean purus arcu.</p>
+        <a href="#" class="btn btn--primary">Get Offer Today</a>
+      </div>
+    </section>
+
+    <!-- ======================= NEW PRODUCTS ARRIVAL ======================= -->
+    <section class="products products--new">
+      <h2>New Products Arrival</h2>
+      <p>Duis vestibulum elit vel neque pharetra</p>
+
+      <div class="products__grid" id="new-products">
+        <!-- Product cards rendered via JS -->
+      </div>
+    </section>
+
+    <!-- ======================= CUSTOMER TESTIMONIALS ======================= -->
+    <section class="testimonials">
+      <h2>Our Grateful Customers</h2>
+      <p>Duis vestibulum elit vel neque pharetra</p>
+
+      <div class="testimonials__grid">
+        <div class="testimonial-card">
+          <img src="../assets/images/user1.png" alt="Customer Photo" />
+          <p>Curabitur volutpat...</p>
+          <span class="author">Ethan Wade, New York</span>
+        </div>
+
+        <div class="testimonial-card">
+          <img src="../assets/images/user2.png" alt="Customer Photo" />
+          <p>Curabitur volutpat...</p>
+          <span class="author">Jane Reyes, California</span>
+        </div>
+
+        <div class="testimonial-card">
+          <img src="../assets/images/user3.png" alt="Customer Photo" />
+          <p>Curabitur volutpat...</p>
+          <span class="author">Erica Banks, Miami</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================= FOOTER ======================= -->
+    <footer class="footer">
+      <div class="footer__content">
+        <div class="footer__col">
+          <h4>About Us</h4>
+          <ul>
+            <li><a href="#">Organization</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+          </ul>
+        </div>
+
+        <div class="footer__col">
+          <h4>Contact</h4>
+          <p>+1 234 567 890</p>
+        </div>
+      </div>
+    </footer>
+  </body>
 </html>

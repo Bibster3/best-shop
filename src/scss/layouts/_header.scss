@@ -1,6 +1,7 @@
 header {
   width: 100%;
-  border-bottom: 1px solid #e8e8e8;
+  border-bottom: 1px solid $border-color;
+  font-family: Montserrat, sans-serif;
 
   .header__top {
     display: flex;
@@ -26,10 +27,23 @@ header {
       }
 
       .header__logo {
-        text-decoration: none;
-        font-size: 20px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 24px;
         font-weight: 700;
         color: $accent-color;
+        text-decoration: none;
+
+        img {
+          width: 32px;
+          height: 32px;
+          padding: 4px;
+          border-radius: 6px;
+          background: $accent-color;
+          box-sizing: border-box;
+          object-fit: contain;
+        }
       }
     }
   }

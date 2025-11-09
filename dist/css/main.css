@@ -1,6 +1,7 @@
 header {
   width: 100%;
-  border-bottom: 1px solid #e8e8e8;
+  border-bottom: 1px solid #727174;
+  font-family: Montserrat, sans-serif;
 }
 header .header__top {
   display: flex;
@@ -24,10 +25,22 @@ header .header__top .header_container img {
   height: 30px;
 }
 header .header__top .header_container .header__logo {
-  text-decoration: none;
-  font-size: 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 24px;
   font-weight: 700;
-  color: #B92770;
+  color: #b92770;
+  text-decoration: none;
+}
+header .header__top .header_container .header__logo img {
+  width: 32px;
+  height: 32px;
+  padding: 4px;
+  border-radius: 6px;
+  background: #b92770;
+  box-sizing: border-box;
+  object-fit: contain;
 }
 header .header_nav {
   width: 100%;
@@ -48,7 +61,165 @@ header .header_nav ul li a {
   color: #000;
 }
 header .header_nav ul li a.active {
-  color: #B92770;
+  color: #b92770;
+}
+
+.footer {
+  background: #fff;
+  padding: 60px 0;
+  width: 100%;
+  display: block;
+  clear: both;
+  font-family: "Helvetica Neue", sans-serif;
+}
+.footer .benefits {
+  position: relative;
+  background-color: #504e4a;
+  padding: 60px 0;
+  text-align: center;
+  color: #fff;
+  overflow: hidden;
+}
+.footer .benefits::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("/src/assets/images/footer-vector.png");
+  background-repeat: repeat-y;
+  background-size: 100% 16.6666666667%;
+  background-position: center bottom;
+  background-blend-mode: soft-light;
+  z-index: 1;
+}
+.footer .benefits__title, .footer .benefits__items {
+  position: relative;
+  z-index: 2;
+}
+.footer .benefits__title {
+  font-size: 22px;
+  margin-bottom: 40px;
+  font-weight: 600;
+}
+.footer .benefits__items {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 40px;
+  gap: 20px;
+}
+.footer .benefits .benefit {
+  width: 240px;
+  padding: 20px;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-center;
+}
+.footer .benefits .benefit img {
+  width: 48px;
+  margin-bottom: 16px;
+  margin-right: 5 rem;
+}
+.footer .benefits .benefit p {
+  font-size: 14px;
+  line-height: 1.4;
+  text-align: left;
+}
+.footer {
+  /* Responsive */
+}
+@media (max-width: 900px) {
+  .footer .benefits__items {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+.footer .footer__content {
+  width: min(1300px, 90%);
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  gap: 60px;
+}
+.footer {
+  /* LEFT big column */
+}
+.footer .footer__left {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+.footer {
+  /* grid: 3 equal columns */
+}
+.footer .footer__links-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+.footer .footer__column h4 {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  text-align: right;
+}
+.footer .footer__column li {
+  margin-bottom: 10px;
+  list-style: none;
+}
+.footer {
+  /* Block under the grid */
+}
+.footer .footer__shipping {
+  width: 100%;
+}
+.footer .footer__shipping h4 {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 14px;
+}
+.footer .footer__shipping p {
+  line-height: 1.6;
+  max-width: 600px;
+}
+.footer {
+  /* RIGHT side - Contact */
+}
+.footer .footer__contact {
+  flex: 1;
+}
+.footer .footer__contact h4 {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+.footer .footer__contact p {
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+.footer .footer__contact .contact__info {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.footer .footer__contact .contact__info li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  line-height: 1.4;
+}
+.footer .footer__contact .contact__info img {
+  width: 18px;
+  filter: invert(32%) sepia(88%) saturate(1200%) hue-rotate(308deg) brightness(94%) contrast(88%);
+}
+.footer .footer__contact .contact__info a {
+  color: #b92770;
+  text-decoration: underline;
 }
 
 /*# sourceMappingURL=main.css.map */

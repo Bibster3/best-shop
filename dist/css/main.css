@@ -1,3 +1,106 @@
+.btn {
+  display: inline-block;
+  padding: 15px 30px;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 5px;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+  cursor: pointer;
+  border: 2px solid #b92770;
+}
+.btn--primary {
+  background-color: #b92770;
+  color: white;
+  border-color: #b92770;
+}
+.btn--primary:hover {
+  background-color: rgb(142.8794642857, 30.1205357143, 86.5);
+}
+.btn {
+  background-color: #b92770;
+  color: white;
+}
+
+.category-card {
+  position: relative;
+  text-align: center;
+  overflow: hidden;
+}
+.category-card:nth-child(1) {
+  background-image: url("assets/images/category-1.jpg");
+}
+.category-card:nth-child(2) {
+  background-image: url("assets/images/category-2.jpg");
+}
+.category-card:nth-child(3) {
+  background-image: url("assets/images/category-3.jpg");
+}
+.category-card:nth-child(4) {
+  background-image: url("assets/images/category-4.jpg");
+}
+.category-card {
+  background-size: cover;
+  background-position: center;
+  height: 350px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+.category-card:hover {
+  transform: translateY(-5px);
+}
+.category-card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.1));
+}
+.category-card span {
+  position: relative;
+  z-index: 5;
+  color: white;
+  font-weight: 500;
+  padding: 20px 10px;
+  font-size: 1.1rem;
+  text-align: center;
+}
+
+.testimonial-card {
+  flex: 1;
+  max-width: 300px;
+  background-color: white;
+  padding: 30px;
+  border-radius: 5px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  text-align: center;
+}
+.testimonial-card img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin: 0 auto 20px;
+}
+.testimonial-card p {
+  font-style: italic;
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 15px;
+  min-height: 70px;
+}
+.testimonial-card .author {
+  display: block;
+  font-weight: 600;
+  color: #333;
+  font-size: 1rem;
+}
+
 header {
   width: 100%;
   border-bottom: 1px solid #727174;
@@ -113,15 +216,15 @@ header .header_nav ul li a.active {
   padding: 20px;
   border: 2px solid transparent;
   border-radius: 8px;
-  transition: all 0.3s ease;
   display: flex;
   flex-direction: row;
   align-items: flex-center;
+  row-gap: 50rem;
 }
 .footer .benefits .benefit img {
   width: 48px;
-  margin-bottom: 16px;
-  margin-right: 5 rem;
+  margin-bottom: 25px;
+  margin-right: 20 rem;
 }
 .footer .benefits .benefit p {
   font-size: 14px;
@@ -165,7 +268,9 @@ header .header_nav ul li a.active {
   font-size: 15px;
   font-weight: 600;
   margin-bottom: 16px;
-  text-align: right;
+}
+.footer .footer__column ul {
+  padding-left: 0;
 }
 .footer .footer__column li {
   margin-bottom: 10px;
@@ -220,6 +325,252 @@ header .header_nav ul li a.active {
 .footer .footer__contact .contact__info a {
   color: #b92770;
   text-decoration: underline;
+}
+
+main {
+  padding-top: 50px;
+}
+
+section {
+  padding: 80px 0;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+section h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 5px;
+  color: #333;
+}
+section p {
+  font-size: 1.1rem;
+  text-align: center;
+  margin-bottom: 40px;
+  color: #666;
+}
+
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #F5F5F5;
+  padding: 0 0 0 80px;
+}
+.hero__content {
+  max-width: 50%;
+}
+.hero__content h1 {
+  font-size: 3.5rem;
+  text-align: left;
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+.hero__content p {
+  text-align: left;
+  margin-bottom: 40px;
+  color: #666;
+  font-size: 1.2rem;
+}
+.hero__image {
+  max-width: 50%;
+}
+.hero__image img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.promo {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  padding: 80px 0;
+}
+.promo__info {
+  flex: 1;
+  background-color: #F5F5F5;
+  padding: 40px;
+  border-radius: 5px;
+}
+.promo__info > h3 {
+  font-size: 1.8rem;
+  text-align: left;
+  margin: 20px 0 15px;
+  color: #333;
+}
+.promo__info > p {
+  text-align: left;
+  margin-bottom: 30px;
+  font-size: 1rem;
+}
+.promo__info .btn {
+  border-color: #333;
+  color: #333;
+}
+.promo__info .btn:hover {
+  background-color: #333;
+  color: white;
+}
+.promo__author {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.promo__author img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin-right: 15px;
+}
+.promo__author h4 {
+  font-size: 1.2rem;
+  margin: 0;
+  color: #333;
+}
+.promo__author span {
+  font-size: 0.9rem;
+  color: #999;
+}
+.promo__discount {
+  flex: 1;
+  position: relative;
+  text-align: center;
+}
+.promo__discount img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 5px;
+}
+.promo__discount .btn {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+}
+.promo__discount-badge {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  background-color: #D50041;
+  color: white;
+  padding: 8px 15px;
+  font-weight: 600;
+  border-radius: 5px;
+  z-index: 10;
+}
+
+.categories__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  padding: 0 50px;
+}
+
+.products__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  padding: 0 50px;
+}
+
+.offer-month {
+  background: url("assets/images/offer-month-banner.jpg") no-repeat center center/cover;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  padding: 0;
+}
+.offer-month__content {
+  max-width: 600px;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 30px;
+  border-radius: 5px;
+}
+.offer-month__content h2 {
+  color: white;
+  font-size: 3.5rem;
+  margin-bottom: 10px;
+}
+.offer-month__content h2 span {
+  font-size: 5rem;
+  font-weight: 900;
+  color: #D50041;
+  margin-right: 10px;
+  display: inline-block;
+}
+.offer-month__content p {
+  color: #eee;
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+.offer-month__content .btn--primary {
+  background-color: white;
+  color: #D50041;
+}
+.offer-month__content .btn--primary:hover {
+  background-color: #eee;
+}
+
+.testimonials {
+  background-color: #F5F5F5;
+  padding-bottom: 100px;
+}
+.testimonials__grid {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  padding: 0 50px;
+}
+
+@media (max-width: 992px) {
+  .hero {
+    flex-direction: column-reverse;
+    padding: 50px 20px;
+  }
+  .hero__content, .hero__image {
+    max-width: 100%;
+    text-align: center;
+    padding-bottom: 30px;
+  }
+  .hero__content h1, .hero__content p {
+    text-align: center;
+  }
+  .promo {
+    flex-direction: column;
+    padding: 50px 20px;
+  }
+  .categories__grid, .products__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .offer-month__content h2 {
+    font-size: 2.5rem;
+  }
+  .offer-month__content h2 span {
+    font-size: 4rem;
+  }
+}
+@media (max-width: 576px) {
+  section {
+    padding: 40px 10px;
+  }
+  h2 {
+    font-size: 2rem;
+  }
+  .categories__grid, .products__grid {
+    grid-template-columns: 1fr;
+  }
+  .testimonials__grid {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
 }
 
 /*# sourceMappingURL=main.css.map */

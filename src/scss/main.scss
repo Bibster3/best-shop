@@ -3,8 +3,302 @@
 @import "base/fonts";
 @import "base/reset";
 @import "components/buttons";
+@import "components/cards";
 @import "components/forms";
 @import "components/product-card";
 @import "layouts/header";
 @import "layouts/footer";
 
+// ======================= GLOBAL STYLES =======================
+main {
+    padding-top: 50px; 
+}
+
+section {
+    padding: 80px 0; 
+    max-width: 1200px; 
+    margin: 0 auto; 
+
+    h2 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        text-align: center;
+        margin-bottom: 5px;
+        color: #333;
+    }
+
+    p {
+        font-size: 1.1rem;
+        text-align: center;
+        margin-bottom: 40px;
+        color: #666;
+    }
+}
+
+
+// ======================= 1. HERO SECTION =======================
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #F5F5F5;
+    padding: 0 0 0 80px; 
+
+    &__content {
+        max-width: 50%;
+        h1 {
+            font-size: 3.5rem;
+            text-align: left;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        p {
+            text-align: left;
+            margin-bottom: 40px;
+            color: #666;
+            font-size: 1.2rem;
+        }
+    }
+
+    &__image {
+        max-width: 50%;
+        img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+    }
+}
+
+
+// ======================= 2. PROMO / DISCOUNT BANNER =======================
+.promo {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    padding: 80px 0; 
+
+    &__info {
+        flex: 1;
+        background-color: #F5F5F5; 
+        padding: 40px;
+        border-radius: 5px;
+
+        & > h3 {
+            font-size: 1.8rem;
+            text-align: left;
+            margin: 20px 0 15px;
+            color: #333;
+        }
+
+        & > p {
+            text-align: left;
+            margin-bottom: 30px;
+            font-size: 1rem;
+        }
+
+        .btn {
+            border-color: #333;
+            color: #333;
+            &:hover {
+                background-color: #333;
+                color: white;
+            }
+        }
+    }
+
+    &__author {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+
+        img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            margin-right: 15px;
+        }
+
+        h4 {
+            font-size: 1.2rem;
+            margin: 0;
+            color: #333;
+        }
+
+        span {
+            font-size: 0.9rem;
+            color: #999;
+        }
+    }
+
+    &__discount {
+        flex: 1;
+        position: relative;
+        text-align: center;
+        img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+
+        .btn {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10; 
+        }
+
+        &-badge {
+            position: absolute;
+            top: 30px;
+            left: 30px;
+            background-color: #D50041;
+            color: white;
+            padding: 8px 15px;
+            font-weight: 600;
+            border-radius: 5px;
+            z-index: 10;
+        }
+    }
+}
+
+
+// ======================= 3. CATEGORY GRID (Travel Suitcases) =======================
+.categories {
+    &__grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 30px;
+        padding: 0 50px; 
+    }
+}
+
+
+// ======================= 4. PRODUCTS (Selected & New Arrival) =======================
+.products {
+    &__grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 30px;
+        padding: 0 50px; 
+    }
+}
+
+
+// ======================= 5. OFFER OF THE MONTH =======================
+.offer-month {
+    background: url('assets/images/offer-month-banner.jpg') no-repeat center center / cover;
+    height: 400px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    padding: 0; 
+
+    &__content {
+        max-width: 600px;
+        background: rgba(0, 0, 0, 0.4); 
+        padding: 30px;
+        border-radius: 5px;
+
+        h2 {
+            color: white;
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+
+            span {
+                font-size: 5rem;
+                font-weight: 900;
+                color: #D50041;
+                margin-right: 10px;
+                display: inline-block; 
+            }
+        }
+
+        p {
+            color: #eee;
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        .btn--primary {
+            background-color: white;
+            color: #D50041;
+            &:hover {
+                background-color: #eee;
+            }
+        }
+    }
+}
+
+
+// ======================= 6. CUSTOMER TESTIMONIALS =======================
+.testimonials {
+    background-color: #F5F5F5; 
+    padding-bottom: 100px; 
+
+    &__grid {
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        padding: 0 50px;
+    }
+}
+
+// ======================= MEDIA QUERIES (Basic Example) =======================
+
+@media (max-width: 992px) {
+    .hero {
+        flex-direction: column-reverse;
+        padding: 50px 20px;
+
+        &__content, &__image {
+            max-width: 100%;
+            text-align: center;
+            padding-bottom: 30px;
+        }
+
+        &__content h1, &__content p {
+            text-align: center;
+        }
+    }
+
+    .promo {
+        flex-direction: column;
+        padding: 50px 20px;
+    }
+
+    .categories__grid, .products__grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .offer-month__content h2 {
+        font-size: 2.5rem;
+        span {
+            font-size: 4rem;
+        }
+    }
+}
+
+@media (max-width: 576px) {
+    section {
+        padding: 40px 10px;
+    }
+    h2 {
+        font-size: 2rem;
+    }
+    .categories__grid, .products__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .testimonials__grid {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+}

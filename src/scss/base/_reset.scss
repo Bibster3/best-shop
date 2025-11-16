@@ -1,0 +1,49 @@
+@use "../abstracts/variables" as v;
+@use "../base/fonts" as f;
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px; 
+}
+
+body {
+  font-family: f.$font-family-primary;
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: v.$color-primary;
+  }
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: f.$font-family-secondary;
+  line-height: 1.2;
+  margin-bottom: v.$spacing-sm;
+}

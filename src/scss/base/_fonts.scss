@@ -1,2 +1,5 @@
-$logo-font: "Montserrat Regular", "Montserrat", sans-serif;
-$footer-font: "Helvetica Neue", sans-serif;
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;500;600;700;900&display=swap");
+@import url("https://online-fonts.com/fonts/helvetica-neue");
+
+$font-family-primary: "Montserrat", "Montserrat", sans-serif;
+$font-family-secondary: "Helvetica Neue", sans-serif;

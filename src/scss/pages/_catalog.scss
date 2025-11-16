@@ -1,0 +1,72 @@
+@use '../abstracts/variables' as v;
+@use '../abstracts/mixins' as m;
+
+
+.page-catalog {
+    @include m.container();
+
+    // 1. Main Catalog Layout (Sidebar + Main Content)
+   .catalog-layout {
+        display: grid;
+        grid-template-columns: 1fr; // Stacked on mobile
+
+        @include m.respond-to(v.$breakpoint-lg) {
+            // Two columns on desktop: approx 25% for sidebar, 75% for content
+            grid-template-columns: 250px 1fr;
+            gap: v.$spacing-lg;
+        }
+
+        &__sidebar {
+            // Placeholder for sidebar on mobile to appear before product grid
+            order: -1; 
+            margin-bottom: v.$spacing-md;
+
+            @include m.respond-to(v.$breakpoint-lg) {
+                order: initial; // Fixed position if required, or sticky
+            }
+        }
+    }
+
+    // 2. Internal Filter Controls Layout (Image 5)
+   .filter-controls {
+        &__grid {
+            // Grid for Size, Color, Category, Sales filters (2 columns on tablet)
+            @include m.flex-grid(v.$spacing-sm);
+
+           .field {
+                @include m.flex-col(12);
+            }
+
+            @include m.respond-to(v.$breakpoint-md) {
+               .field {
+                    @include m.flex-col(6); // 2 columns for smaller inputs
+                }
+            }
+        }
+        &__action-bar {
+            margin-top: v.$spacing-md;
+            display: flex;
+            gap: v.$spacing-sm;
+           .button {
+                flex-grow: 1;
+            }
+        }
+    }
+
+    // 3. Product Display Grid
+   .product-grid {
+        @include m.flex-grid(v.$spacing-md);
+
+       .product-card {
+            @include m.flex-col(6); // 2 columns by default
+
+            @include m.respond-to(v.$breakpoint-md) {
+                @include m.flex-col(4); // 3 columns on mid-sized screens
+            }
+
+            @include m.respond-to(v.$breakpoint-lg) {
+                @include m.flex-col(3); // 4 columns on large screens
+            }
+        }
+    }
+}

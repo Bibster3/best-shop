@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BEST SHOP - Product Details</title>
+    <link rel="stylesheet" href="../scss/main.css" />
+  </head>
+  <body class="page-product-details">
+    <header class="site-header">...</header>
+
+    <main>
+      <section class="section section--product-main">
+        <div class="container product-details-grid">
+          <div class="product-details-grid__gallery">
+            <img
+              src="../assets/images/product-yellow-main.jpg"
+              alt="Global Explorer Max Comfort Suitcase Pro"
+              class="gallery__main-image"
+            />
+            <div class="gallery__thumbnails">
+              <img
+                src="../assets/images/product-thumb-1.jpg"
+                alt="Thumbnail 1"
+              />
+              <img
+                src="../assets/images/product-thumb-2.jpg"
+                alt="Thumbnail 2"
+              />
+              <img
+                src="../assets/images/product-thumb-3.jpg"
+                alt="Thumbnail 3"
+              />
+              <img
+                src="../assets/images/product-thumb-4.jpg"
+                alt="Thumbnail 4"
+              />
+            </div>
+          </div>
+
+          <div class="product-details-grid__info-panel">
+            <h1 class="info-panel__title">
+              Global Explorer Max Comfort Suitcase Pro
+            </h1>
+            <div class="info-panel__rating">... (5 stars)</div>
+            <p class="info-panel__price">$290</p>
+            <p class="info-panel__description">
+              The new Global Explorer Max Comfort Suitcase is a bold reimagining
+              of travel ergonomics, designed to elevate every journey. Made with
+              at least 30% recycled materials and tested to withstand the rigors
+              of modern travel.
+            </p>
+
+            <div class="field">
+              <label class="field__label">Size</label>
+              <select class="field__input field__select">
+                ...
+              </select>
+            </div>
+            <div class="field">
+              <label class="field__label">Color</label>
+              <select class="field__input field__select">
+                ...
+              </select>
+            </div>
+
+            <div class="info-panel__actions">
+              <div class="quantity-selector">
+                <button class="quantity-selector__btn">-</button>
+                <input type="text" value="1" class="quantity-selector__input" />
+                <button class="quantity-selector__btn">+</button>
+              </div>
+              <button class="button button--primary info-panel__cta">
+                Add To Cart
+              </button>
+            </div>
+            <div class="info-panel__payments">
+              <span>Payments:</span>
+              <i class="fab fa-cc-visa"></i>
+              <i class="fab fa-cc-paypal"></i>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--product-tabs">
+        <div class="container">
+          <div class="content-tabs">
+            <nav class="content-tabs__nav">
+              <button class="content-tabs__button content-tabs__button--active">
+                Details
+              </button>
+              <button class="content-tabs__button">Reviews</button>
+              <button class="content-tabs__button">Shipping Policy</button>
+            </nav>
+
+            <div class="content-tabs__panel content-tabs__panel--active">
+              <p>Description content here...</p>
+            </div>
+            <div class="content-tabs__panel">
+              <p>Customer reviews content here...</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--you-may-like">
+        <div class="container">
+          <h2 class="section__title text-center">You May Also Like</h2>
+          <div class="product-grid">
+            <article class="product-card product-card--new">...</article>
+            <article class="product-card">...</article>
+            <article class="product-card">...</article>
+            <article class="product-card">...</article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">...</footer>
+  </body>
+</html>

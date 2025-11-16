@@ -1,0 +1,384 @@
+@use "../abstracts/variables" as v;
+@use "../abstracts/mixins" as m;
+@use "../base/fonts" as f;
+
+// ======================= GLOBAL STYLES =======================
+main {
+  padding-top: 50px;
+}
+
+section {
+  margin-top: v.$spacing-lg * 5;
+  max-width: 1400px;
+  margin: 0 auto;
+
+  h2 {
+    font-size: 2.2rem;
+    font-weight: 900;
+    text-align: center;
+    margin-bottom: v.$spacing-unit; // 8px
+    color: v.$color-primary; // #000
+    font-family: f.$font-family-primary;
+  }
+
+  p {
+    font-size: 1.1rem;
+    text-align: center;
+    margin-bottom: v.$spacing-md + 8px; // 40px
+    color: v.$secondary-text-color; // #504e4a
+  }
+}
+
+// ======================= 1. HERO SECTION =======================
+.hero {
+  background-color: v.$hero-bg-color;
+  padding: v.$spacing-lg * 2 0;
+  position: relative;
+  font-family: f.$font-family-primary;
+  max-width: none;
+
+  &__container {
+    max-width: 1300px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    padding: v.$spacing-lg * 2 0;
+  }
+
+  &__content {
+    flex: 3; // Takes 3 parts of the available space
+    position: relative;
+    z-index: 1;
+
+    h1 {
+      font-family: f.$font-family-primary;
+      font-size: $font-size-lg; // 40px
+      font-style: bold;
+      font-weight: 900;
+      margin-bottom: v.$spacing-sm + 4px; // 20px
+      line-height: 1.2;
+      color: v.$color-primary;
+    }
+
+    p {
+      text-align: left;
+      color: v.$secondary-text-color;
+      font-size: $font-size-base; // 17px
+    }
+  }
+
+  &__image {
+    flex: 3.5; // Takes 3.5 parts of the available space
+    position: relative;
+    z-index: 2;
+    margin-left: -120px; // Pulls the image to the left to create overlap
+  }
+}
+
+// ======================= 2. PROMO / DISCOUNT BANNER =======================
+.promo {
+  font-family: f.$font-family-primary;
+  margin-top: -100px;
+  position: relative;
+  z-index: 10;
+  max-width: 1300px;
+  display: flex;
+  gap: 0;
+  box-shadow: v.$box-shadow-settings;
+
+  /* ----------------------------------
+     LEFT SIDE — AUTHOR + TEXT INFO
+  ---------------------------------- */
+  .promo__author {
+    display: flex;
+    align-items: center;
+    margin-bottom: v.$spacing-md;
+
+    img {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      margin-right: v.$spacing-sm;
+    }
+
+    h2 {
+      text-align: left;
+      color: v.$color-primary;
+    }
+
+    span {
+      font-size: 0.9rem;
+      color: v.$secondary-text-color;
+    }
+  }
+
+  &__info {
+    flex: 1;
+    background-color: v.$color-white;
+    padding: v.$spacing-lg * 2;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+
+    h2 {
+      font-size: v.$font-size-lg;
+      font-weight: 900;
+      margin: 20px 0 15px;
+      color: v.$color-primary;
+      text-align: left;
+    }
+
+    p {
+      font-size: 1.2rem;
+      color: v.$secondary-text-color;
+      text-align: left;
+      margin-bottom: v.$spacing-md;
+    }
+  }
+
+  /* ----------------------------------
+     RIGHT SIDE — IMAGE + OVERLAY TEXT
+  ---------------------------------- */
+  &__discount {
+    flex: 1;
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(v.$color-black, 0.4);
+      z-index: 1;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    &-content {
+      position: absolute;
+      top: 50%;
+      left: v.$spacing-lg;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      width: 80%;
+      z-index: 10;
+    }
+
+    /* 25% Discount badge */
+    &-badge {
+      font-weight: 900;
+      font-size: 3rem;
+      color: v.$color-white;
+      margin-bottom: v.$spacing-md;
+      font-family: f.$font-family-primary;
+    }
+
+    /* Description text */
+    &-text {
+      font-size: 1rem;
+      font-weight: 400;
+      color: v.$color-white;
+      margin-bottom: v.$spacing-md;
+      width: 100%;
+      text-align: left;
+    }
+
+    /* Button */
+    .button-primary {
+      margin-top: v.$spacing-md;
+      position: relative;
+      left: 0;
+      transform: none;
+    }
+  }
+}
+
+// ======================= 3. CATEGORY GRID (Travel Suitcases) =======================
+.categories {
+  padding-top: v.$spacing-lg * 2;
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+    padding: 0 50px;
+  }
+
+  .category-card {
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(v.$color-black, 0.4);
+      z-index: 1;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    &__content {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      padding: v.$spacing-md*2;
+      z-index: 2;
+      color: v.$color-white;
+
+      h4,
+      span {
+        color: v.$color-white;
+        text-align: left;
+        margin: 0;
+        font-family: f.$font-family-primary;
+      }
+      h4 {
+        
+        padding-bottom: v.$spacing-sm;
+      }
+ 
+    }
+  }
+}
+
+// ======================= 4. PRODUCTS (Selected & New Arrival) =======================
+.products {
+  padding-top: v.$spacing-lg * 2;
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    padding: 0 50px;
+  }
+}
+
+// ======================= 5. OFFER OF THE MONTH =======================
+.offer-month {
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  padding: 0;
+
+  &__content {
+    max-width: 600px;
+    background: rgba(0, 0, 0, 0.4);
+    padding: 30px;
+    border-radius: 5px;
+
+    h2 {
+      color: white;
+      font-size: 3.5rem;
+      margin-bottom: 10px;
+
+      span {
+        font-size: 5rem;
+        font-weight: 900;
+        color: $color-accent;
+        margin-right: 10px;
+        display: inline-block;
+      }
+    }
+
+    p {
+      color: #eee;
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+    }
+  }
+}
+
+// ======================= 6. CUSTOMER TESTIMONIALS =======================
+.testimonials {
+  background-color: #f5f5f5;
+  padding-bottom: 100px;
+
+  &__grid {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 0 50px;
+  }
+}
+
+// ======================= MEDIA QUERIES (Basic Example) =======================
+
+@media (max-width: 992px) {
+  .hero {
+    padding: v.$spacing-lg 0 v.$spacing-lg * 2 0;
+
+    &__container {
+      flex-direction: column-reverse;
+      padding: 0 20px;
+    }
+
+    &__content,
+    &__image {
+      max-width: 100%;
+      text-align: center;
+      padding-bottom: 30px;
+    }
+
+    &__content h1,
+    &__content p {
+      text-align: center;
+    }
+  }
+
+  .promo {
+    margin-top: -50px;
+    padding: 0 v.$spacing-md;
+  }
+
+  .categories__grid,
+  .products__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .offer-month__content h2 {
+    font-size: 2.5rem;
+    span {
+      font-size: 4rem;
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  section {
+    padding: 40px 10px;
+  }
+  h2 {
+    font-size: 2rem;
+  }
+  .promo {
+    margin-top: 0;
+    flex-direction: column;
+  }
+  .categories__grid,
+  .products__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .testimonials__grid {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+}

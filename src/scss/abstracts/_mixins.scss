@@ -1,0 +1,36 @@
+@use "variables" as v;
+
+@mixin container() {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 v.$spacing-sm;
+
+  @media (min-width: v.$breakpoint-lg) {
+    padding: 0 v.$spacing-md;
+  }
+}
+
+@mixin flex-grid($gap: v.$spacing-md) {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: calc(-1 * #{$gap});
+  margin-top: calc(-1 * #{$gap});
+
+  > * {
+    padding-left: $gap;
+    padding-top: $gap;
+  }
+}
+
+@mixin flex-col($cols: 12, $total: 12) {
+  flex-basis: calc(100% / #{$total} * #{$cols} - v.$spacing-md);
+  max-width: calc(100% / #{$total} * #{$cols} - v.$spacing-md);
+  box-sizing: border-box;
+}
+
+@mixin respond-to($breakpoint) {
+  @media (min-width: #{$breakpoint}) {
+    @content;
+  }
+}

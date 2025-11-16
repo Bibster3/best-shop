@@ -1,0 +1,53 @@
+@use '../abstracts/variables' as v;
+@use '../abstracts/mixins' as m;
+
+
+.page-about {
+    // 1. Feature Section Layout (4 columns on desktop)
+   .feature-grid {
+        @include m.container();
+        @include m.flex-grid(v.$spacing-lg); // Uses the global flex grid system
+
+        // Mobile: 2 columns
+       .feature-box {
+            @include m.flex-col(6); 
+        }
+
+        // Desktop: 4 columns
+        @include m.respond-to(v.$breakpoint-lg) {
+           .feature-box {
+                @include m.flex-col(3);
+            }
+        }
+    }
+
+    // 2. New Arrivals Promo Section (Unique two-column split)
+   .new-arrivals-layout {
+        @include m.container();
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: v.$spacing-xl;
+        align-items: center;
+        padding: v.$spacing-xl 0;
+
+        @include m.respond-to(v.$breakpoint-md) {
+            grid-template-columns: 1fr 1fr; // Two columns on larger screens
+        }
+    }
+
+    // 3. Team Section Layout (3 columns on desktop)
+   .team-grid {
+        @include m.container();
+        @include m.flex-grid(v.$spacing-md);
+
+        // Mobile/Tablet: 1 or 2 columns
+       .team-member {
+            @include m.flex-col(12);
+        }
+        @include m.respond-to(v.$breakpoint-sm) {
+           .team-member {
+                @include m.flex-col(4); // 3 columns on sm+
+            }
+        }
+    }
+}

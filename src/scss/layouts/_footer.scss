@@ -1,66 +1,57 @@
+@use "../base/fonts" as f;
+@use "../abstracts/variables" as v;
+@use "../abstracts/mixins" as m;
+
 .footer {
-  background: #fff;
+  background: v.$color-white;
   padding: 60px 0;
   width: 100%;
   display: block;
   clear: both;
-  font-family: $footer-font;
+  font-family: f.$font-family-primary;
 
+  // ======================= BENEFITS =======================
   .benefits {
     position: relative;
     background-color: $benfits-bg-color;
-    padding: 60px 0;
+    padding: $spacing-lg * 2 0;
     text-align: center;
-    color: #fff;
+    color: v.$color-white;
     overflow: hidden;
 
-    &::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background-image: url("/src/assets/images/footer-vector.png");
-      background-repeat: repeat-y;
-      background-size: 100% calc(100% / 6);
-      background-position: center bottom;
-      background-blend-mode: soft-light;
-      z-index: 1;
-    }
-
-    &__title,
-    &__items {
-      position: relative;
-      z-index: 2;
-    }
-
     &__title {
-      font-size: 22px;
-      margin-bottom: 40px;
+      font-size: 2rem;
+      margin-bottom: $spacing-lg;
       font-weight: 600;
     }
 
     &__items {
       display: flex;
-      justify-content: space-between;
+      justify-content: center;
       max-width: 1300px;
       margin: 0 auto;
-      padding: 0 40px;
-      gap: 20px;
+      padding: 0 v.$spacing-md;
+      gap: v.$spacing-lg;
+
+      @media (max-width: 900px) {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
     }
 
     .benefit {
-      width: 240px;
-      padding: 20px;
-      border: 2px solid transparent;
-      border-radius: 8px;
-      display: flex;
-      flex-direction: row;
-      align-items: flex-center;
-      row-gap: 50rem;
+      flex: 1;
+      max-width: 250px;
+      text-align: center;
+
+      @media (max-width: 768px) {
+        max-width: 100%;
+      }
 
       img {
-        width: 48px;
-        margin-bottom: 25px;
-        margin-right: 20 rem;
+        width: 70px;
+        height: 70px;
+        margin-bottom: $spacing-sm;
       }
 
       p {
@@ -71,13 +62,6 @@
     }
   }
 
-  /* Responsive */
-  @media (max-width: 900px) {
-    .benefits__items {
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-  }
   .footer__content {
     width: min(1300px, 90%);
     margin: 0 auto;
@@ -170,7 +154,7 @@
       }
 
       a {
-        color: $accent-color;
+        color: v.$color-accent;
         text-decoration: underline;
       }
     }

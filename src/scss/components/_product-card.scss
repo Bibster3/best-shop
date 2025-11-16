@@ -1,0 +1,61 @@
+@use "../abstracts/variables" as v;
+@use "../abstracts/mixins" as m;
+@use "../base/fonts" as f;
+
+.product-card {
+  border: v.$border-light;
+  border-radius: v.$border-radius;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transform: translateY(-2px);
+  }
+
+  &__image-wrapper {
+    position: relative;
+    padding: v.$spacing-sm;
+    background-color: v.$color-gray-light;
+  }
+
+  &__image {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  &__status {
+    position: absolute;
+    background-color: v.$color-primary;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    border-radius: v.$border-radius;
+  }
+
+  &__content {
+    padding: v.$spacing-sm;
+  }
+
+  &__name {
+    font-family: f.$font-family-primary;
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: v.$spacing-xs;
+  }
+
+  &__price {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: v.$color-primary;
+    margin-bottom: v.$spacing-sm;
+  }
+
+  .button {
+    width: 90%;
+    margin-bottom: v.$spacing-sm;
+  }
+}

@@ -1,0 +1,79 @@
+@use "../abstracts/variables" as v;
+@use "../abstracts/mixins" as m;
+
+// -------field
+.field {
+  margin-bottom: v.$spacing-md;
+
+  &__label {
+    display: block;
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+
+  &__input,
+  &__select {
+    width: 100%;
+    padding: v.$spacing-sm;
+    border: 1px solid #d5d5d5;
+    border-radius: v.$border-radius;
+    font-family: inherit;
+    font-size: 1rem;
+    transition: border-color 0.2s ease;
+
+    &:focus {
+      outline: none;
+      border-color: v.$color-primary;
+    }
+
+    &--primary-border {
+      border-color: v.$color-primary; // For Image 2 Login fields
+    }
+  }
+}
+
+// --checkbox) ---
+.checkbox {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+
+  &__input {
+    position: absolute;
+    opacity: 0;
+
+    &:checked + .checkbox__indicator {
+      background-color: v.$color-primary;
+      border-color: v.$color-primary;
+
+      &::after {
+        opacity: 1;
+      }
+    }
+  }
+
+  &__indicator {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    border: 1px solid #aaa;
+    border-radius: 3px;
+    position: relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 2px;
+      left: 5px;
+      width: 4px;
+      height: 8px;
+      border-width: 0 2px 2px 0;
+      transform: rotate(45deg);
+      opacity: 0;
+    }
+  }
+
+  &__label {
+    font-size: 0.9rem;
+  }
+}

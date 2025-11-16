@@ -1,0 +1,89 @@
+@use '../abstracts/variables' as v;
+@use '../abstracts/mixins' as m;
+
+
+.page-product-details {
+
+   .product-details-grid {
+        @include m.container();
+        display: grid;
+        grid-template-columns: 1fr; // Stacked on mobile
+        gap: v.$spacing-lg;
+
+        @include m.respond-to(v.$breakpoint-lg) {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        &__gallery {
+           .gallery__thumbnails {
+                display: flex;
+                gap: v.$spacing-xs;
+                margin-top: v.$spacing-sm;
+
+                img {
+                    width: 70px;
+                    border: v.$border-light;
+                    cursor: pointer;
+                    &:hover {
+                        border-color: v.$color-primary;
+                    }
+                }
+            }
+        }
+
+        &__info-panel {
+           .info-panel__price {
+                font-size: 2rem;
+                font-weight: 700;
+                color: v.$color-primary;
+                margin-bottom: v.$spacing-md;
+            }
+           .info-panel__actions {
+                display: flex;
+                gap: v.$spacing-md;
+                align-items: center;
+                margin-bottom: v.$spacing-md;
+            }
+           .quantity-selector {
+                display: flex;
+                border: 1px solid #D5D5D5;
+               .quantity-selector__btn,
+               .quantity-selector__input {
+                    padding: v.$spacing-xs v.$spacing-sm;
+                    border: none;
+                    text-align: center;
+                }
+            }
+        }
+    }
+
+   .content-tabs {
+        border-top: v.$border-light;
+        margin-top: v.$spacing-xl;
+
+        &__nav {
+            display: flex;
+            gap: v.$spacing-sm;
+        }
+
+        &__button {
+            background: none;
+            border: none;
+            padding: v.$spacing-sm v.$spacing-md;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            border-bottom: 2px solid transparent;
+            transition: all 0.2s ease;
+
+            &--active {
+                color: v.$color-primary;
+                border-bottom: 2px solid v.$color-primary;
+            }
+        }
+
+        &__panel {
+            padding: v.$spacing-md 0;
+        }
+    }
+}

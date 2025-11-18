@@ -3,20 +3,22 @@
 @use "../abstracts/mixins" as m;
 
 .footer {
+  padding-top: 50px;
   background: v.$color-white;
-  padding: 60px 0;
   width: 100%;
   display: block;
   clear: both;
   font-family: f.$font-family-primary;
 
-
   // ======================= BENEFITS =======================
   .benefits {
     position: relative;
     background-color: $benfits-bg-color;
-    padding:  20px;
-    max-height: 200px;
+    padding: 50px 0;
+    width: 100vw;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: f.$font-family-secondary;
 
     &::before {
       content: "";
@@ -25,11 +27,11 @@
       right: 0;
       bottom: 0;
       left: 0;
-      background-image: url("../../assets/images/footer-vector.png");
-      background-repeat: repeat-y;
-      background-size: 100% 16.666%; // for 6 vertical repeats
-      background-position: bottom center;
-      opacity: 0.3;
+      background-image: url("../../src/assets/images/footer-vector.svg");
+      background-repeat: repeat;
+      background-size: 100% calc(100% / 6);
+      background-position: top center;
+      opacity: 0.2;
       z-index: 1;
     }
     &__inner {
@@ -37,24 +39,23 @@
       z-index: 2;
       max-width: 1300px;
       margin: 0 auto;
+      padding: 0 v.$spacing-md;
     }
 
-    &__title {
-      font-size: v.$font-size-base; 
-      margin-bottom: $spacing-lg;
-      margin-bottom: $spacing-lg;
-      font-weight: 600;
+    &__title { 
+      font-size: v.$font-size-base;
+      font-weight: 700;
       color: v.$color-white;
       text-align: left;
+      margin-bottom: $spacing-lg;
     }
 
     &__items {
       display: flex;
       justify-content: space-between;
-      max-width: 1300px;
-      margin: 0 auto;
-      padding: 0 v.$spacing-md;
       gap: v.$spacing-lg;
+      font-size: v.$font-size-sm;
+      font-weight: 500;
 
       @media (max-width: 900px) {
         flex-wrap: wrap;
@@ -66,7 +67,6 @@
       flex: 1;
       max-width: 250px;
       text-align: center;
-      gap: 16px;
       display: flex;
       flex-direction: row;
       align-items: center;
@@ -84,21 +84,29 @@
       p {
         font-size: v.$font-size-sm;
         line-height: 1.4;
-        text-align: left;
+        text-align: center;
         color: v.$color-white;
       }
     }
+  }
+
+  h4 {
+    font-family: f.$font-family-primary;
+    font-size: v.$font-size-sm;
+    font-weight: 700;
+    margin-bottom: 16px;
   }
 
   // ======================= Footer  =======================
 
   .footer__content {
     width: min(1300px, 90%);
+    padding: 60px 0;
     margin: 0 auto;
-
     display: flex;
     justify-content: space-between;
     gap: 60px;
+    font-family: f.$font-family-secondary;
   }
 
   /* LEFT big column */
@@ -117,11 +125,7 @@
   }
 
   .footer__column {
-    h4 {
-      font-size: 15px;
-      font-weight: 600;
-      margin-bottom: 16px;
-    }
+
 
     ul {
       padding-left: 0;
@@ -137,12 +141,6 @@
   .footer__shipping {
     width: 100%;
 
-    h4 {
-      font-size: 15px;
-      font-weight: 600;
-      margin-bottom: 14px;
-    }
-
     p {
       line-height: 1.6;
       max-width: 600px;
@@ -153,14 +151,7 @@
   .footer__contact {
     flex: 1;
 
-    h4 {
-      font-size: 15px;
-      font-weight: 600;
-      margin-bottom: 16px;
-    }
-
     p {
-      line-height: 1.6;
       margin-bottom: 24px;
     }
 

@@ -1,20 +1,20 @@
 @charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;500;600;700;900&display=swap");
-@import url("https://online-fonts.com/fonts/helvetica-neue");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;500;600;700;900&display=swap");
-@import url("https://online-fonts.com/fonts/helvetica-neue");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;500;600;700;900&display=swap");
-@import url("https://online-fonts.com/fonts/helvetica-neue");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;500;600;700;900&display=swap");
-@import url("https://online-fonts.com/fonts/helvetica-neue");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;500;600;700;900&display=swap");
-@import url("https://online-fonts.com/fonts/helvetica-neue");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;500;600;700;900&display=swap");
-@import url("https://online-fonts.com/fonts/helvetica-neue");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;500;600;700;900&display=swap");
-@import url("https://online-fonts.com/fonts/helvetica-neue");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;500;600;700;900&display=swap");
-@import url("https://online-fonts.com/fonts/helvetica-neue");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -26,16 +26,13 @@ html {
 }
 
 body {
-  font-family: "Montserrat", "Montserrat", sans-serif;
+  font-family: "Montserrat", sans-serif;
   line-height: 1.6;
 }
 
 a {
   text-decoration: none;
   transition: color 0.2s ease;
-}
-a:hover {
-  color: #000;
 }
 
 ul,
@@ -49,17 +46,6 @@ img {
   display: block;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: "Helvetica Neue", sans-serif;
-  line-height: 1.2;
-  margin-bottom: 16px;
-}
-
 .button-primary {
   padding: 24px 32px;
   display: inline-block;
@@ -67,7 +53,7 @@ h6 {
   color: #fff;
   border: none;
   border-radius: 0;
-  font-family: "Montserrat", "Montserrat", sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 18px;
   font-weight: bold;
   line-height: 1.2;
@@ -112,7 +98,7 @@ h6 {
   margin: 0 auto 16px;
 }
 .team-member__name {
-  font-family: "Helvetica Neue", sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 1.1rem;
   font-weight: 700;
   margin-bottom: 4px;
@@ -256,7 +242,7 @@ h6 {
   padding: 16px;
 }
 .product-card__name {
-  font-family: "Montserrat", "Montserrat", sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 1rem;
   font-weight: 500;
   margin-bottom: 8px;
@@ -344,7 +330,7 @@ header .header_nav ul {
   list-style: none;
 }
 header .header_nav ul li a {
-  font-family: "Montserrat", "Montserrat", sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 18px;
   font-weight: 700;
   color: #000;
@@ -360,18 +346,21 @@ header .header_nav ul li a.active {
 }
 
 .footer {
+  padding-top: 50px;
   background: #fff;
-  padding: 60px 0;
   width: 100%;
   display: block;
   clear: both;
-  font-family: "Montserrat", "Montserrat", sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 .footer .benefits {
   position: relative;
   background-color: #504e4a;
-  padding: 20px;
-  max-height: 200px;
+  padding: 50px 0;
+  width: 100vw;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 .footer .benefits::before {
   content: "";
@@ -380,11 +369,11 @@ header .header_nav ul li a.active {
   right: 0;
   bottom: 0;
   left: 0;
-  background-image: url("../../assets/images/footer-vector.png");
-  background-repeat: repeat-y;
-  background-size: 100% 16.666%;
-  background-position: bottom center;
-  opacity: 0.3;
+  background-image: url("../../src/assets/images/footer-vector.svg");
+  background-repeat: repeat;
+  background-size: 100% 16.6666666667%;
+  background-position: top center;
+  opacity: 0.2;
   z-index: 1;
 }
 .footer .benefits__inner {
@@ -392,22 +381,21 @@ header .header_nav ul li a.active {
   z-index: 2;
   max-width: 1300px;
   margin: 0 auto;
+  padding: 0 32px;
 }
 .footer .benefits__title {
   font-size: 17px;
-  margin-bottom: 48px;
-  margin-bottom: 48px;
-  font-weight: 600;
+  font-weight: 700;
   color: #fff;
   text-align: left;
+  margin-bottom: 48px;
 }
 .footer .benefits__items {
   display: flex;
   justify-content: space-between;
-  max-width: 1300px;
-  margin: 0 auto;
-  padding: 0 32px;
   gap: 48px;
+  font-size: 15px;
+  font-weight: 500;
 }
 @media (max-width: 900px) {
   .footer .benefits__items {
@@ -419,7 +407,6 @@ header .header_nav ul li a.active {
   flex: 1;
   max-width: 250px;
   text-align: center;
-  gap: 16px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -437,15 +424,23 @@ header .header_nav ul li a.active {
 .footer .benefits .benefit p {
   font-size: 15px;
   line-height: 1.4;
-  text-align: left;
+  text-align: center;
   color: #fff;
+}
+.footer h4 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 16px;
 }
 .footer .footer__content {
   width: min(1300px, 90%);
+  padding: 60px 0;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
   gap: 60px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 .footer {
   /* LEFT big column */
@@ -464,11 +459,6 @@ header .header_nav ul li a.active {
   grid-template-columns: repeat(3, 1fr);
   gap: 40px;
 }
-.footer .footer__column h4 {
-  font-size: 15px;
-  font-weight: 600;
-  margin-bottom: 16px;
-}
 .footer .footer__column ul {
   padding-left: 0;
 }
@@ -482,11 +472,6 @@ header .header_nav ul li a.active {
 .footer .footer__shipping {
   width: 100%;
 }
-.footer .footer__shipping h4 {
-  font-size: 15px;
-  font-weight: 600;
-  margin-bottom: 14px;
-}
 .footer .footer__shipping p {
   line-height: 1.6;
   max-width: 600px;
@@ -497,13 +482,7 @@ header .header_nav ul li a.active {
 .footer .footer__contact {
   flex: 1;
 }
-.footer .footer__contact h4 {
-  font-size: 15px;
-  font-weight: 600;
-  margin-bottom: 16px;
-}
 .footer .footer__contact p {
-  line-height: 1.6;
   margin-bottom: 24px;
 }
 .footer .footer__contact .contact__info {
@@ -542,7 +521,7 @@ section h2 {
   text-align: center;
   margin-bottom: 8px;
   color: #000;
-  font-family: "Montserrat", "Montserrat", sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 section p {
   font-size: 1.1rem;
@@ -555,7 +534,7 @@ section p {
   background-color: #e7e8e9;
   padding: 96px 0;
   position: relative;
-  font-family: "Montserrat", "Montserrat", sans-serif;
+  font-family: "Montserrat", sans-serif;
   max-width: none;
 }
 .hero__container {
@@ -571,7 +550,7 @@ section p {
   z-index: 1;
 }
 .hero__content h1 {
-  font-family: "Montserrat", "Montserrat", sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 40px;
   font-style: bold;
   font-weight: 900;
@@ -592,7 +571,7 @@ section p {
 }
 
 .promo {
-  font-family: "Montserrat", "Montserrat", sans-serif;
+  font-family: "Montserrat", sans-serif;
   margin-top: -100px;
   position: relative;
   z-index: 10;
@@ -687,7 +666,7 @@ section p {
   font-size: 3rem;
   color: #fff;
   margin-bottom: 32px;
-  font-family: "Montserrat", "Montserrat", sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 .promo__discount {
   /* Description text */
@@ -750,7 +729,7 @@ section p {
   color: #fff;
   text-align: left;
   margin: 0;
-  font-family: "Montserrat", "Montserrat", sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 .categories .category-card__content h4 {
   padding-bottom: 16px;

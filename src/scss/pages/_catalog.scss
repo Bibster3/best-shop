@@ -5,32 +5,27 @@
 .page-catalog {
     @include m.container();
 
-    // 1. Main Catalog Layout (Sidebar + Main Content)
    .catalog-layout {
         display: grid;
-        grid-template-columns: 1fr; // Stacked on mobile
+        grid-template-columns: 1fr;
 
         @include m.respond-to(v.$breakpoint-lg) {
-            // Two columns on desktop: approx 25% for sidebar, 75% for content
             grid-template-columns: 250px 1fr;
             gap: v.$spacing-lg;
         }
 
         &__sidebar {
-            // Placeholder for sidebar on mobile to appear before product grid
             order: -1; 
             margin-bottom: v.$spacing-md;
 
             @include m.respond-to(v.$breakpoint-lg) {
-                order: initial; // Fixed position if required, or sticky
+                order: initial; 
             }
         }
     }
 
-    // 2. Internal Filter Controls Layout (Image 5)
    .filter-controls {
         &__grid {
-            // Grid for Size, Color, Category, Sales filters (2 columns on tablet)
             @include m.flex-grid(v.$spacing-sm);
 
            .field {
@@ -53,7 +48,6 @@
         }
     }
 
-    // 3. Product Display Grid
    .product-grid {
         @include m.flex-grid(v.$spacing-md);
 

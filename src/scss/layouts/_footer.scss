@@ -10,24 +10,47 @@
   clear: both;
   font-family: f.$font-family-primary;
 
+
   // ======================= BENEFITS =======================
   .benefits {
     position: relative;
     background-color: $benfits-bg-color;
-    padding: $spacing-lg * 2 0;
-    text-align: center;
-    color: v.$color-white;
-    overflow: hidden;
+    padding:  20px;
+    max-height: 200px;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background-image: url("../../assets/images/footer-vector.png");
+      background-repeat: repeat-y;
+      background-size: 100% 16.666%; // for 6 vertical repeats
+      background-position: bottom center;
+      opacity: 0.3;
+      z-index: 1;
+    }
+    &__inner {
+      position: relative;
+      z-index: 2;
+      max-width: 1300px;
+      margin: 0 auto;
+    }
 
     &__title {
-      font-size: 2rem;
+      font-size: v.$font-size-base; 
+      margin-bottom: $spacing-lg;
       margin-bottom: $spacing-lg;
       font-weight: 600;
+      color: v.$color-white;
+      text-align: left;
     }
 
     &__items {
       display: flex;
-      justify-content: center;
+      justify-content: space-between;
       max-width: 1300px;
       margin: 0 auto;
       padding: 0 v.$spacing-md;
@@ -43,6 +66,10 @@
       flex: 1;
       max-width: 250px;
       text-align: center;
+      gap: 16px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
 
       @media (max-width: 768px) {
         max-width: 100%;
@@ -55,12 +82,15 @@
       }
 
       p {
-        font-size: 14px;
+        font-size: v.$font-size-sm;
         line-height: 1.4;
         text-align: left;
+        color: v.$color-white;
       }
     }
   }
+
+  // ======================= Footer  =======================
 
   .footer__content {
     width: min(1300px, 90%);

@@ -3,7 +3,7 @@
 @use "../abstracts/mixins" as m;
 
 .footer {
-  padding-top: 50px;
+  padding-top: 100px;
   background: v.$color-white;
   width: 100%;
   display: block;
@@ -37,7 +37,7 @@
     &__inner {
       position: relative;
       z-index: 2;
-      max-width: 1300px;
+      max-width: 1360px;
       margin: 0 auto;
       padding: 0 v.$spacing-md;
     }
@@ -66,25 +66,26 @@
     .benefit {
       flex: 1;
       max-width: 250px;
-      text-align: center;
+      text-align: left;
       display: flex;
       flex-direction: row;
-      align-items: center;
+      align-items: flex-start;
 
       @media (max-width: 768px) {
         max-width: 100%;
       }
 
       img {
-        width: 70px;
-        height: 70px;
-        margin-bottom: $spacing-sm;
+        width: 40px;
+        height: 40px;
+        margin-bottom: 0;
+        margin-right: v.$spacing-sm;
       }
 
       p {
         font-size: v.$font-size-sm;
         line-height: 1.4;
-        text-align: center;
+        text-align: left;
         color: v.$color-white;
       }
     }
@@ -156,22 +157,23 @@
     }
 
     .contact__info {
+      padding-top: v.$spacing-lg * 1.5;
       list-style: none;
-      display: flex;
-      flex-direction: column;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
       gap: 16px;
+      row-gap: 24px;
 
       li {
         display: flex;
-        align-items: center;
+        align-items: flex-start;
         gap: 8px;
         line-height: 1.4;
       }
 
       img {
         width: 18px;
-        filter: invert(32%) sepia(88%) saturate(1200%) hue-rotate(308deg)
-          brightness(94%) contrast(88%);
+        margin-top: 3px;
       }
 
       a {

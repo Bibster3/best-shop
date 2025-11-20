@@ -15,7 +15,8 @@ $border-color: #727174;
 $footer-bg-color: #f9f9f9;
 $benfits-bg-color: #504e4a;
 $hero-bg-color: #e7e8e9;
-$box-shadow-settings: 0 20px 80px 0 #c1c7d4b3;
+$shadow-color: rgba(193, 199, 212, 0.702);
+$box-shadow-settings: 0 20px 80px 0 $shadow-color;
 
 // Font Sizes
 

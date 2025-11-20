@@ -90,6 +90,10 @@ header {
           display: flex; /* Make the anchor a flex container */
           align-items: center; /* Vertically align text and image */
           gap: 5px; /* Add a small gap between text and image */
+        
+          &:hover {
+        color: v.$color-accent;
+      }
 
           img {
             height: 12px; /* Adjust the height of the arrow icon */

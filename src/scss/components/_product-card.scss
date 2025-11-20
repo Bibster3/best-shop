@@ -3,38 +3,58 @@
 @use "../base/fonts" as f;
 
 .product-card {
-  border: v.$border-light;
-  border-radius: v.$border-radius;
+
+  display: flex;
+  flex-direction: column;
+  height: 100%;
   overflow: hidden;
   position: relative;
   text-align: center;
-  transition: transform 0.3s ease;
-
-  &:hover {
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    transform: translateY(-2px);
-  }
-
-  &__image-wrapper {
+  padding: 10px;
+  background-color: v.$color-white;
+  overflow: visible;
+  
+  img {
+     box-shadow: v.$box-shadow-settings;
+   display: block;
+    width: 100%;
+    height: auto;
+   }
+  &__image-container {
     position: relative;
-    padding: v.$spacing-sm;
-    background-color: v.$color-gray-light;
+    padding: 0;
+    margin-bottom: v.$spacing-sm;
+    background: none; 
+    border: none;
   }
 
   &__image {
     display: block;
     width: 100%;
     height: auto;
+    background-color: v.$color-white;
+  }
+  &__details { 
+        display: flex; 
+        flex-direction: column;
+        flex-grow: 1;
+        padding: 0 v.$spacing-sm;
   }
 
-  &__status {
-    position: absolute;
-    background-color: v.$color-primary;
-    font-size: 0.75rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    border-radius: v.$border-radius;
-  }
+&__tag { 
+        position: absolute;
+        top: v.$spacing-md;
+        left: v.$spacing-md;
+        background-color: v.$color-accent;
+        color: v.$color-white; 
+        padding: 4px 8px;
+        font-family: f.$font-family-secondary;
+        font-size: 0.75rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        z-index: 10; 
+        display: none;
+    }
 
   &__content {
     padding: v.$spacing-sm;
@@ -44,7 +64,9 @@
     font-family: f.$font-family-primary;
     font-size: 1rem;
     font-weight: 500;
-    margin-bottom: v.$spacing-xs;
+    margin-bottom: v.$spacing-sm;
+    flex-grow: 1;
+    min-height: 4.5rem;
   }
 
   &__price {
@@ -52,10 +74,8 @@
     font-weight: 700;
     color: v.$color-primary;
     margin-bottom: v.$spacing-sm;
+    margin-top: auto;
   }
 
-  .button {
-    width: 90%;
-    margin-bottom: v.$spacing-sm;
-  }
+
 }

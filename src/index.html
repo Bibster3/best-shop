@@ -3,6 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Add Swiper's CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
     <title>Best Shop - Home</title>
     <link rel="stylesheet" href="../dist/css/main.css" />
   </head>
@@ -108,64 +113,141 @@
           <h2>Travel Suitcases</h2>
           <p>Duis vestibulum elit vel neque pharetra</p>
 
-          <div class="categories__grid">
-            <!-- Category Card -->
-            <div class="category-card">
-              <img
-                src="assets/images/travel-suitcase-1.png"
-                alt="Suitcase Category"
-              />
-              <div class="category-card__content">
-                <h4>Duis vestibulum elit vel neque.</h4>
-                <span
-                  >Duis vestibulum vel neque pharetra vulputate. Quisque
-                  scelerisque nisi.</span
-                >
+          <!-- Slider main container -->
+          <div class="swiper categories-slider">
+            <div class="swiper-wrapper">
+              <!-- Slides -->
+              <div class="swiper-slide">
+                <div class="category-card">
+                  <img
+                    src="assets/images/travel-suitcase-1.png"
+                    alt="Suitcase Category"
+                  />
+                  <div class="category-card__content">
+                    <h4>Duis vestibulum elit vel neque.</h4>
+                    <span
+                      >Duis vestibulum vel neque pharetra vulputate. Quisque
+                      scelerisque nisi.</span
+                    >
+                  </div>
+                </div>
               </div>
-            </div>
 
-            <div class="category-card">
-              <img
-                src="assets/images/travel-suitcase-2.png"
-                alt="Suitcase Category"
-              />
-              <div class="category-card__content">
-                <h4>Neque vestibulum elit nequvel..</h4>
-                <span
-                  >Duis vestibulum vel neque pharetra vulputate. Quisque
-                  scelerisque nisi.</span
-                >
+              <div class="swiper-slide">
+                <div class="category-card">
+                  <img
+                    src="assets/images/travel-suitcase-2.png"
+                    alt="Suitcase Category"
+                  />
+                  <div class="category-card__content">
+                    <h4>Neque vestibulum elit nequvel..</h4>
+                    <span
+                      >Duis vestibulum vel neque pharetra vulputate. Quisque
+                      scelerisque nisi.</span
+                    >
+                  </div>
+                </div>
               </div>
-            </div>
 
-            <div class="category-card">
-              <img
-                src="assets/images/travel-suitcase-3.png"
-                alt="Suitcase Category"
-              />
-              <div class="category-card__content">
-                <h4>Elituis stibulum elit velneque.</h4>
-                <span
-                  >Duis vestibulum vel neque pharetra vulputate. Quisque
-                  scelerisque nisi.</span
-                >
+              <div class="swiper-slide">
+                <div class="category-card">
+                  <img
+                    src="assets/images/travel-suitcase-3.png"
+                    alt="Suitcase Category"
+                  />
+                  <div class="category-card__content">
+                    <h4>Elituis stibulum elit velneque.</h4>
+                    <span
+                      >Duis vestibulum vel neque pharetra vulputate. Quisque
+                      scelerisque nisi.</span
+                    >
+                  </div>
+                </div>
               </div>
-            </div>
 
-            <div class="category-card">
-              <img
-                src="assets/images/travel-suitcase-3.png"
-                alt="Suitcase Category"
-              />
-              <div class="category-card__content">
-                <h4>Vel vestibulum elit tuvel euqen.</h4>
-                <span
-                  >Duis vestibulum vel neque pharetra vulputate. Quisque
-                  scelerisque nisi.</span
-                >
+              <div class="swiper-slide">
+                <div class="category-card">
+                  <img
+                    src="assets/images/travel-suitcase-4.png"
+                    alt="Suitcase Category"
+                  />
+                  <div class="category-card__content">
+                    <h4>Vel vestibulum elit tuvel euqen.</h4>
+                    <span
+                      >Duis vestibulum vel neque pharetra vulputate. Quisque
+                      scelerisque nisi.</span
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <!-- DUPLICATED SLIDES FOR LOOPING -->
+              <div class="swiper-slide">
+                <div class="category-card">
+                  <img
+                    src="assets/images/travel-suitcase-1.png"
+                    alt="Suitcase Category"
+                  />
+                  <div class="category-card__content">
+                    <h4>Duis vestibulum elit vel neque.</h4>
+                    <span
+                      >Duis vestibulum vel neque pharetra vulputate. Quisque
+                      scelerisque nisi.</span
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <div class="swiper-slide">
+                <div class="category-card">
+                  <img
+                    src="assets/images/travel-suitcase-2.png"
+                    alt="Suitcase Category"
+                  />
+                  <div class="category-card__content">
+                    <h4>Neque vestibulum elit nequvel..</h4>
+                    <span
+                      >Duis vestibulum vel neque pharetra vulputate. Quisque
+                      scelerisque nisi.</span
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <div class="swiper-slide">
+                <div class="category-card">
+                  <img
+                    src="assets/images/travel-suitcase-3.png"
+                    alt="Suitcase Category"
+                  />
+                  <div class="category-card__content">
+                    <h4>Elituis stibulum elit velneque.</h4>
+                    <span
+                      >Duis vestibulum vel neque pharetra vulputate. Quisque
+                      scelerisque nisi.</span
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <div class="swiper-slide">
+                <div class="category-card">
+                  <img
+                    src="assets/images/travel-suitcase-4.png"
+                    alt="Suitcase Category"
+                  />
+                  <div class="category-card__content">
+                    <h4>Vel vestibulum elit tuvel euqen.</h4>
+                    <span
+                      >Duis vestibulum vel neque pharetra vulputate. Quisque
+                      scelerisque nisi.</span
+                    >
+                  </div>
+                </div>
               </div>
             </div>
           </div>
+          <!-- If we need navigation buttons -->
         </div>
       </section>
 
@@ -174,8 +256,54 @@
         <h2>Selected Products</h2>
         <p>Duis vestibulum elit vel neque pharetra</p>
 
-        <div class="products__grid" id="selected-products">
-          <!-- Product cards rendered via JS from data.json -->
+        <div
+          class="products__grid products__grid--4-col"
+          id="selected-products-grid"
+        >
+          <div class="product-card" data-card-index="0">
+            <div class="product-card__image-container">
+              <img data-field="image" src="" alt="" />
+              <span data-field="tag" class="product-card__tag"></span>
+            </div>
+            <div class="product-card__details">
+              <div data-field="name" class="product-card__name"></div>
+              <div data-field="price" class="product-card__price"></div>
+              <a href="#" class="button-secondary">Add To Cart</a>
+            </div>
+          </div>
+          <div class="product-card" data-card-index="1">
+            <div class="product-card__image-container">
+              <img data-field="image" src="" alt="" />
+              <span data-field="tag" class="product-card__tag"></span>
+            </div>
+            <div class="product-card__details">
+              <div data-field="name" class="product-card__name"></div>
+              <div data-field="price" class="product-card__price"></div>
+              <a href="#" class="button-secondary">Add To Cart</a>
+            </div>
+          </div>
+          <div class="product-card" data-card-index="2">
+            <div class="product-card__image-container">
+              <img data-field="image" src="" alt="" />
+              <span data-field="tag" class="product-card__tag"></span>
+            </div>
+            <div class="product-card__details">
+              <div data-field="name" class="product-card__name"></div>
+              <div data-field="price" class="product-card__price"></div>
+              <a href="#" class="button-secondary">Add To Cart</a>
+            </div>
+          </div>
+          <div class="product-card" data-card-index="3">
+            <div class="product-card__image-container">
+              <img data-field="image" src="" alt="" />
+              <span data-field="tag" class="product-card__tag"></span>
+            </div>
+            <div class="product-card__details">
+              <div data-field="name" class="product-card__name"></div>
+              <div data-field="price" class="product-card__price"></div>
+              <a href="#" class="button-secondary">Add To Cart</a>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -203,8 +331,54 @@
         <h2>New Products Arrival</h2>
         <p>Duis vestibulum elit vel neque pharetra</p>
 
-        <div class="products__grid" id="new-products">
-          <!-- Product cards rendered via JS -->
+        <div
+          class="products__grid products__grid--4-col"
+          id="new-products-grid"
+        >
+          <div class="product-card" data-card-index="0">
+            <div class="product-card__image-container">
+              <img data-field="image" src="" alt="" />
+              <span data-field="tag" class="product-card__tag"></span>
+            </div>
+            <div class="product-card__details">
+              <div data-field="name" class="product-card__name"></div>
+              <div data-field="price" class="product-card__price"></div>
+              <a href="#" class="button-secondary">View Products</a>
+            </div>
+          </div>
+          <div class="product-card" data-card-index="1">
+            <div class="product-card__image-container">
+              <img data-field="image" src="" alt="" />
+              <span data-field="tag" class="product-card__tag"></span>
+            </div>
+            <div class="product-card__details">
+              <div data-field="name" class="product-card__name"></div>
+              <div data-field="price" class="product-card__price"></div>
+              <a href="#" class="button-secondary">View Products</a>
+            </div>
+          </div>
+          <div class="product-card" data-card-index="2">
+            <div class="product-card__image-container">
+              <img data-field="image" src="" alt="" />
+              <span data-field="tag" class="product-card__tag"></span>
+            </div>
+            <div class="product-card__details">
+              <div data-field="name" class="product-card__name"></div>
+              <div data-field="price" class="product-card__price"></div>
+              <a href="#" class="button-secondary">View Products</a>
+            </div>
+          </div>
+          <div class="product-card" data-card-index="3">
+            <div class="product-card__image-container">
+              <img data-field="image" src="" alt="" />
+              <span data-field="tag" class="product-card__tag"></span>
+            </div>
+            <div class="product-card__details">
+              <div data-field="name" class="product-card__name"></div>
+              <div data-field="price" class="product-card__price"></div>
+              <a href="#" class="button-secondary">View Products</a>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -352,5 +526,9 @@
         </div>
       </div>
     </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <script src="js/home.js"></script>
   </body>
 </html>

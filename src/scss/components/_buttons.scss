@@ -3,16 +3,31 @@
 @use "../base/fonts" as f;
 
 .button-primary {
-  padding: $spacing-md * 0.75 $spacing-md;
+  padding: v.$spacing-md * 0.75 v.$spacing-md;
   display: inline-block;
-  background-color: $color-accent;
-  color: $color-white;
+  background-color: v.$color-accent;
+  color: v.$color-white;
   border: none;
   border-radius: 0;
-  font-family: $font-family-primary;
+  font-family: f.$font-family-primary;
   font-size: 18px;
   font-weight: bold;
   line-height: 1.2;
   text-align: center;
   text-decoration: none;
 }
+
+.button-secondary {
+  margin: v.$spacing-md * 0.75 v.$spacing-md;
+  padding: v.$spacing-sm * 0.75; 
+  display: inline-block;
+  background-color: v.$color-accent;
+  color: v.$color-white;
+  font-family: f.$font-family-primary;
+  font-size: v.$font-size-base;
+  font-weight: bold;
+  line-height: 1.2;
+  text-align: center;
+  text-decoration: none;
+}
+

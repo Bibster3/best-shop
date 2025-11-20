@@ -26,9 +26,9 @@
         @include m.container();
         display: grid;
         grid-template-columns: 1fr;
-        gap: v.$spacing-xl;
+        gap: v.$spacing-lg;
         align-items: center;
-        padding: v.$spacing-xl 0;
+        padding: v.$spacing-lg 0;
 
         @include m.respond-to(v.$breakpoint-md) {
             grid-template-columns: 1fr 1fr; // Two columns on larger screens

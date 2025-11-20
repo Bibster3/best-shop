@@ -8,10 +8,10 @@ main {
 }
 
 section {
-  margin-top: v.$spacing-lg * 5;
-  max-width: 1400px;
-  margin: 0 auto;
-
+  margin-top: v.$spacing-lg * 2;
+  max-width: 1300px;
+  margin-left: auto;
+  margin-right: auto;
   h2 {
     font-size: 2.2rem;
     font-weight: 900;
@@ -68,10 +68,10 @@ section {
   }
 
   &__image {
-    flex: 3.5; // Takes 3.5 parts of the available space
+    flex: 3.5; 
     position: relative;
     z-index: 2;
-    margin-left: -120px; // Pulls the image to the left to create overlap
+    margin-left: -120px; 
   }
 }
 
@@ -116,7 +116,7 @@ section {
     flex: 1;
     background-color: v.$color-white;
     padding: v.$spacing-lg * 2;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 10px 30px rgba(v.$color-black, 0.15);
 
     h2 {
       font-size: v.$font-size-lg;
@@ -202,18 +202,22 @@ section {
 
 // ======================= 3. CATEGORY GRID (Travel Suitcases) =======================
 .categories {
-  padding-top: v.$spacing-lg * 2;
+  margin-top: v.$spacing-lg * 2;
   &__grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 40px;
-    padding: 0 50px;
   }
 
   .category-card {
     position: relative;
     overflow: hidden;
-
+     &:hover {
+        transform: scale(1.05);
+        transition: transform 0.3s ease;
+        box-shadow: 0 30px 30px rgba(v.$color-black, 0.5);
+      }
+      
     &::before {
       content: "";
       position: absolute;
@@ -229,13 +233,14 @@ section {
       width: 100%;
       height: 100%;
       object-fit: cover;
+     
     }
 
     &__content {
       position: absolute;
       bottom: 0;
       left: 0;
-      padding: v.$spacing-md * 2;
+      padding: v.$spacing-md*2;
       z-index: 2;
       color: v.$color-white;
 
@@ -249,157 +254,80 @@ section {
       h4 {
         padding-bottom: v.$spacing-sm;
       }
+ 
     }
   }
 }
 
 // ======================= 4. PRODUCTS (Selected & New Arrival) =======================
-.products {
-  padding-top: v.$spacing-lg * 2;
-  &__grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 30px;
-    padding: 0 50px;
-  }
+
+
+.products__grid {
+  @include m.product-grid-columns(4);
 }
 
-// ======================= 5. OFFER OF THE MONTH =======================
-.offer-month {
-  height: 400px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 5%;
-  position: relative;
-  background-image: url("../../src/assets/images/AboutUs_Get-Offer.png");
-  background-size: cover;
-  background-position: center;
-  color: v.$color-white;
-  overflow: hidden;
-  text-align: left;
 
-  /* Dark Overlay with Transparency */
-  &::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(v.$color-black, 0.4);
-    z-index: 1;
-  }
 
-  &__left-column {
-    position: relative;
-    z-index: 2;
-    align-self: flex-start;
-    margin-top: -30px;
-    background: none;
-    padding: 0;
-  }
+// ======================= 5. OFFER OF THE MONTH - handled by _cards.scss =======================
 
-  &__percentage-text {
-    font-size: v.$font-size-lg * 6;
-    line-height: 1;
-    font-weight: 900;
-    color: v.$color-white;
-    margin-top: 80px; 
-  }
-
-  &__subtitle {
-    display: block;
-    color: v.$color-white;
-    margin-top: 10px;
-    font-size: 1rem;
-    line-height: 1.4;
-    font-weight: 300;
-  }
-
-  &__content {
-    position: relative;
-    z-index: 2;
-    display: flex;
-    flex-direction: column;
-    max-width: 45%;
-    text-align: left;
-    align-items: flex-start;
-    margin-left: 20px;
-  }
-
-  &__title {
-    font-size: 2rem;
-    font-weight: 700;
-    margin-bottom: 15px;
-    color: v.$color-white;
-  }
-
-  &__description {
-    font-size: 1rem;
-    margin-bottom: 30px;
-    color: v.$color-white;
-    text-align: left;
-  }
-}
 
 // ======================= 6. CUSTOMER TESTIMONIALS =======================
 .testimonials {
-  background-color: v.$color-white;
-  padding-bottom: 50pc 0 100px;
-  text-align: center;
-  h2 {
-  
-    margin-bottom: 5px;
-  }
+  margin-top: v.$spacing-lg * 2;
+    background-color: v.$color-white;
+    padding: v.$spacing-lg 0; 
+    text-align: center; 
 
-  /* Style for the subtitle above the testimonials */
-  p:first-of-type {
-    font-size: 16px;
-    color: #777;
-    margin-bottom: 40px;
-  }
 
-  &__grid {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    padding: 0 50px;
-  }
+    p {
+        margin-bottom: v.$spacing-lg;
+        color: v.$color-gray-dark;
+    }
+
+    &__grid {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between; 
+        gap: v.$spacing-lg; 
+    }
+    
+    .testimonial-card {
+        flex: 1; 
+        min-width: 250px; 
+        background-color: v.$color-white;
+        padding: v.$spacing-lg; 
+        text-align: center;
+        overflow: hidden;
+        box-shadow: 0 20px 80px 0 rgba(193, 199, 212, 0.702);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        
+        & > img { 
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: v.$spacing-md;
+        }
+
+        & > p {
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: v.$spacing-md;
+            flex-grow: 1; 
+        }
+
+        .author {
+            font-family: f.$font-family-primary;
+            font-weight: 600;
+            font-size: 1.05rem;
+            color: v.$color-primary; 
+            margin-top: auto; 
+        }
+    }
 }
 
-.testimonial-card {
-  background-color: v.$color-white;
-  padding: 30px;
-  border-radius: 8px;
-  box-shadow: 0 20px 80px 0px v.$color-testimonial-shadow;
-  width: 300px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-
-  img {
-    width: 90px;
-    height: 90px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-bottom: 20px;
-    box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.5), 0 0 15px rgba(0, 0, 0, 0.1);
-  }
-
-  p {
-    font-size: v.$font-size-base;
-    line-height: 1.6;
-    margin-bottom: 20px;
-  }
-
-  .author {
-    color: v.$color-accent;
-    font-weight: 600;
-    font-size: 16px;
-  }
-}
 // ======================= MEDIA QUERIES (Basic Example) =======================
 
 @media (max-width: 992px) {

@@ -2,31 +2,41 @@
 @use "../abstracts/mixins" as m;
 @use "../base/fonts" as f;
 
-// ---  Feature Box (Used on About Us and Footer Benefit Strip) ---
+// ---  Feature Box (Used on About Us and Contact US) ---
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  padding-top: v.$spacing-sm;
+  padding-bottom: v.$spacing-sm;
+}
+
 .feature-box {
   text-align: center;
   padding: v.$spacing-sm;
 
   &__icon {
-    display: inline-block;
-    width: 40px;
-    height: 40px;
-    line-height: 40px;
-    font-size: 20px;
-    color: v.$color-primary;
-    border-radius: 50%;
-    border: 2px solid v.$color-primary;
+    display: block;
+    margin: 0 auto;
+    object-fit: contain;
+    margin-bottom: v.$spacing-sm;
   }
 
   &__title {
+    white-space: nowrap;
     font-size: 1rem;
-    font-weight: 600;
+    font-weight: 700;
     text-transform: uppercase;
+    margin-top: 0;
     margin-bottom: v.$spacing-xxs;
+    font-family: f.$font-family-primary;
   }
 
   &__text {
-    font-size: 0.9rem;
+    font-size: v.$font-size-base;
+    line-height: 1.5;
+    color: $color-black;
+    font-family: f.$font-family-primary;
   }
 }
 
@@ -60,16 +70,16 @@
 .offer-month {
   height: 400px;
   display: flex;
-  align-items: center; 
-  justify-content: space-between; 
+  align-items: center;
+  justify-content: space-between;
   padding: 0 5%;
   position: relative;
   background-image: url("../../src/assets/images/AboutUs_Get-Offer.png");
   background-size: cover;
   background-position: center;
   color: v.$color-white;
-  overflow: hidden; 
-  text-align: left; 
+  overflow: hidden;
+  text-align: left;
 
   /* Dark Overlay with Transparency */
   &::before {
@@ -79,34 +89,34 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(v.$color-black, 0.4); 
+    background-color: rgba(v.$color-black, 0.4);
     z-index: 1;
   }
 
   /*  container for the Left Side (50% and its subtitle) */
   &__left-column {
-    position: relative; 
+    position: relative;
     z-index: 2;
-    align-self: flex-start; 
-    margin-top: -30px; 
-    background: none; 
-    padding: 0; 
+    align-self: flex-start;
+    margin-top: -30px;
+    background: none;
+    padding: 0;
   }
-  
+
   /* Large Percentage Text on the Left */
   &__percentage-text {
     font-size: v.$font-size-lg * 6;
-    line-height: 1; 
-    font-weight: 900; 
-    color: v.$color-white; 
+    line-height: 1;
+    font-weight: 900;
+    color: v.$color-white;
     margin-top: 80px; /* Adjust this value to move the element down */
   }
-  
+
   /* Subtitle Text (The small text beneath 50%) */
   &__subtitle {
     display: block;
-    color: v.$color-white; 
-    margin-top: 10px; 
+    color: v.$color-white;
+    margin-top: 10px;
     font-size: 1rem;
     line-height: 1.4;
     font-weight: 300;
@@ -114,30 +124,81 @@
 
   /* Main Content Block on the Right (Adjusted width) */
   &__content {
-    position: relative; 
-    z-index: 2; 
+    position: relative;
+    z-index: 2;
     display: flex;
     flex-direction: column;
-    max-width: 45%; 
+    max-width: 45%;
     text-align: left;
     align-items: flex-start;
-    margin-left: 20px; 
+    margin-left: 20px;
   }
 
   /* Offer of the Month Title */
   &__title {
-    font-size: 2rem; 
-    font-weight: 700; 
+    font-size: 2rem;
+    font-weight: 700;
     margin-bottom: 15px;
-    color: v.$color-white; 
+    color: v.$color-white;
   }
 
   /* Description Text */
   &__description {
     font-size: 1rem;
-    margin-bottom: 30px; 
-    color: v.$color-white; 
+    margin-bottom: 30px;
+    color: v.$color-white;
     text-align: left;
   }
 }
 
+.banner {
+  width: 100vw;
+  height: 550px;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(v.$color-black, 0.4);
+    z-index: 1;
+  }
+
+  img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+  }
+
+  &__content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: v.$color-white;
+    width: 100%;
+  }
+
+  &__title {
+    font-size: 3rem;
+    font-family: f.$font-family-primary;
+    font-weight: bold;
+    color: v.$color-white;
+  }
+
+  p {
+    font-size: 1.1rem;
+    line-height: 1.5;
+    color: v.$color-white;
+  }
+}

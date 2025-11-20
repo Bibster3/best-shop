@@ -75,28 +75,38 @@ img {
   text-decoration: none;
 }
 
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
 .feature-box {
   text-align: center;
   padding: 16px;
 }
 .feature-box__icon {
-  display: inline-block;
-  width: 40px;
-  height: 40px;
-  line-height: 40px;
-  font-size: 20px;
-  color: #000;
-  border-radius: 50%;
-  border: 2px solid #000;
+  display: block;
+  margin: 0 auto;
+  object-fit: contain;
+  margin-bottom: 16px;
 }
 .feature-box__title {
+  white-space: nowrap;
   font-size: 1rem;
-  font-weight: 600;
+  font-weight: 700;
   text-transform: uppercase;
+  margin-top: 0;
   margin-bottom: 4px;
+  font-family: "Montserrat", sans-serif;
 }
 .feature-box__text {
-  font-size: 0.9rem;
+  font-size: 17px;
+  line-height: 1.5;
+  color: #000;
+  font-family: "Montserrat", sans-serif;
 }
 
 .team-member {
@@ -209,6 +219,53 @@ img {
   margin-bottom: 30px;
   color: #fff;
   text-align: left;
+}
+
+.banner {
+  width: 100vw;
+  height: 550px;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.banner::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 1;
+}
+.banner img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+.banner__content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: #fff;
+  width: 100%;
+}
+.banner__title {
+  font-size: 3rem;
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+  color: #fff;
+}
+.banner p {
+  font-size: 1.1rem;
+  line-height: 1.5;
+  color: #fff;
 }
 
 .field {

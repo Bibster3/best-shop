@@ -33,7 +33,7 @@
         <ul>
           <li><a href="../index.html" class="active">Home</a></li>
           <li>
-            <a href="html/catalog.html"
+            <a href="../html/catalog.html"
               >Catalog<img src="../assets/images/catalog-arrow.svg" alt="arrow"
             /></a>
           </li>
@@ -42,7 +42,6 @@
         </ul>
       </nav>
     </header>
-    <!-- ======================= Layout SECTION ======================= -->
     <main>
       <section class="catalog-layout">
         <aside class="catalog-layout__sidebar">
@@ -51,7 +50,9 @@
               <div class="field">
                 <label class="field__label">Size</label>
                 <select class="field__input field__select">
-                  <option class="disabled_dropdown" value="" disabled selected>Choose option</option>
+                  <option class="disabled_dropdown" value="" disabled selected>
+                    Choose option
+                  </option>
                   <option value="S">S</option>
                   <option value="M">M</option>
                   <option value="L">L</option>
@@ -63,7 +64,9 @@
               <div class="field">
                 <label class="field__label">Color</label>
                 <select class="field__input field__select">
-                  <option class="disabled_dropdown" value="" disabled selected>Choose option</option>
+                  <option class="disabled_dropdown" value="" disabled selected>
+                    Choose option
+                  </option>
                   <option value="red">red</option>
                   <option value="blue">blue</option>
                   <option value="green">green</option>
@@ -77,7 +80,9 @@
               <div class="field">
                 <label class="field__label">Category</label>
                 <select class="field__input field__select">
-                  <option class="disabled_dropdown" value="" disabled selected>Choose option</option>
+                  <option class="disabled_dropdown" value="" disabled selected>
+                    Choose option
+                  </option>
                   <option value="carry-ons">carry-ons</option>
                   <option value="suitcases">suitcases</option>
                   <option value="luggage sets">luggage sets</option>
@@ -110,7 +115,9 @@
           </div>
           <div class="field">
             <select class="field__input field__select">
-              <option class="disabled_dropdown" value="" disabled selected>Default Sorting</option>
+              <option class="disabled_dropdown" value="" disabled selected>
+                Default Sorting
+              </option>
               <option value="price-asc">Price: Low to High</option>
               <option value="price-desc">Price: High to Low</option>
               <option value="popularity">Most Popular</option>
@@ -119,9 +126,9 @@
           </div>
           <div id="product-grid" class="product-grid"></div>
           <div class="pagination">
-            <button id="prev-page" class="button">Previous</button>
+            <button id="prev-page" class="button-nav">Previous</button>
             <span id="page-indicator"></span>
-            <button id="next-page" class="button">Next</button>
+            <button id="next-page" class="button-nav">Next</button>
           </div>
         </div>
       </section>

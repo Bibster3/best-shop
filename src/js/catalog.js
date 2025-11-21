@@ -2,6 +2,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const productGrid = document.getElementById("product-grid");
   const prevButton = document.getElementById("prev-page");
   const nextButton = document.getElementById("next-page");
+  const catalogLink = document.querySelector(
+    '.header_nav a[href*="catalog.html"]'
+  );
+  const sidebar = document.querySelector(".catalog-layout__sidebar");
   const pageIndicator = document.getElementById("page-indicator");
   const resultsCount = document.querySelector(".results-count");
 

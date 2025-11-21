@@ -365,25 +365,12 @@
       "blocks": []
     },
     {
-      "id": "CO020",
-      "name": "Explorer Rolling Carry-On Pro",
-      "price": 250,
-      "imageUrl": "assets/images/MyCart_SuitCase_1.png",
-      "category": "carry-ons",
-      "color": "blue",
-      "size": "M",
-      "salesStatus": false,
-      "rating": 4.2,
-      "popularity": 78,
-      "blocks": []
-    },
-    {
       "id": "CO021",
       "name": "Beige Rolling Carry-On Pro",
       "price": 250,
       "imageUrl": "assets/images/suitcase_beige.png",
       "category": "carry-ons",
-      "color": "blue",
+      "color": "beige",
       "size": "M",
       "salesStatus": false,
       "rating": 4.2,

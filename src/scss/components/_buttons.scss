@@ -19,7 +19,7 @@
 
 .button-secondary {
   margin: v.$spacing-md * 0.75 v.$spacing-md;
-  padding: v.$spacing-sm * 0.75; 
+  padding: v.$spacing-sm * 0.75;
   display: inline-block;
   background-color: v.$color-accent;
   color: v.$color-white;
@@ -31,3 +31,18 @@
   text-decoration: none;
 }
 
+.button-nav {
+  margin: v.$spacing-md * 0.75 v.$spacing-md;
+  padding: v.$spacing-sm * 0.75;
+  display: inline-block;
+  border-color: v.$color-accent;
+  border-radius: 8px;
+  background-color: none;
+  color: v.$color-black;
+  font-family: f.$font-family-primary;
+  font-size: 0.8rem;
+  font-weight: bold;
+  line-height: 1.2;
+  text-align: center;
+  text-decoration: none;
+}

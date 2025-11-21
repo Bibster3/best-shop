@@ -114,21 +114,21 @@ img {
   padding: 16px;
 }
 .team-member__portrait {
-  width: 100%;
-  max-width: 200px;
+  max-width: 100%;
   height: auto;
-  border-radius: 50%;
   object-fit: cover;
   margin: 0 auto 16px;
+  display: block;
 }
 .team-member__name {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 1.1rem;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.4rem;
   font-weight: 700;
   margin-bottom: 4px;
 }
 .team-member__title {
-  font-size: 0.9rem;
+  font-size: 1.1rem;
+  font-family: "Montserrat", sans-serif;
   color: #000;
 }
 
@@ -1099,39 +1099,6 @@ section p {
   }
 }
 
-.page-about .feature-grid {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 16px;
-}
-@media (min-width: 992px) {
-  .page-about .feature-grid {
-    padding: 0 32px;
-  }
-}
-.page-about .feature-grid {
-  display: flex;
-  flex-wrap: wrap;
-  margin-left: calc(-1 * 48px);
-  margin-top: calc(-1 * 48px);
-}
-.page-about .feature-grid > * {
-  padding-left: 48px;
-  padding-top: 48px;
-}
-.page-about .feature-grid .feature-box {
-  flex-basis: calc(100% / 12 * 6 - 32px);
-  max-width: calc(100% / 12 * 6 - 32px);
-  box-sizing: border-box;
-}
-@media (min-width: 992px) {
-  .page-about .feature-grid .feature-box {
-    flex-basis: calc(100% / 12 * 3 - 32px);
-    max-width: calc(100% / 12 * 3 - 32px);
-    box-sizing: border-box;
-  }
-}
 .page-about .new-arrivals-layout {
   width: 100%;
   max-width: 1200px;
@@ -1150,42 +1117,43 @@ section p {
   align-items: center;
   padding: 48px 0;
 }
+.page-about .new-arrivals-layout p, .page-about .new-arrivals-layout h2 {
+  text-align: left;
+}
 @media (min-width: 768px) {
   .page-about .new-arrivals-layout {
     grid-template-columns: 1fr 1fr;
   }
 }
-.page-about .team-grid {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 16px;
+.page-about .section--team .section__title {
+  text-align: center;
+  position: relative;
+  padding-bottom: 16px;
 }
-@media (min-width: 992px) {
-  .page-about .team-grid {
-    padding: 0 32px;
-  }
+.page-about .section--team .section__title::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 440px;
+  height: 2px;
+  background-color: #b92770;
 }
-.page-about .team-grid {
-  display: flex;
-  flex-wrap: wrap;
-  margin-left: calc(-1 * 32px);
-  margin-top: calc(-1 * 32px);
-}
-.page-about .team-grid > * {
-  padding-left: 32px;
+.page-about .team-flex-container {
   padding-top: 32px;
+  display: flex;
+  gap: 32px;
+  justify-content: space-between;
+  align-items: center;
 }
-.page-about .team-grid .team-member {
-  flex-basis: calc(100% / 12 * 12 - 32px);
-  max-width: calc(100% / 12 * 12 - 32px);
-  box-sizing: border-box;
+.page-about .team-flex-container .team-member {
+  flex: 1 1 100%;
+  max-width: 410px;
 }
 @media (min-width: 576px) {
-  .page-about .team-grid .team-member {
-    flex-basis: calc(100% / 12 * 4 - 32px);
-    max-width: calc(100% / 12 * 4 - 32px);
-    box-sizing: border-box;
+  .page-about .team-flex-container .team-member {
+    flex: 1 1 calc(33.333% - 32px);
   }
 }
 

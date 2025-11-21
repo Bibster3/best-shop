@@ -46,23 +46,23 @@
   padding: v.$spacing-sm;
 
   &__portrait {
-    width: 100%;
-    max-width: 200px;
+    max-width: 100%;
     height: auto;
-    border-radius: 50%;
     object-fit: cover;
-    margin: 0 auto v.$spacing-sm;
+    margin: 0 auto v.$spacing-sm; 
+    display: block; 
   }
 
   &__name {
-    font-family: f.$font-family-secondary;
-    font-size: 1.1rem;
+    font-family: f.$font-family-primary;
+    font-size: 1.4rem;
     font-weight: 700;
     margin-bottom: v.$spacing-xxs;
   }
 
   &__title {
-    font-size: 0.9rem;
+    font-size: 1.1rem;
+    font-family: f.$font-family-primary;
     color: v.$color-primary;
   }
 }

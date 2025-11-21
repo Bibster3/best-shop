@@ -4,24 +4,7 @@
 
 .page-about {
     // 1. Feature Section Layout (4 columns on desktop)
-   .feature-grid {
-        @include m.container();
-        @include m.flex-grid(v.$spacing-lg); // Uses the global flex grid system
-
-        // Mobile: 2 columns
-       .feature-box {
-            @include m.flex-col(6); 
-        }
-
-        // Desktop: 4 columns
-        @include m.respond-to(v.$breakpoint-lg) {
-           .feature-box {
-                @include m.flex-col(3);
-            }
-        }
-    }
-
-    // 2. New Arrivals Promo Section (Unique two-column split)
+  
    .new-arrivals-layout {
         @include m.container();
         display: grid;
@@ -29,24 +12,48 @@
         gap: v.$spacing-lg;
         align-items: center;
         padding: v.$spacing-lg 0;
-
+         p, h2 {
+            text-align: left;
+         }
+        
         @include m.respond-to(v.$breakpoint-md) {
             grid-template-columns: 1fr 1fr; // Two columns on larger screens
         }
     }
 
-    // 3. Team Section Layout (3 columns on desktop)
-   .team-grid {
-        @include m.container();
-        @include m.flex-grid(v.$spacing-md);
+   .section--team {
+     .section__title {
+      text-align: center;
+      position: relative; 
+      padding-bottom: v.$spacing-sm; 
+       &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 440px;
+        height: 2px;
+        background-color: v.$color-accent;
+      }
+    }
+  }
 
-        // Mobile/Tablet: 1 or 2 columns
+   .team-flex-container {
+     padding-top: v.$spacing-md;
+        display: flex;
+        gap: v.$spacing-md;
+        justify-content: space-between; // Distribute items evenly
+        align-items: center;
+
        .team-member {
-            @include m.flex-col(12);
+            flex: 1 1 100%;  
+            max-width: 410px; 
         }
+        
         @include m.respond-to(v.$breakpoint-sm) {
-           .team-member {
-                @include m.flex-col(4); // 3 columns on sm+
+            .team-member {
+                flex: 1 1 calc(33.333% - #{v.$spacing-md}); // 3 columns on sm+
             }
         }
     }

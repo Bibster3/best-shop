@@ -1,66 +1,115 @@
-@use '../abstracts/variables' as v;
-@use '../abstracts/mixins' as m;
-
+@use "../abstracts/variables" as v;
+@use "../abstracts/mixins" as m;
 
 .page-catalog {
-    @include m.container();
+  @include m.container();
 
-   .catalog-layout {
-        display: grid;
-        grid-template-columns: 1fr;
+  .catalog-layout {
+    display: grid;
+    grid-template-columns: 1fr;
 
-        @include m.respond-to(v.$breakpoint-lg) {
-            grid-template-columns: 250px 1fr;
-            gap: v.$spacing-lg;
-        }
-
-        &__sidebar {
-            order: -1; 
-            margin-bottom: v.$spacing-md;
-
-            @include m.respond-to(v.$breakpoint-lg) {
-                order: initial; 
-            }
-        }
+    @include m.respond-to(v.$breakpoint-lg) {
+      grid-template-columns: 1fr;
+      gap: v.$spacing-lg;
     }
 
-   .filter-controls {
-        &__grid {
-            @include m.flex-grid(v.$spacing-sm);
+    &__sidebar {
+      order: -1;
+      margin-bottom: v.$spacing-md;
+      .filter-controls {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+      }
 
-           .field {
-                @include m.flex-col(12);
-            }
+      @include m.respond-to(v.$breakpoint-lg) {
+        order: initial;
+      }
+    }
+  }
 
-            @include m.respond-to(v.$breakpoint-md) {
-               .field {
-                    @include m.flex-col(6); // 2 columns for smaller inputs
-                }
-            }
-        }
-        &__action-bar {
-            margin-top: v.$spacing-md;
-            display: flex;
-            gap: v.$spacing-sm;
-           .button {
-                flex-grow: 1;
-            }
-        }
+  .field {
+    &__label {
+      font-weight: bold;
+      color: v.$color-primary;
+      margin-bottom: v.$spacing-xs;
     }
 
-   .product-grid {
-        @include m.flex-grid(v.$spacing-md);
+    &__select {
+      border: none;
+      border-bottom: 1px solid v.$color-gray-light;
+      padding: v.$spacing-xs 0;
 
-       .product-card {
-            @include m.flex-col(6); // 2 columns by default
+      cursor: pointer;
+      width: 100%;
 
-            @include m.respond-to(v.$breakpoint-md) {
-                @include m.flex-col(4); // 3 columns on mid-sized screens
-            }
-
-            @include m.respond-to(v.$breakpoint-lg) {
-                @include m.flex-col(3); // 4 columns on large screens
-            }
-        }
+      &:focus {
+        outline: none;
+        border-bottom-color: v.$color-primary;
+      }
     }
+  }
+  .filter-controls {
+    border-top: 2px solid v.$color-accent;
+    padding-top: v.$spacing-md;
+    padding-bottom: v.$spacing-md;
+
+    &__grid {
+      border-top: 2px solid v.$color-accent;
+      padding-top: v.$spacing-md;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+      border-bottom: 2px solid v.$color-accent;
+      padding-bottom: v.$spacing-md;
+      margin-bottom: v.$spacing-md;
+      .field__radio {
+        border: v.$color-black 1px solid;
+        margin: 0;
+        display: inline-block;
+        position: relative;
+        align-self: left;
+        &:checked {
+          box-shadow: inset 0 0 0 4px v.$color-black, 0 0 0 1px v.$color-black;
+          border-color: v.$color-black; // Ensure border is black
+        }
+      }
+    }
+
+    &__action-bar {
+      margin-top: v.$spacing-md;
+      display: flex;
+      gap: v.$spacing-sm;
+      justify-content: center;
+    }
+  }
+
+  .product-grid {
+    @include m.product-grid-columns(3);
+  }
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: v.$spacing-sm;
+  margin-top: v.$spacing-lg;
+  user-select: none;
+
+  button {
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  }
+
+  #page-indicator {
+    font-weight: bold;
+  }
+}
+
+.results-count {
+  color: v.$color-gray-dark;
+  margin-bottom: v.$spacing-md;
 }

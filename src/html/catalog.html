@@ -47,33 +47,81 @@
       <section class="catalog-layout">
         <aside class="catalog-layout__sidebar">
           <div class="filter-controls">
-            <h3 class="filter-controls__title">Filter Products</h3>
             <div class="filter-controls__grid">
               <div class="field">
                 <label class="field__label">Size</label>
                 <select class="field__input field__select">
-                  ...
+                  <option class="disabled_dropdown" value="" disabled selected>Choose option</option>
+                  <option value="S">S</option>
+                  <option value="M">M</option>
+                  <option value="L">L</option>
+                  <option value="XL">XL</option>
+                  <option value="S-L">S-L</option>
+                  <option value="S, M, XL">S, M, XL</option>
                 </select>
               </div>
               <div class="field">
                 <label class="field__label">Color</label>
                 <select class="field__input field__select">
-                  ...
+                  <option class="disabled_dropdown" value="" disabled selected>Choose option</option>
+                  <option value="red">red</option>
+                  <option value="blue">blue</option>
+                  <option value="green">green</option>
+                  <option value="black">black</option>
+                  <option value="grey">grey</option>
+                  <option value="yellow">yellow</option>
+                  <option value="pink">pink</option>
                 </select>
+              </div>
+
+              <div class="field">
+                <label class="field__label">Category</label>
+                <select class="field__input field__select">
+                  <option class="disabled_dropdown" value="" disabled selected>Choose option</option>
+                  <option value="carry-ons">carry-ons</option>
+                  <option value="suitcases">suitcases</option>
+                  <option value="luggage sets">luggage sets</option>
+                  <option value="kids' luggage">kids' luggage</option>
+                </select>
+              </div>
+
+              <div class="field field--radio">
+                <label class="field__label">Sales</label>
+                <input
+                  type="radio"
+                  class="field__input field__radio"
+                  name="sales"
+                />
               </div>
             </div>
             <div class="filter-controls__action-bar">
-              <button class="button button--primary">Clear Filters</button>
-              <button class="button button--outline">Hide Filters</button>
+              <button class="button button-primary">Clear Filters</button>
+              <button class="button button-primary">Hide Filters</button>
             </div>
           </div>
         </aside>
+      </section>
 
+      <!-- ======================= Results SECTION ======================= -->
+      <section>
         <div class="catalog-layout__main-content">
-          <div class="product-grid">
-            <article class="product-card">...</article>
-            <article class="product-card">...</article>
-            <article class="product-card">...</article>
+          <div class="catalog-meta">
+            <p class="results-count"></p>
+          </div>
+          <div class="field">
+            <select class="field__input field__select">
+              <option class="disabled_dropdown" value="" disabled selected>Default Sorting</option>
+              <option value="price-asc">Price: Low to High</option>
+              <option value="price-desc">Price: High to Low</option>
+              <option value="popularity">Most Popular</option>
+              <option value="rating">Highest Rated</option>
+            </select>
+          </div>
+          <div id="product-grid" class="product-grid"></div>
+          <div class="pagination">
+            <button id="prev-page" class="button">Previous</button>
+            <span id="page-indicator"></span>
+            <button id="next-page" class="button">Next</button>
           </div>
         </div>
       </section>
@@ -189,5 +237,6 @@
         </div>
       </div>
     </footer>
+    <script src="../../src/js/catalog.js"></script>
   </body>
 </html>

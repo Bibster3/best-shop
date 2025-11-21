@@ -11,7 +11,7 @@
       "salesStatus": true,
       "rating": 4.5,
       "popularity": 90,
-      "blocks": [ "Selected Products"]
+      "blocks": ["Selected Products"]
     },
     {
       "id": "SU002",
@@ -26,7 +26,7 @@
       "popularity": 85,
       "blocks": ["You May Also Like", "New Products Arrival"]
     },
-      {
+    {
       "id": "SU013",
       "name": "Blue Luxury Lightweight Travel Suitcase",
       "price": 280,
@@ -39,7 +39,7 @@
       "popularity": 85,
       "blocks": ["You May Also Like", "Selected Products"]
     },
-     {
+    {
       "id": "SU014",
       "name": "Brown Luxury Lightweight Travel Suitcase",
       "price": 280,
@@ -52,7 +52,7 @@
       "popularity": 85,
       "blocks": ["You May Also Like"]
     },
-        {
+    {
       "id": "SU015",
       "name": "Gray Luxury Lightweight Travel Suitcase",
       "price": 280,
@@ -65,7 +65,7 @@
       "popularity": 85,
       "blocks": ["You May Also Like"]
     },
-          {
+    {
       "id": "SU016",
       "name": "Gray Luxury Hand Travel Suitcase",
       "price": 280,
@@ -117,7 +117,7 @@
       "popularity": 85,
       "blocks": ["You May Also Like"]
     },
-        {
+    {
       "id": "SU020",
       "name": "Yellow Hand Travel Suitcase",
       "price": 280,
@@ -260,7 +260,7 @@
       "popularity": 88,
       "blocks": ["You May Also Like", "Selected Products"]
     },
-        {
+    {
       "id": "SU012",
       "name": "Urban Max Durable Suitcase Pro",
       "price": 325,
@@ -377,7 +377,7 @@
       "popularity": 78,
       "blocks": []
     },
-     {
+    {
       "id": "CO021",
       "name": "Beige Rolling Carry-On Pro",
       "price": 250,

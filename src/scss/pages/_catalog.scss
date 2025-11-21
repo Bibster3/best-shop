@@ -96,7 +96,6 @@
   margin-top: v.$spacing-lg;
   user-select: none;
 
-
   #page-indicator {
     font-weight: bold;
   }
@@ -105,4 +104,10 @@
 .results-count {
   color: v.$color-gray-dark;
   margin-bottom: v.$spacing-md;
+}
+.button-primary {
+  padding-left: 0;
+  padding-right: 0;
+  margin-left: 20%;
+  margin-right: 20%;
 }

@@ -91,19 +91,7 @@
       "popularity": 85,
       "blocks": ["You May Also Like"]
     },
-    {
-      "id": "SU018",
-      "name": "Yellow  Luxury Hand Travel Suitcase",
-      "price": 280,
-      "imageUrl": "assets/images/suitcase_yellow.png",
-      "category": "suitcases",
-      "color": "yellow",
-      "size": "S",
-      "salesStatus": false,
-      "rating": 4.0,
-      "popularity": 85,
-      "blocks": ["You May Also Like"]
-    },
+
     {
       "id": "SU019",
       "name": "Yellow Hand Travel Suitcase",
@@ -316,7 +304,7 @@
       "id": "KL016",
       "name": "Comfortable Travel-Friendly Kids' Luggage",
       "price": 240,
-      "imageUrl": "assets/images/suicase_elephants.png",
+      "imageUrl": "assets/images/suitcase_elephants2.png",
       "category": "kids' luggage",
       "color": "black",
       "size": "M",

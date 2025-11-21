@@ -2,10 +2,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const productGrid = document.getElementById("product-grid");
   const prevButton = document.getElementById("prev-page");
   const nextButton = document.getElementById("next-page");
-  const catalogLink = document.querySelector(
-    '.header_nav a[href*="catalog.html"]'
-  );
-  const sidebar = document.querySelector(".catalog-layout__sidebar");
   const pageIndicator = document.getElementById("page-indicator");
   const resultsCount = document.querySelector(".results-count");
 
@@ -30,7 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let allProducts = [];
   let filteredProducts = [];
   let sortedProducts = [];
-  const PRODUCTS_PER_PAGE = 12;
+  const PRODUCTS_PER_PAGE = 9;
   let currentPage = 1;
 
   if (
@@ -47,6 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // --- Data Fetching ---
+  // Fetch product data
   async function fetchProducts() {
     try {
       const response = await fetch("../assets/data.json");
@@ -65,33 +62,32 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // --- Filtering Logic ---
   function applyFilters() {
-    // FIX: Retrieve values directly from the initialized select variables.
-    // The querySelectByLabel function already found these elements.
     const size = sizeSelect ? sizeSelect.value : "";
     const color = colorSelect ? colorSelect.value : "";
     const category = categorySelect ? categorySelect.value : "";
-
-    // The sales filter uses a single radio button (which is correctly named "sales" in the HTML)
     const sales = salesFilter ? salesFilter.checked : false;
 
     filteredProducts = allProducts.filter((product) => {
-      // Size Match Logic (Handles multi-size string in product.size like "S, M, XL")
       const sizeMatch =
         !size ||
-        size === "" || // If the selected value is the default "Choose option" (empty string)
-        product.size.split(", ").some((s) => s.trim() === size); // Check if the selected size is within the product's available sizes
-
-      // Color Match Logic
+        size === "" ||
+        (product.size &&
+          product.size.split(", ").some((s) => s.trim() === size));
       const colorMatch = !color || color === "" || product.color === color;
-
-      // Category Match Logic
       const categoryMatch =
         !category || category === "" || product.category === category;
+      const salesMatch = !sales || (sales && product.salesStatus);
+      // Exclude products if their imageUrl contains "set-"
+      const imageResolutionMatch =
+        product.imageUrl && !product.imageUrl.includes("set-");
 
-      // Sales Match Logic (Only match if 'sales' is checked AND the product is on sale)
-      const salesMatch = !sales || product.salesStatus === true;
-
-      return sizeMatch && colorMatch && categoryMatch && salesMatch;
+      return (
+        sizeMatch &&
+        colorMatch &&
+        categoryMatch &&
+        salesMatch &&
+        imageResolutionMatch
+      );
     });
 
     currentPage = 1;
@@ -99,13 +95,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function sortProducts() {
-    if (!sortSelect) {
-      sortedProducts = [...filteredProducts];
-      renderPage(currentPage);
-      return;
-    }
-
-    const sortBy = sortSelect.value;
+    const sortBy = sortSelect ? sortSelect.value : "";
     sortedProducts = [...filteredProducts];
 
     switch (sortBy) {
@@ -120,6 +110,9 @@ document.addEventListener("DOMContentLoaded", () => {
         break;
       case "rating":
         sortedProducts.sort((a, b) => b.rating - a.rating);
+        break;
+      default:
+        // No sorting or default sorting based on original order
         break;
     }
 
@@ -153,24 +146,32 @@ document.addEventListener("DOMContentLoaded", () => {
   function createProductCard(product) {
     const card = document.createElement("div");
     card.className = "product-card";
+
+    let tagHtml = "";
+    if (product.salesStatus === true) {
+      tagHtml = '<span class="product-card__tag">Sale</span>';
+    }
+
     card.innerHTML = `
-            <img src="../${product.imageUrl}" alt="${
+      <div class="product-card__image-container">
+        <img src="../${product.imageUrl}" alt="${
       product.name
     }" class="product-card__image">
-            <h3 class="product-card__name">${product.name}</h3>
-            <p class="product-card__price">$${product.price.toFixed(2)}</p>
-            ${
-              product.salesStatus
-                ? '<span class="product-card__sale">Sale</span>'
-                : ""
-            }
-        `;
+        ${tagHtml}
+      </div>
+      <div class="product-card__details">
+        <div class="product-card__content">
+          <h3 class="product-card__name">${product.name}</h3>
+          <p class="product-card__price">$${product.price.toFixed(2)}</p>
+        </div>
+        <button class="button button-primary product-card__button">Add to Cart</button>
+      </div>`;
     return card;
   }
 
   function updatePaginationControls(totalPages) {
     pageIndicator.textContent = `Page ${currentPage} of ${totalPages}`;
-    prevButton.disabled = currentPage === 1;
+    prevButton.disabled = currentPage <= 1;
     nextButton.disabled = currentPage === totalPages;
   }
 
@@ -212,10 +213,8 @@ document.addEventListener("DOMContentLoaded", () => {
   if (clearFiltersButton)
     clearFiltersButton.addEventListener("click", clearFilters);
 
-  // Pagination button listeners
   prevButton.addEventListener("click", () => renderPage(currentPage - 1));
   nextButton.addEventListener("click", () => renderPage(currentPage + 1));
 
-  // --- Initialization ---
   fetchProducts();
 });

@@ -13,6 +13,7 @@ To get the project set up and running on your local machine, follow these simple
 1.  **Clone the repository** to your local machine.
 
 2.  **Navigate into the project directory**:
+
     ```bash
     cd fundamentals-project-template
     ```
@@ -32,3 +33,5 @@ npm run dev
 ```
 
 This command will start a local development server, and you will be able to view the website in your browser. The SASS compilation will be handled automatically.
+
+Points: 64 / 64

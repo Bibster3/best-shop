@@ -27,6 +27,15 @@ section {
     margin-bottom: v.$spacing-md + 8px; // 40px
     color: v.$secondary-text-color; // #504e4a
   }
+   h3 {
+      font-family: f.$font-family-primary;
+      font-size: $font-size-md ; 
+      font-style: bold;
+      font-weight: 900;
+      margin-bottom: v.$spacing-sm + 4px; // 20px
+      line-height: 1.2;
+      color: v.$color-primary;
+    }
 }
 
 // ======================= 1. HERO SECTION =======================

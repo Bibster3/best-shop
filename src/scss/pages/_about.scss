@@ -1,33 +1,33 @@
-@use '../abstracts/variables' as v;
-@use '../abstracts/mixins' as m;
-
+@use "../abstracts/variables" as v;
+@use "../abstracts/mixins" as m;
 
 .page-about {
-    // 1. Feature Section Layout (4 columns on desktop)
-  
-   .new-arrivals-layout {
-        @include m.container();
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: v.$spacing-lg;
-        align-items: center;
-        padding: v.$spacing-lg 0;
-         p, h2 {
-            text-align: left;
-         }
-        
-        @include m.respond-to(v.$breakpoint-md) {
-            grid-template-columns: 1fr 1fr; // Two columns on larger screens
-        }
+  // 1. Feature Section Layout (4 columns on desktop)
+
+  .new-arrivals-layout {
+    @include m.container();
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: v.$spacing-lg;
+    align-items: center;
+    padding: v.$spacing-lg 0;
+    p,
+    h2 {
+      text-align: left;
     }
 
-   .section--team {
-     .section__title {
+    @include m.respond-to(v.$breakpoint-sm) {
+      grid-template-columns: 1fr 1fr; // Two columns on larger screens
+    }
+  }
+
+  .section--team {
+    .section__title {
       text-align: center;
-      position: relative; 
-      padding-bottom: v.$spacing-sm; 
-       &::after {
-        content: '';
+      position: relative;
+      padding-bottom: v.$spacing-sm;
+      &::after {
+        content: "";
         position: absolute;
         bottom: 0;
         left: 50%;
@@ -39,22 +39,16 @@
     }
   }
 
-   .team-flex-container {
-     padding-top: v.$spacing-md;
-        display: flex;
-        gap: v.$spacing-md;
-        justify-content: space-between; // Distribute items evenly
-        align-items: center;
+  .team-flex-container {
+    padding-top: v.$spacing-md;
+    display: flex;
+    gap: v.$spacing-md;
+    justify-content: space-between; // Distribute items evenly
+    align-items: center;
 
-       .team-member {
-            flex: 1 1 100%;  
-            max-width: 410px; 
-        }
-        
-        @include m.respond-to(v.$breakpoint-sm) {
-            .team-member {
-                flex: 1 1 calc(33.333% - #{v.$spacing-md}); // 3 columns on sm+
-            }
-        }
+    .team-member {
+      flex: 1 1 100%;
+      max-width: 410px;
     }
+  }
 }

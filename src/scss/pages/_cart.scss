@@ -8,7 +8,7 @@
     display: grid;
     grid-template-columns: 1fr; // Stacked on mobile
 
-    @include m.respond-to(v.$breakpoint-md) {
+    @include m.respond-to(v.$breakpoint-sm) {
       // Two columns on desktop: 2/3 for items, 1/3 for summary
       grid-template-columns: 2fr 1fr;
       gap: v.$spacing-lg;
@@ -19,7 +19,7 @@
   .cart-list__header {
     display: none; // Hidden on mobile
 
-    @include m.respond-to(v.$breakpoint-md) {
+    @include m.respond-to(v.$breakpoint-sm) {
       display: grid;
       // Defines the column widths for the table-like layout
       grid-template-columns: 80px 3fr 1fr 1fr 1fr 60px;
@@ -40,7 +40,7 @@
     align-items: center;
 
     // Force a table-like layout on desktop
-    @include m.respond-to(v.$breakpoint-md) {
+    @include m.respond-to(v.$breakpoint-sm) {
       display: grid;
       grid-template-columns: 80px 3fr 1fr 1fr 1fr 60px;
       gap: v.$spacing-xs;
@@ -57,7 +57,7 @@
       width: 50%; // Occupies half width on small screens
       margin-bottom: v.$spacing-xs;
 
-      @include m.respond-to(v.$breakpoint-md) {
+      @include m.respond-to(v.$breakpoint-sm) {
         width: auto; // Switches to grid column size
         margin-bottom: 0;
       }

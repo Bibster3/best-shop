@@ -1,25 +1,19 @@
 @use "variables" as v;
 
-
 @mixin product-grid-columns($columns) {
-  display: flex;
-  flex-wrap: wrap; 
-  justify-content: space-between; 
-  gap: v.$spacing-lg v.$spacing-md; 
+  display: grid;
+  grid-template-columns: repeat(#{$columns}, 1fr);
+  gap: v.$spacing-md;
   margin: 40px auto;
   max-width: 1400px;
   padding: 0;
 
   .product-card {
-    flex: 0 1 calc((100% / #{$columns}) - ( (#{$columns} - 1) * v.$spacing-md / #{$columns}) ); 
     min-width: 200px;
   }
-  
 
   @media (max-width: 600px) {
-    > .product-card {
-      flex-basis: calc(50% - (v.$spacing-md / 2));
-    }
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
@@ -32,24 +26,6 @@
   @media (min-width: v.$breakpoint-lg) {
     padding: 0 v.$spacing-md;
   }
-}
-
-@mixin flex-grid($gap: v.$spacing-md) {
-  display: flex;
-  flex-wrap: wrap;
-  margin-left: calc(-1 * #{$gap});
-  margin-top: calc(-1 * #{$gap});
-
-  > * {
-    padding-left: $gap;
-    padding-top: $gap;
-  }
-}
-
-@mixin flex-col($cols: 12, $total: 12) {
-  flex-basis: calc(100% / #{$total} * #{$cols} - v.$spacing-md);
-  max-width: calc(100% / #{$total} * #{$cols} - v.$spacing-md);
-  box-sizing: border-box;
 }
 
 @mixin respond-to($breakpoint) {

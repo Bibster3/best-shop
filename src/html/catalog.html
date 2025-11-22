@@ -32,8 +32,8 @@
       <nav class="header_nav">
         <ul>
           <li><a href="../index.html" class="active">Home</a></li>
-          <li>
-            <a href="../html/catalog.html"
+          <li class="nav-item--dropdown">
+            <a href="../html/catalog.html" class="nav-link--catalog"
               >Catalog<img src="../assets/images/catalog-arrow.svg" alt="arrow"
             /></a>
           </li>
@@ -41,77 +41,77 @@
           <li><a href="../html/contact.html">Contact Us</a></li>
         </ul>
       </nav>
-    </header>
-    <main>
-      <section class="catalog-layout">
-        <aside class="catalog-layout__sidebar">
-          <div class="filter-controls">
-            <div class="filter-controls__grid">
-              <div class="field">
-                <label class="field__label">Size</label>
-                <select class="field__input field__select">
-                  <option class="disabled_dropdown" value="" disabled selected>
-                    Choose option
-                  </option>
-                  <option value="S">S</option>
-                  <option value="M">M</option>
-                  <option value="L">L</option>
-                  <option value="XL">XL</option>
-                  <option value="S-L">S-L</option>
-                  <option value="S, M, XL">S, M, XL</option>
-                </select>
-              </div>
-              <div class="field">
-                <label class="field__label">Color</label>
-                <select class="field__input field__select">
-                  <option class="disabled_dropdown" value="" disabled selected>
-                    Choose option
-                  </option>
-                  <option value="red">red</option>
-                  <option value="blue">blue</option>
-                  <option value="green">green</option>
-                  <option value="black">black</option>
-                  <option value="grey">grey</option>
-                  <option value="yellow">yellow</option>
-                  <option value="pink">pink</option>
-                </select>
-              </div>
-
-              <div class="field">
-                <label class="field__label">Category</label>
-                <select class="field__input field__select">
-                  <option class="disabled_dropdown" value="" disabled selected>
-                    Choose option
-                  </option>
-                  <option value="carry-ons">carry-ons</option>
-                  <option value="suitcases">suitcases</option>
-                  <option value="luggage sets">luggage sets</option>
-                  <option value="kids' luggage">kids' luggage</option>
-                </select>
-              </div>
-
-              <div class="field field--radio">
-                <label class="field__label">Sales</label>
-                <input
-                  type="radio"
-                  class="field__input field__radio"
-                  name="sales"
-                />
-              </div>
+      <!-- ======================= Filters  ======================= -->
+      <div class="filter-dropdown-menu">
+        <div
+          class="
+          "
+        >
+          <div class="filter-controls__grid">
+            <div class="field">
+              <label class="field__label">Size</label>
+              <select class="field__input field__select">
+                <option class="disabled_dropdown" value="" disabled selected>
+                  Choose option
+                </option>
+                <option value="S">S</option>
+                <option value="M">M</option>
+                <option value="L">L</option>
+                <option value="XL">XL</option>
+                <option value="S-L">S-L</option>
+                <option value="S, M, XL">S, M, XL</option>
+              </select>
             </div>
-            <div class="filter-controls__action-bar">
-              <button class="button button-primary">Clear Filters</button>
-              <button class="button button-primary">Hide Filters</button>
+            <div class="field">
+              <label class="field__label">Color</label>
+              <select class="field__input field__select">
+                <option class="disabled_dropdown" value="" disabled selected>
+                  Choose option
+                </option>
+                <option value="red">red</option>
+                <option value="blue">blue</option>
+                <option value="green">green</option>
+                <option value="black">black</option>
+                <option value="grey">grey</option>
+                <option value="yellow">yellow</option>
+                <option value="pink">pink</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label class="field__label">Category</label>
+              <select class="field__input field__select">
+                <option class="disabled_dropdown" value="" disabled selected>
+                  Choose option
+                </option>
+                <option value="carry-ons">carry-ons</option>
+                <option value="suitcases">suitcases</option>
+                <option value="luggage sets">luggage sets</option>
+                <option value="kids' luggage">kids' luggage</option>
+              </select>
+            </div>
+            <div class="field">
+              <label class="field__label">Sales</label>
+              <input
+                type="radio"
+                class="field__input field__radio"
+                name="sales"
+              />
             </div>
           </div>
-        </aside>
-      </section>
+          <div class="filter-controls__action-bar">
+            <button class="button button-primary">Clear Filters</button>
+            <button class="button button-primary">Hide Filters</button>
+          </div>
+        </div>
+      </div>
+    </header>
 
-      <!-- ======================= Results SECTION ======================= -->
-      <section>
+    <main>
+      <section class="catalog-layout">
         <div class="catalog-layout__main-content">
           <div class="catalog-meta">
-            <p class="results-count"></p>
+            <p class="results-count">Showing 0 of 0 results</p>
           </div>
           <div class="field">
             <select class="field__input field__select">
@@ -124,12 +124,37 @@
               <option value="rating">Highest Rated</option>
             </select>
           </div>
+         
+
+          <!-- ======================= Products  ======================= -->
+
           <div id="product-grid" class="product-grid"></div>
+
+          <!-- ======================= Pagination  ======================= -->
           <div class="pagination">
             <button id="prev-page" class="button-nav">Previous</button>
             <span id="page-indicator"></span>
             <button id="next-page" class="button-nav">Next</button>
           </div>
+        </div>
+        <!-- ======================= Best Sets ======================= -->
+
+        <div class="best-sets-sidebar">
+           <!-- ======================= Search  ======================= -->
+          <div class="search-wrapper">
+            <label for="searchModels" class="sr-only">Search Models</label>
+            <input
+              type="text"
+              placeholder="Search Models"
+              class="search-input"
+              id="searchModels"
+            />
+            <span class="search-icon">
+              <img src="../assets/images/magnifier.svg" alt="magnifier" />
+            </span>
+          </div>
+          <h5 class="best-sets-sidebar__title">Top Best Sets</h5>
+          <ul class="best-sets-list" id="best-sets-list"></ul>
         </div>
       </section>
     </main>
@@ -173,7 +198,7 @@
         <div class="footer__left">
           <div class="footer__links-grid">
             <div class="footer__column">
-              <h4>About Us</h4>
+              <h4><a href="../html/about.html">About Us</a></h4>
               <ul>
                 <li>Organisation</li>
                 <li>Partners</li>
@@ -214,7 +239,7 @@
 
         <!-- RIGHT SIDE -->
         <div class="footer__contact">
-          <h4>Contact Us</h4>
+          <h4><a href="../html/contact.html">Contact Us</a></h4>
           <p>
             Bendum dolor eu varius. Morbi fermentum velit sodales egesonec.
             volutpat orci. Sed ipsum felis, tristique egestas et, convallis ac

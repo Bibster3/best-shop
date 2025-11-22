@@ -3,6 +3,7 @@
 @use "../base/fonts" as f;
 
 // ======================= GLOBAL STYLES =======================
+
 main {
   padding-top: 50px;
 }
@@ -27,15 +28,15 @@ section {
     margin-bottom: v.$spacing-md + 8px; // 40px
     color: v.$secondary-text-color; // #504e4a
   }
-   h3 {
-      font-family: f.$font-family-primary;
-      font-size: $font-size-md ; 
-      font-style: bold;
-      font-weight: 900;
-      margin-bottom: v.$spacing-sm + 4px; // 20px
-      line-height: 1.2;
-      color: v.$color-primary;
-    }
+  h3 {
+    font-family: f.$font-family-primary;
+    font-size: $font-size-md;
+    font-style: bold;
+    font-weight: 900;
+    margin-bottom: v.$spacing-sm + 4px; // 20px
+    line-height: 1.2;
+    color: v.$color-primary;
+  }
 }
 
 // ======================= 1. HERO SECTION =======================
@@ -77,10 +78,10 @@ section {
   }
 
   &__image {
-    flex: 3.5; 
+    flex: 3.5;
     position: relative;
     z-index: 2;
-    margin-left: -120px; 
+    margin-left: -120px;
   }
 }
 
@@ -221,12 +222,12 @@ section {
   .category-card {
     position: relative;
     overflow: hidden;
-     &:hover {
-        transform: scale(1.05);
-        transition: transform 0.3s ease;
-        box-shadow: 0 30px 30px rgba(v.$color-black, 0.5);
-      }
-      
+    &:hover {
+      transform: scale(1.05);
+      transition: transform 0.3s ease;
+      box-shadow: 0 30px 30px rgba(v.$color-black, 0.5);
+    }
+
     &::before {
       content: "";
       position: absolute;
@@ -242,14 +243,13 @@ section {
       width: 100%;
       height: 100%;
       object-fit: cover;
-     
     }
 
     &__content {
       position: absolute;
       bottom: 0;
       left: 0;
-      padding: v.$spacing-md*2;
+      padding: v.$spacing-md * 2;
       z-index: 2;
       color: v.$color-white;
 
@@ -263,78 +263,72 @@ section {
       h4 {
         padding-bottom: v.$spacing-sm;
       }
- 
     }
   }
 }
 
 // ======================= 4. PRODUCTS (Selected & New Arrival) =======================
 
-
 .products__grid {
   @include m.product-grid-columns(4);
 }
 
-
-
 // ======================= 5. OFFER OF THE MONTH - handled by _cards.scss =======================
-
 
 // ======================= 6. CUSTOMER TESTIMONIALS =======================
 .testimonials {
   margin-top: v.$spacing-lg * 2;
+  background-color: v.$color-white;
+  padding: v.$spacing-lg 0;
+  text-align: center;
+
+  p {
+    margin-bottom: v.$spacing-lg;
+    color: v.$color-gray-dark;
+  }
+
+  &__grid {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: v.$spacing-lg;
+  }
+
+  .testimonial-card {
+    flex: 1;
+    min-width: 250px;
     background-color: v.$color-white;
-    padding: v.$spacing-lg 0; 
-    text-align: center; 
+    padding: v.$spacing-lg;
+    text-align: center;
+    overflow: hidden;
+    box-shadow: 0 20px 80px 0 rgba(193, 199, 212, 0.702);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
-
-    p {
-        margin-bottom: v.$spacing-lg;
-        color: v.$color-gray-dark;
+    & > img {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: v.$spacing-md;
     }
 
-    &__grid {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between; 
-        gap: v.$spacing-lg; 
+    & > p {
+      font-size: 1rem;
+      line-height: 1.6;
+      margin-bottom: v.$spacing-md;
+      flex-grow: 1;
     }
-    
-    .testimonial-card {
-        flex: 1; 
-        min-width: 250px; 
-        background-color: v.$color-white;
-        padding: v.$spacing-lg; 
-        text-align: center;
-        overflow: hidden;
-        box-shadow: 0 20px 80px 0 rgba(193, 199, 212, 0.702);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        
-        & > img { 
-            width: 90px;
-            height: 90px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-bottom: v.$spacing-md;
-        }
 
-        & > p {
-            font-size: 1rem;
-            line-height: 1.6;
-            margin-bottom: v.$spacing-md;
-            flex-grow: 1; 
-        }
-
-        .author {
-            font-family: f.$font-family-primary;
-            font-weight: 600;
-            font-size: 1.05rem;
-            color: v.$color-primary; 
-            margin-top: auto; 
-        }
+    .author {
+      font-family: f.$font-family-primary;
+      font-weight: 600;
+      font-size: 1.05rem;
+      color: v.$color-primary;
+      margin-top: auto;
     }
+  }
 }
 
 // ======================= MEDIA QUERIES (Basic Example) =======================

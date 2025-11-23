@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   const catalogLink = document.querySelector(
-    ".header_nav a[href*=\"catalog.html\"]"
+    '.header_nav a[href*="catalog.html"]'
   );
   const sidebar = document.querySelector(".catalog-layout__sidebar");
 

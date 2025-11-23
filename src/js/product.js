@@ -66,7 +66,25 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
+const tabButtons = document.querySelectorAll(".tab-button");
+const tabPanes = document.querySelectorAll(".tab-pane");
 
-// ----- REVIEWS ----
+  tabButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      // 1. Remove active class from all buttons and panes
+      tabButtons.forEach((btn) => btn.classList.remove("active"));
+      tabPanes.forEach((pane) => pane.classList.remove("active"));
 
+      // 2. Add active class to clicked button
+      button.classList.add("active");
 
+      // 3. Show corresponding tab pane
+      const tabId = button.getAttribute("data-tab");
+      const targetPane = document.getElementById(`${tabId}-tab`);
+      if (targetPane) {
+        targetPane.classList.add("active");
+      }
+    });
+  });
+
+  

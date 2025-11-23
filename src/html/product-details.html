@@ -42,21 +42,73 @@
         </ul>
       </nav>
     </header>
+
+    
     <main>
-      <section class="section section--product-main">
-      <div id="product-details-content">
-        <div class="product-details-container">
-          <div class="product-image-gallery">
-            <img id="product-image" src="" alt="Product image" />
-          </div>
-          <div class="product-info">
-            <h2 id="product-title"></h2>
-            <div id="product-rating"></div>
-            <p>$<span id="product-price"></span></p>
-          </div>
-        </div>
+<section class="product-main">
+  <div class="product-main__wrapper">
+
+    <div class="product-main__image">
+      <img id="product-image" src="" alt="Product Image">
+    </div>
+
+    <div class="product-main__info">
+
+      <h2 id="product-title"></h2>
+
+      <div class="rating">
+        <div id="product-rating"></div>
+        <span class="rating__text">(1 Clients Review)</span>
       </div>
-      </section>
+
+      <p class="price">$<span id="product-price"></span></p>
+
+      <p class="description">
+        The new Global Explorer Max Comfort Suitcase Pro is a bold reimagining...
+      </p>
+      <p class="description">
+        The ergonomic handle and GlideMotion spinner wheels ensure effortless mobility...
+      </p>
+
+      <div class="field">
+        <label for="size-select">Size</label>
+        <select id="size-select">
+          <option>Choose option</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label for="color-select">Color</label>
+        <select id="color-select">
+          <option>Choose option</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label for="category-select">Category</label>
+        <select id="category-select">
+          <option>Choose option</option>
+        </select>
+      </div>
+
+      <div class="actions">
+        <div class="quantity">
+          <button class="quantity__btn minus-button">-</button>
+          <input type="text" value="1" readonly>
+          <button class="quantity__btn plus-button">+</button>
+        </div>
+
+        <button class="button-primary">Add To Cart</button>
+      </div>
+
+      <div class="payment">
+        Payment:
+        <img src="../assets/images/payment-icons.svg" alt="Payment Methods">
+      </div>
+
+    </div>
+  </div>
+</section>
       <section class="product-tabs container-wrapper">
         <div class="tabs-header">
           <button
@@ -125,7 +177,18 @@
                 <div
                   class="reviews-list"
                   id="reviews-list"
-                ></div>
+                >
+              <div class="review-item">
+   <img src="../assets/images/Ella_Harper.png" alt="Ella" class="avatar">
+   <div class="review-content">
+       <div class="review-header">
+           <strong>Ella Harper</strong>
+           <span class="date">/ June 11, 2025</span>
+       </div>
+       <div class="stars">★★★★☆</div>
+       <p>Proin iaculis nibh vitae lectus mollis bibendum...</p>
+   </div>
+</div></div>
               </div>
               <div class="add-review-form">
                 <h4>Add Review</h4>

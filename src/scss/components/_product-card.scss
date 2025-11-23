@@ -3,7 +3,6 @@
 @use "../base/fonts" as f;
 
 .product-card {
-
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -13,18 +12,18 @@
   padding: 10px;
   background-color: v.$color-white;
   overflow: visible;
-  
+
   img {
-     box-shadow: v.$box-shadow-settings;
-   display: block;
+    box-shadow: v.$box-shadow-settings;
+    display: block;
     width: 100%;
     height: auto;
-   }
+  }
   &__image-container {
     position: relative;
     padding: 0;
     margin-bottom: v.$spacing-sm;
-    background: none; 
+    background: none;
     border: none;
   }
 
@@ -34,31 +33,37 @@
     height: auto;
     background-color: v.$color-white;
   }
-  &__details { 
-        display: flex; 
-        flex-direction: column;
-        flex-grow: 1;
-        padding: 0 v.$spacing-sm;
+  &__details {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    width: 100%;
+    padding: 0 v.$spacing-sm;
   }
-
-&__tag { 
-        position: absolute;
-        top: v.$spacing-md;
-        left: v.$spacing-md;
-        background-color: v.$color-accent;
-        color: v.$color-white; 
-        padding: 4px 8px;
-        font-family: f.$font-family-secondary;
-        font-size: 0.75rem;
-        font-weight: 600;
-        text-transform: uppercase;
-        z-index: 10; 
-        display: none;
-    }
-
   &__content {
-    padding: v.$spacing-sm;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-grow: 1;
+    width: 100%;
   }
+
+  &__tag {
+    position: absolute;
+    top: v.$spacing-md;
+    left: v.$spacing-md;
+    background-color: v.$color-accent;
+    color: v.$color-white;
+    padding: 4px 8px;
+    font-family: f.$font-family-secondary;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    z-index: 10;
+    display: none;
+  }
+
+ 
 
   &__name {
     font-family: f.$font-family-primary;
@@ -76,6 +81,4 @@
     margin-bottom: v.$spacing-sm;
     margin-top: auto;
   }
-
-
 }

@@ -1,91 +1,215 @@
 @use "../abstracts/variables" as v;
 @use "../abstracts/mixins" as m;
+@use "../base/fonts" as f;
 
-.page-cart {
-  // 1. Main Cart Layout (Items List + Order Summary)
-  .cart-layout {
-    @include m.container();
-    display: grid;
-    grid-template-columns: 1fr; // Stacked on mobile
+// 1. Outer Container and Page Layout
+// ------------------------------------
 
-    @include m.respond-to(v.$breakpoint-sm) {
-      // Two columns on desktop: 2/3 for items, 1/3 for summary
-      grid-template-columns: 2fr 1fr;
-      gap: v.$spacing-lg;
-    }
+.cart-outer {
+  max-width: 80%;
+  margin: 3rem auto;
+
+  @include m.respond-to(v.$breakpoint-sm) {
+    max-width: 100%;
+    padding: 0 1rem;
+  }
+}
+
+.cart-container {
+  width: 100%;
+}
+
+// 2. Cart Header
+// ------------------------------------
+
+.cart-header {
+  display: grid;
+  grid-template-columns: 2fr 4fr 1fr 1.5fr 1fr 1fr;
+  background: v.$benfits-bg-color;
+  color: v.$color-white;
+  padding: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.9em;
+  justify-items: center;
+  align-items: center;
+
+  // Header column specific alignment
+  > div:nth-child(1),
+  > div:nth-child(2) {
+    justify-self: left;
+  }
+  > div:nth-child(1) {
+    padding-left: 1rem; //IMAGE HEADER ALIGNMENT
   }
 
-  // 2. Cart List Header (Visible on desktop only)
-  .cart-list__header {
-    display: none; // Hidden on mobile
+  @include m.respond-to(v.$breakpoint-sm) {
+    gap: 0.25rem;
+    padding-left: 0.25rem;
+    padding-right: 0.25rem;
+  }
+}
 
-    @include m.respond-to(v.$breakpoint-sm) {
-      display: grid;
-      // Defines the column widths for the table-like layout
-      grid-template-columns: 80px 3fr 1fr 1fr 1fr 60px;
-      padding: v.$spacing-xs 0;
-      font-weight: 700;
-      margin-bottom: v.$spacing-sm;
-      text-transform: uppercase;
-      font-size: 0.8rem;
-    }
+// 3. Cart Item Rows
+// ------------------------------------
+
+.cart-item {
+  display: grid;
+  grid-template-columns: 2fr 4fr 1fr 1.5fr 1fr 1fr;
+  padding: 1rem 0;
+  border-bottom: 1px solid v.$color-gray-light;
+  place-items: center center;
+
+  // Item column specific alignment (Image & Name)
+  & > div:nth-child(1),
+  & > div:nth-child(2) {
+    justify-self: left;
   }
 
-  // 3. Individual Cart Item Row (The responsive 'table' row)
-  .cart-item-row {
-    display: flex; // Default to stack on mobile
-    flex-wrap: wrap;
-    border-bottom: v.$border-light;
-    padding: v.$spacing-sm 0;
-    align-items: center;
+  // Element: Image Container
+  &-img_container {
+    width: auto;
+    height: 80px;
+    padding-left: 1rem;
 
-    // Force a table-like layout on desktop
-    @include m.respond-to(v.$breakpoint-sm) {
-      display: grid;
-      grid-template-columns: 80px 3fr 1fr 1fr 1fr 60px;
-      gap: v.$spacing-xs;
-      align-items: center;
-    }
-
-    // Styles to manage mobile stacking (e.g., forcing labels/full width)
-    &__image-wrapper,
-    &__name,
-    &__price,
-    &__quantity,
-    &__total,
-    &__delete {
-      width: 50%; // Occupies half width on small screens
-      margin-bottom: v.$spacing-xs;
-
-      @include m.respond-to(v.$breakpoint-sm) {
-        width: auto; // Switches to grid column size
-        margin-bottom: 0;
-      }
+    img {
+      height: 100%;
+      object-fit: contain;
+      display: block;
     }
   }
+}
 
-  // 4. Order Summary Box (Unique styling for background/borders)
-  .order-summary {
-    background-color: v.$color-gray-dark;
-    padding: v.$spacing-md;
-    border-radius: v.$border-radius;
+// Element: Product Name
+.cart-product-name {
+  font-weight: 500;
+}
 
-    &__line {
-      display: flex;
-      justify-content: space-between;
-      padding: v.$spacing-xs 0;
-      border-bottom: 1px dashed #ccc;
+// Element: Price and Total columns
+.cart-price,
+.cart-total {
+  font-weight: 600;
+}
 
-      &--total {
-        font-weight: 700;
-        font-size: 1.2rem;
-        border-bottom: none;
-        padding-top: v.$spacing-sm;
-      }
-    }
-    .button {
-      width: 100%;
-      margin-top: v.$spacing-md;
-    }
+// Element: Quantity controls
+.cart-quantity {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+
+  p {
+    border: 1px solid #ccc;
+    padding: 0 0.5rem;
+    border-radius: 4px;
+    line-height: 1.5;
   }
+}
+
+// Element: Quantity buttons (Add/Deduct)
+.cart-deduct,
+.cart-add {
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+// Element: Delete button
+.cart-delete {
+  height: 1.25rem;
+  width: 1.25rem;
+  margin: auto;
+  justify-self: center;
+  cursor: pointer;
+
+  img {
+    width: 100%;
+    object-fit: contain;
+  }
+}
+
+// 4. Lower Container (Actions and Summary)
+// ------------------------------------
+
+.cart-lower_container {
+  max-width: 100%;
+  display: grid;
+  margin: 1rem auto 3rem auto;
+  gap: 1rem;
+  grid-template-columns: 1fr 1fr;
+
+  // Media Query for small screens
+  @include m.respond-to(v.$breakpoint-sm) {
+    grid-template-columns: 1fr;
+    margin: 1rem;
+    max-width: initial;
+  }
+}
+
+// Element: Cart Actions (Continue Shopping/Clear Cart)
+.cart-actions {
+  display: flex;
+  align-content: flex-start;
+  flex-wrap: wrap;
+  gap: 1rem;
+
+  .btn-continue,
+  .btn-clear {
+    margin: 0;
+    font-size: 0.9rem;
+    padding-left: v.$spacing-md;
+    padding-right: v.$spacing-md;
+  }
+}
+
+// Element: Summary Container (for positioning the summary box to the right)
+.summary_container {
+  display: flex;
+  justify-content: flex-end; // Changed from 'end' to 'flex-end' for clarity
+}
+
+// Element: Summary Box
+.summary {
+  background: v.$benfits-bg-color;
+  color: v.$color-white;
+  padding: 1rem;
+  max-width: 570px;
+  width: 50%;
+  min-width: auto;
+
+  .btn-checkout {
+    font-size: 0.9rem;
+  }
+}
+
+// Element: Summary Line (Subtotal, Discount, Shipping)
+.summary-line {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid v.$color-accent;
+}
+
+// Modifier: Total Summary Line
+.summary-line.total {
+  font-weight: 600;
+  font-size: 1.1em;
+  border-bottom: none;
+  padding-top: 12px;
+}
+
+// 5. Utility and Messages
+// ------------------------------------
+
+.empty-cart-message {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  font-weight: bold;
+  height: 100px;
+}
+
+.button-primary {
+  padding: 0.75rem 1rem;
 }

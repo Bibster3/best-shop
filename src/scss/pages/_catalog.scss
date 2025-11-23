@@ -9,6 +9,12 @@
     display: grid;
     gap: v.$spacing-lg;
     align-items: start;
+    .button-primary {
+      margin-left: 0;
+      margin-right: 0;
+      padding-left: v.$spacing-sm;
+      padding-right: v.$spacing-sm;
+    }
 
     @include m.respond-to(v.$breakpoint-md) {
       order: initial;

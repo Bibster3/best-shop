@@ -71,17 +71,6 @@ document.addEventListener("DOMContentLoaded", () => {
     );
     return;
   }
-  const getCart = () => {
-    try {
-      const data = JSON.parse(localStorage.getItem("cart")) || [];
-      // Ensure data is an array before filtering
-      return Array.isArray(data)
-        ? data.filter((i) => i && typeof i === "object")
-        : [];
-    } catch {
-      return [];
-    }
-  };
 
   function addToCart(product) {
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
@@ -102,7 +91,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     localStorage.setItem("cart", JSON.stringify(cart));
-    window.dispatchEvent(new CustomEvent('cartUpdated'));
+    window.dispatchEvent(new CustomEvent("cartUpdated"));
   }
 
   // --- Data Fetching ---
@@ -125,23 +114,28 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // --- Filtering Logic (Dropdowns) ---
   function applyFilters() {
-    const size = sizeSelect ? sizeSelect.value : "";
-    const color = colorSelect ? colorSelect.value : "";
-    const category = categorySelect ? categorySelect.value : "";
-    const sales = salesFilter ? salesFilter.checked : false;
+    
+    const size = sizeSelect?.value || "";
+    const color = colorSelect?.value || "";
+    const category = categorySelect?.value || "";
+
+  
+    const sales = salesFilter?.checked || false;
 
     filteredProducts = allProducts.filter((product) => {
+     
+
       const sizeMatch =
         !size ||
-        size === "" ||
         (product.size &&
           product.size.split(", ").some((s) => s.trim() === size));
 
-      const colorMatch = !color || color === "" || product.color === color;
-      const categoryMatch =
-        !category || category === "" || product.category === category;
-      const salesMatch = !sales || (sales && product.salesStatus);
-      // Exclude products if their imageUrl contains "set-"
+      const colorMatch = !color || product.color === color;
+
+      const categoryMatch = !category || product.category === category;
+
+      const salesMatch = !sales || product.salesStatus; 
+
       const imageResolutionMatch =
         product.imageUrl && !product.imageUrl.includes("set-");
 
@@ -309,9 +303,13 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     card.innerHTML = `
-      <a href="../html/product-details.html?id=${product.id}" class="product-card__image-link">
+      <a href="../html/product-details.html?id=${
+        product.id
+      }" class="product-card__image-link">
         <div class="product-card__image-container">
-          <img src="../${product.imageUrl}" alt="${product.name}" class="product-card__image">
+          <img src="../${product.imageUrl}" alt="${
+      product.name
+    }" class="product-card__image">
           ${tagHtml}
         </div>
       </a>
@@ -382,7 +380,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const ratingHtml = generateRatingStars(product.rating);
     return `
     <li class="best-sets-list__item">
-      <a href="../html/product-details.html?id=${product.id}" class="best-sets-list__link">
+      <a href="../html/product-details.html?id=${
+        product.id
+      }" class="best-sets-list__link">
         <div class="best-sets-list__image-wrapper">
             <img
               src="../${product.imageUrl}"
@@ -459,7 +459,5 @@ document.addEventListener("DOMContentLoaded", () => {
   prevButton.addEventListener("click", () => renderPage(currentPage - 1));
   nextButton.addEventListener("click", () => renderPage(currentPage + 1));
 
-
   fetchProducts();
 });
-

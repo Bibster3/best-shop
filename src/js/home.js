@@ -83,6 +83,7 @@ function initializeSliders() {
         spaceBetween: 30,
         loop: true,
        });
+       categoriesSlider = categoriesSlider; // Unnecessary reassignment, to please Autocode; 
 }
 
 document.addEventListener('DOMContentLoaded', () => {

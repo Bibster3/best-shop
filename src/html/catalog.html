@@ -12,9 +12,15 @@
     <header>
       <div class="header__top">
         <div class="social_icons">
-          <a href="#"><img src="../assets/images/facebook.svg" /></a>
-          <a href="#"><img src="../assets/images/twitter.svg" /></a>
-          <a href="#"><img src="../assets/images/instagram.svg" /></a>
+          <a href="#"
+            ><img src="../assets/images/facebook.svg" alt="facebook"
+          /></a>
+          <a href="#"
+            ><img src="../assets/images/twitter.svg" alt="twitter"
+          /></a>
+          <a href="#"
+            ><img src="../assets/images/instagram.svg" alt="instagram"
+          /></a>
         </div>
         <div class="header_container">
           <a href="../index.html" class="header__logo">
@@ -23,9 +29,9 @@
           >
         </div>
         <div class="user_icons">
-          <a href="#"><img src="../assets/images/user.svg" /></a>
+          <a href="#"><img src="../assets/images/user.svg" alt="user" /></a>
           <a href="../html/cart.html"
-            ><img src="../assets/images/shopping-cart.svg"
+            ><img src="../assets/images/shopping-cart.svg" alt="shopping-cart"
           /></a>
         </div>
       </div>
@@ -46,8 +52,8 @@
         <div class="filter-controls">
           <div class="filter-controls__grid">
             <div class="field">
-              <label class="field__label">Size</label>
-              <select class="field__input field__select">
+              <label class="field__label" for="sizeSelect">Size</label>
+              <select class="field__input field__select" id="sizeSelect">
                 <option class="disabled_dropdown" value="" disabled selected>
                   Choose option
                 </option>
@@ -60,8 +66,8 @@
               </select>
             </div>
             <div class="field">
-              <label class="field__label">Color</label>
-              <select class="field__input field__select">
+              <label class="field__label" for="colorSelect">Color</label>
+              <select class="field__input field__select" id="colorSelect">
                 <option class="disabled_dropdown" value="" disabled selected>
                   Choose option
                 </option>
@@ -76,8 +82,8 @@
             </div>
 
             <div class="field">
-              <label class="field__label">Category</label>
-              <select class="field__input field__select">
+              <label class="field__label" for="categorySelect">Category</label>
+              <select class="field__input field__select" id="categorySelect">
                 <option class="disabled_dropdown" value="" disabled selected>
                   Choose option
                 </option>
@@ -88,11 +94,12 @@
               </select>
             </div>
             <div class="field">
-              <label class="field__label">Sales</label>
+              <label class="field__label" for="salesFilter">Sales</label>
               <input
                 type="radio"
                 class="field__input field__radio"
                 name="sales"
+                id="salesFilter"
               />
             </div>
           </div>

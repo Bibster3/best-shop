@@ -78,7 +78,7 @@ async function loadHomeProducts() {
 }
 
 function initializeSliders() {
-  new Swiper(".categories-slider", {
+  return new Swiper(".categories-slider", {
     slidesPerView: 4,
     spaceBetween: 30,
     loop: true,

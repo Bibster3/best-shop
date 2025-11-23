@@ -114,28 +114,24 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // --- Filtering Logic (Dropdowns) ---
   function applyFilters() {
-    
+    // Get current filter values
     const size = sizeSelect?.value || "";
     const color = colorSelect?.value || "";
     const category = categorySelect?.value || "";
-
-  
     const sales = salesFilter?.checked || false;
 
     filteredProducts = allProducts.filter((product) => {
-     
-
+      // REFACTORED: Uses optional chaining (?.)
+      // If product.size is null/undefined, it stops automatically and returns undefined (falsy).
+      // Otherwise, it proceeds to split and check the size.
       const sizeMatch =
-        !size ||
-        (product.size &&
-          product.size.split(", ").some((s) => s.trim() === size));
+        !size || product.size?.split(", ").some((s) => s.trim() === size);
 
       const colorMatch = !color || product.color === color;
-
       const categoryMatch = !category || product.category === category;
+      const salesMatch = !sales || product.salesStatus;
 
-      const salesMatch = !sales || product.salesStatus; 
-
+      // Checks if image exists AND excludes images with "set-"
       const imageResolutionMatch =
         product.imageUrl && !product.imageUrl.includes("set-");
 

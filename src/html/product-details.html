@@ -44,94 +44,168 @@
     </header>
     <main>
       <section class="section section--product-main">
-        <div class="container product-details-grid">
-          <div class="product-details-grid__gallery">
-            <img
-              src="../assets/images/product-yellow-main.jpg"
-              alt="Global Explorer Max Comfort Suitcase Pro"
-              class="gallery__main-image"
-            />
-            <div class="gallery__thumbnails">
-              <img
-                src="../assets/images/product-thumb-1.jpg"
-                alt="Thumbnail 1"
-              />
-              <img
-                src="../assets/images/product-thumb-2.jpg"
-                alt="Thumbnail 2"
-              />
-              <img
-                src="../assets/images/product-thumb-3.jpg"
-                alt="Thumbnail 3"
-              />
-              <img
-                src="../assets/images/product-thumb-4.jpg"
-                alt="Thumbnail 4"
-              />
-            </div>
+      <div id="product-details-content">
+        <div class="product-details-container">
+          <div class="product-image-gallery">
+            <img id="product-image" src="" alt="Product image" />
           </div>
-
-          <div class="product-details-grid__info-panel">
-            <h1 class="info-panel__title">
-              Global Explorer Max Comfort Suitcase Pro
-            </h1>
-            <div class="info-panel__rating">... (5 stars)</div>
-            <p class="info-panel__price">$290</p>
-            <p class="info-panel__description">
-              The new Global Explorer Max Comfort Suitcase is a bold reimagining
-              of travel ergonomics, designed to elevate every journey. Made with
-              at least 30% recycled materials and tested to withstand the rigors
-              of modern travel.
-            </p>
-
-            <div class="field">
-              <label class="field__label">Size</label>
-              <select class="field__input field__select">
-                ...
-              </select>
-            </div>
-            <div class="field">
-              <label class="field__label">Color</label>
-              <select class="field__input field__select">
-                ...
-              </select>
-            </div>
-
-            <div class="info-panel__actions">
-              <div class="quantity-selector">
-                <button class="quantity-selector__btn">-</button>
-                <input type="text" value="1" class="quantity-selector__input" />
-                <button class="quantity-selector__btn">+</button>
-              </div>
-              <button class="button button--primary info-panel__cta">
-                Add To Cart
-              </button>
-            </div>
-            <div class="info-panel__payments">
-              <span>Payments:</span>
-              <i class="fab fa-cc-visa"></i>
-              <i class="fab fa-cc-paypal"></i>
-            </div>
+          <div class="product-info">
+            <h2 id="product-title"></h2>
+            <div id="product-rating"></div>
+            <p>$<span id="product-price"></span></p>
           </div>
         </div>
+      </div>
       </section>
-
-      <section class="section section--product-tabs">
-        <div class="container">
-          <div class="content-tabs">
-            <nav class="content-tabs__nav">
-              <button class="content-tabs__button content-tabs__button--active">
-                Details
-              </button>
-              <button class="content-tabs__button">Reviews</button>
-              <button class="content-tabs__button">Shipping Policy</button>
-            </nav>
-
-            <div class="content-tabs__panel content-tabs__panel--active">
-              <p>Description content here...</p>
+      <section class="product-tabs container-wrapper">
+        <div class="tabs-header">
+          <button
+            class="tab-button active"
+            data-tab="description"
+          >
+            DESCRIPTION
+          </button>
+          <button
+            class="tab-button"
+            data-tab="reviews"
+          >
+            REVIEWS
+          </button>
+          <button
+            class="tab-button"
+            data-tab="shipping"
+          >
+            SHIPPING POLICY
+          </button>
+        </div>
+        <div class="tabs-content">
+          <div
+            class="tab-pane active"
+            id="description-tab"
+          >
+            <div class="product-description-content">
+              <p>
+                Vestibulum commodo sapien non elit porttitor, vitae volutpat
+                nibh mollis. Nulla porta risus id neque tempor, in efficitur
+                justo imperdiet. Etiam a ex at ante tincidunt imperdiet. Nunc
+                congue ex vel nisl viverra, sit amet aliquet lectus ullamcorper.
+                Praesent luctus lacus non lorem elementum, eu tristique sapien
+                suscipit. Sed bibendum, ipsum nec viverra malesuada, erat nisi
+                sodales purus, eget hendrerit dui ligula eu enim. Ut non est
+                nisi. Pellentesque tristique pretium dolor eu commodo. Proin
+                iaculis nibh vitae lectus mollis bibendum. Quisque varius eget
+                urna sit amet luctus. Suspendisse potenti. Curabitur ac placerat
+                est, sit amet sodales risus. Pellentesque viverra dui auctor,
+                ullamcorper turpis pharetra, facilisis quam.
+              </p>
+              <p>
+                Proin iaculis nibh vitae lectus mollis bibendum. Quisque varius
+                eget urna sit amet luctus. Suspendisse potenti. Curabitur ac
+                placerat est, sit amet sodales risus. Pellentesque viverra dui
+                auctor, ullamcorper turpis pharetra, facilisis quam. Proin
+                iaculis nibh vitae lectus mollis bibendum.
+              </p>
+              <p>
+                Quisque varius eget urna sit amet luctus. Suspendisse potenti.
+                Curabitur ac placerat est, sit amet sodales risus. Pellentesque
+                viverra dui auctor, ullamcorper turpis pharetra, facilisis quam.
+              </p>
             </div>
-            <div class="content-tabs__panel">
-              <p>Customer reviews content here...</p>
+          </div>
+          <div
+            class="tab-pane"
+            id="reviews-tab"
+          >
+            <div class="reviews-container">
+              <div class="existing-reviews">
+                <h4
+                  class="reviews-count"
+                  id="reviews-count"
+                ><span class="sr-only">reviews-count</span></h4>
+                <div
+                  class="reviews-list"
+                  id="reviews-list"
+                ></div>
+              </div>
+              <div class="add-review-form">
+                <h4>Add Review</h4>
+                <p class="privacy-notice">
+                  Your email address won't be shared with anybody. Required
+                  fields have the symbol *
+                </p>
+                <form id="review-form">
+                  <div class="form-group rating-group">
+                    <label for="review-rating">RATE PRODUCT</label>
+                    <div id="review-rating" aria-label="Product rating"></div>
+                    <span
+                      class="error-message"
+                      id="rating-error"
+                    ></span>
+                  </div>
+                  <div class="form-group">
+                    <label for="review-text">Your Review *</label>
+                    <textarea
+                      id="review-text"
+                      name="review-text"
+                      rows="5"
+                      placeholder="Write your review here..."
+                      required
+                    ></textarea>
+                    <span
+                      class="error-message"
+                      id="text-error"
+                    ></span>
+                  </div>
+                  <div class="form-row">
+                    <div class="form-group">
+                      <label for="reviewer-name">Your Name *</label>
+                      <input
+                        type="text"
+                        id="reviewer-name"
+                        name="reviewer-name"
+                        placeholder="Enter your name"
+                        required
+                      />
+                      <span
+                        class="error-message"
+                        id="name-error"
+                      ></span>
+                    </div>
+                    <div class="form-group">
+                      <label for="reviewer-email">Your Email *</label>
+                      <input
+                        type="email"
+                        id="reviewer-email"
+                        name="reviewer-email"
+                        placeholder="Enter your email"
+                        required
+                      />
+                      <span
+                        class="error-message"
+                        id="email-error"
+                      ></span>
+                    </div>
+                  </div>
+                  <div class="form-group checkbox-group">
+                    <label class="checkbox-label" for="save-info">
+                      <input
+                        type="checkbox"
+                        id="save-info"
+                        name="save-info"
+                      />
+                      <span class="checkmark"></span>
+                      Save my name, email, and website in this browser for when
+                      I leave another comment.
+                    </label>
+                  </div>
+                  <button
+                    type="submit"
+                    class="btn-sm submit-review-btn"
+                  >
+                    SUBMIT
+                  </button>
+                </form>
+              </div>
             </div>
           </div>
         </div>
@@ -140,7 +214,6 @@
       <section class="section section--you-may-like">
         <div class="container">
           <h2 class="section__title text-center">You May Also Like</h2>
-          <div class="product-grid">
             <article class="product-card product-card--new">...</article>
             <article class="product-card">...</article>
             <article class="product-card">...</article>
@@ -261,5 +334,6 @@
         </div>
       </div>
     </footer>
+    <script src="../js/product.js"></script>
   </body>
 </html>

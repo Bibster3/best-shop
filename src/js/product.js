@@ -1,3 +1,5 @@
+const JSON_URL = "../assets/data.json";
+
 document.addEventListener("DOMContentLoaded", () => {
   const productTitleEl = document.getElementById("product-title");
   const productImageEl = document.getElementById("product-image");
@@ -15,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // Fetch product data
-  fetch("../assets/data.json")
+  fetch(JSON_URL)
     .then((response) => {
       if (!response.ok) {
         throw new Error("Network response was not ok " + response.statusText);
@@ -63,28 +65,72 @@ document.addEventListener("DOMContentLoaded", () => {
       (halfStar ? "½" : "") +
       "☆".repeat(5 - fullStars - (halfStar ? 1 : 0));
   }
-});
 
+  loadMayLikeProducts();
+});
 
 const tabButtons = document.querySelectorAll(".tab-button");
 const tabPanes = document.querySelectorAll(".tab-pane");
 
-  tabButtons.forEach((button) => {
-    button.addEventListener("click", () => {
-      // 1. Remove active class from all buttons and panes
-      tabButtons.forEach((btn) => btn.classList.remove("active"));
-      tabPanes.forEach((pane) => pane.classList.remove("active"));
+tabButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    // 1. Remove active class from all buttons and panes
+    tabButtons.forEach((btn) => btn.classList.remove("active"));
+    tabPanes.forEach((pane) => pane.classList.remove("active"));
 
-      // 2. Add active class to clicked button
-      button.classList.add("active");
+    // 2. Add active class to clicked button
+    button.classList.add("active");
 
-      // 3. Show corresponding tab pane
-      const tabId = button.getAttribute("data-tab");
-      const targetPane = document.getElementById(`${tabId}-tab`);
-      if (targetPane) {
-        targetPane.classList.add("active");
+    // 3. Show corresponding tab pane
+    const tabId = button.getAttribute("data-tab");
+    const targetPane = document.getElementById(`${tabId}-tab`);
+    if (targetPane) {
+      targetPane.classList.add("active");
+    }
+  });
+});
+
+async function loadMayLikeProducts() {
+  try {
+    const response = await fetch(JSON_URL);
+    const fullData = await response.json();
+
+    const allProducts = fullData.data || [];
+
+    let mayLikeProducts = allProducts.filter((p) =>
+      p.blocks.includes("You May Also Like")
+    );
+
+    // Shuffle the array (Fisher–Yates shuffle)
+    for (let i = mayLikeProducts.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [mayLikeProducts[i], mayLikeProducts[j]] = [
+        mayLikeProducts[j],
+        mayLikeProducts[i],
+      ];
+    }
+
+    //Take the first 4 items after shuffle
+    mayLikeProducts = mayLikeProducts.slice(0, 4);
+
+    const mayLikeGrid = document.getElementById("may-also-like-grid");
+
+    mayLikeProducts.forEach((product, index) => {
+      const card = mayLikeGrid.querySelector(`[data-card-index="${index}"]`);
+      if (card) {
+        updateProductCard(card, product);
+
+        const addToCartBtn = card.querySelector(".button-secondary");
+        if (addToCartBtn) {
+          addToCartBtn.addEventListener("click", (e) => {
+            e.preventDefault();
+            addToCart(product);
+          });
+        }
       }
     });
-  });
+  } catch (error) {
+    console.error("Failed to load product data:", error);
+  }
+}
 
-  

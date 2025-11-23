@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const sizeSelect = querySelectByLabel("Size");
   const colorSelect = querySelectByLabel("Color");
   const categorySelect = querySelectByLabel("Category");
-  const salesFilter = document.querySelector('input[name="sales"]');
+  const salesFilter = document.querySelector("input[name=\"sales\"]");
   const clearFiltersButton = document.querySelector(
     ".filter-controls__action-bar .button-primary"
   );
@@ -295,7 +295,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let tagHtml = "";
     if (product.salesStatus === true) {
       tagHtml =
-        '<span class="product-card__tag" style="display: block;" >SALE</span>';
+        "<span class=\"product-card__tag\" style=\"display: block;\" >SALE</span>";
     }
 
     card.innerHTML = `
@@ -344,11 +344,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function updateResultsCount(start, end, total) {
     if (total === 0) {
-      resultsCount.textContent = `0 results`;
+      resultsCount.textContent = "0 results";
     } else {
-      resultsCount.textContent = `Showing ${
-        start + 1
-      }–${end} of ${total} results`;
+      resultsCount.textContent = `Showing ${start + 1}–${end} of ${total} results`; 
     }
   }
 
@@ -356,10 +354,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const safeRating = rating || 0;
     const fullStars = Math.round(safeRating);
     const totalStars = 5;
-    let starsHtml = '<div class="best-sets-list__rating">';
+    let starsHtml = "<div class=\"best-sets-list__rating\">";
 
     const starSvg =
-      '<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z"/></svg>';
+      "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"currentColor\"><path d=\"M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z\"/></svg>";
 
     for (let i = 0; i < totalStars; i++) {
       if (i < fullStars) {

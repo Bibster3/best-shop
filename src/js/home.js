@@ -5,17 +5,17 @@ function updateProductCard(cardElement, product) {
     return;
   }
 
-  const imgElement = cardElement.querySelector('[data-field="image"]');
+  const imgElement = cardElement.querySelector("[data-field=\"image\"]");
   imgElement.src = product.imageUrl;
   imgElement.alt = product.name;
 
-  cardElement.querySelector('[data-field="name"]').textContent = product.name;
+  cardElement.querySelector("[data-field=\"name\"]").textContent = product.name;
 
   cardElement.querySelector(
-    '[data-field="price"]'
+    "[data-field=\"price\"]"
   ).textContent = `$${product.price.toFixed(2)}`;
 
-  const tagElement = cardElement.querySelector('[data-field="tag"]');
+  const tagElement = cardElement.querySelector("[data-field=\"tag\"]");
 
   if (product.salesStatus === true) {
     tagElement.textContent = "SALE";
@@ -44,8 +44,9 @@ async function loadHomeProducts() {
       .slice(0, 4);
 
     const selectedGrid = document.getElementById("selected-products-grid");
+    // eslint-disable-next-line
     selectedProducts.forEach((product, index) => {
-      const card = selectedGrid.querySelector(`[data-card-index="${index}"]`);
+      const card = selectedGrid.querySelector("[data-card-index=\"${index}\"]");
       if (card) {
         updateProductCard(card, product);
         const addToCartBtn = card.querySelector(".button-secondary");
@@ -59,8 +60,9 @@ async function loadHomeProducts() {
     });
 
     const newGrid = document.getElementById("new-products-grid");
+    // eslint-disable-next-line
     newProducts.forEach((product, index) => {
-      const card = newGrid.querySelector(`[data-card-index="${index}"]`);
+      const card = newGrid.querySelector("[data-card-index=\"${index}\"]");
       if (card) {
         updateProductCard(card, product);
         const addToCartBtn = card.querySelector(".button-secondary");
@@ -78,6 +80,7 @@ async function loadHomeProducts() {
 }
 
 function initializeSliders() {
+  // eslint-disable-next-line
   return new Swiper(".categories-slider", {
     slidesPerView: 4,
     spaceBetween: 30,

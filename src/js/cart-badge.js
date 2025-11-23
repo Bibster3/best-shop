@@ -29,10 +29,10 @@ function updateCartBadge() {
     }
   }
   
-  document.addEventListener('DOMContentLoaded', () => {
+  document.addEventListener("DOMContentLoaded", () => {
       updateCartBadge();
   });
 
-    window.addEventListener('cartUpdated', () => {
+    window.addEventListener("cartUpdated", () => {
         updateCartBadge();
     });

@@ -34,4 +34,4 @@ npm run dev
 
 This command will start a local development server, and you will be able to view the website in your browser. The SASS compilation will be handled automatically.
 
-Points: 64 / 64
+Points: 63 / 64

@@ -1142,7 +1142,7 @@ section h3 {
   width: 100%;
 }
 .page-catalog .catalog-layout .filter-controls {
-  display: flex;
+  display: none;
   flex-direction: column;
   height: 100%;
 }

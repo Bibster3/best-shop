@@ -495,4 +495,3 @@ document.addEventListener("DOMContentLoaded", () => {
   fetchProducts();
 });
 
-export { updateCartBadge, getCart };

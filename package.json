@@ -2,10 +2,6 @@
   "name": "project-template",
   "version": "1.0.0",
   "description": "Capstone Project Template ",
-  "repository": {
-    "type": "git",
-    "url": "https://autocode.git.epam.com/campus_javascript/capstone-project/project-template.git"
-  },
   "license": "ISC",
   "author": "Bilyana Stefanova",
   "type": "commonjs",
@@ -15,7 +11,7 @@
     "build": "echo \"Dummy build script required for Autocode Compile\"",
     "compile:sass": "sass src/scss/main.scss dist/css/main.css",
     "watch:sass": "sass --watch src/scss/main.scss dist/css/main.css",
-    "serve": "live-server --open=src",
+    "serve": "live-server --open=index.html --port=8080 --host=localhost",
     "dev": "npm-run-all --parallel watch:sass serve"
   },
   "devDependencies": {

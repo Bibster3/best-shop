@@ -8,7 +8,7 @@ export const headerTemplate = `
           <a href="#"><img src="../assets/images/instagram.svg" alt="instagram" /></a>
         </div>
         <div class="header_container">
-          <a href="../index.html" class="header__logo">
+          <a href="../../index.html" class="header__logo">
             <img src="../assets/images/logo-briefcase.svg" alt="Suitcase" />
             BEST SHOP</a
           >
@@ -22,7 +22,7 @@ export const headerTemplate = `
       </div>
       <nav class="header_nav">
         <ul>
-          <li><a href="../index.html" class="active">Home</a></li>
+          <li><a href="../../index.html" class="active">Home</a></li>
           <li>
             <a href="../html/catalog.html"
               >Catalog<img src="../assets/images/catalog-arrow.svg" alt="arrow"

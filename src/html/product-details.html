@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -9,132 +9,87 @@
   <body class="page-product-details">
     <!-- ======================= HEADER ======================= -->
 
-    <header>
-      <div class="header__top">
-        <div class="social_icons">
-          <a href="#"><img src="../assets/images/facebook.svg" alt="facebook" /></a>
-          <a href="#"><img src="../assets/images/twitter.svg" alt="twitter" /></a>
-          <a href="#"><img src="../assets/images/instagram.svg" alt="instagram" /></a>
-        </div>
-        <div class="header_container">
-          <a href="../index.html" class="header__logo">
-            <img src="../assets/images/logo-briefcase.svg" alt="Suitcase" />
-            BEST SHOP</a
-          >
-        </div>
-        <div class="user_icons">
-          <a href="#"><img src="../assets/images/user.svg" alt="user" /></a>
-          <a href="html/cart.html"
-            ><img src="../assets/images/shopping-cart.svg" alt="cart"
-          /></a>
-        </div>
-      </div>
-      <nav class="header_nav">
-        <ul>
-          <li><a href="../index.html" class="active">Home</a></li>
-          <li>
-            <a href="../html/catalog.html"
-              >Catalog<img src="../assets/images/catalog-arrow.svg" alt="arrow"
-            /></a>
-          </li>
-          <li><a href="../html/about.html">About Us</a></li>
-          <li><a href="../html/contact.html">Contact Us</a></li>
-        </ul>
-      </nav>
-    </header>
+    <header></header>
 
-    
     <main>
-<section class="product-main">
-  <div class="product-main__wrapper">
+      <section class="product-main">
+        <div class="product-main__wrapper">
+          <div class="product-main__image">
+            <img id="product-image" src="" alt="Product" />
+          </div>
 
-    <div class="product-main__image">
-      <img id="product-image" src="" alt="Product">
-    </div>
+          <div class="product-main__info">
+            <h2 id="product-title">Suitcase Title</h2>
 
-    <div class="product-main__info">
+            <div class="rating">
+              <div id="product-rating"></div>
+              <span class="rating__text">(1 Clients Review)</span>
+            </div>
 
-      <h2 id="product-title">Suitcase Title</h2>
+            <p class="price">$<span id="product-price"></span></p>
 
-      <div class="rating">
-        <div id="product-rating"></div>
-        <span class="rating__text">(1 Clients Review)</span>
-      </div>
+            <p class="description">
+              The new Global Explorer Max Comfort Suitcase Pro is a bold
+              reimagining...
+            </p>
+            <p class="description">
+              The ergonomic handle and GlideMotion spinner wheels ensure
+              effortless mobility...
+            </p>
 
-      <p class="price">$<span id="product-price"></span></p>
+            <div class="field">
+              <label for="size-select">Size</label>
+              <select id="size-select">
+                <option>Choose option</option>
+              </select>
+            </div>
 
-      <p class="description">
-        The new Global Explorer Max Comfort Suitcase Pro is a bold reimagining...
-      </p>
-      <p class="description">
-        The ergonomic handle and GlideMotion spinner wheels ensure effortless mobility...
-      </p>
+            <div class="field">
+              <label for="color-select">Color</label>
+              <select id="color-select">
+                <option>Choose option</option>
+              </select>
+            </div>
 
-      <div class="field">
-        <label for="size-select">Size</label>
-        <select id="size-select">
-          <option>Choose option</option>
-        </select>
-      </div>
+            <div class="field">
+              <label for="category-select">Category</label>
+              <select id="category-select">
+                <option>Choose option</option>
+              </select>
+            </div>
 
-      <div class="field">
-        <label for="color-select">Color</label>
-        <select id="color-select">
-          <option>Choose option</option>
-        </select>
-      </div>
+            <div class="actions">
+              <div class="quantity">
+                <button class="quantity__btn minus-button">-</button>
+                <input type="text" value="1" readonly />
+                <button class="quantity__btn plus-button">+</button>
+              </div>
 
-      <div class="field">
-        <label for="category-select">Category</label>
-        <select id="category-select">
-          <option>Choose option</option>
-        </select>
-      </div>
+              <button class="button-primary">Add To Cart</button>
+            </div>
 
-      <div class="actions">
-        <div class="quantity">
-          <button class="quantity__btn minus-button">-</button>
-          <input type="text" value="1" readonly>
-          <button class="quantity__btn plus-button">+</button>
+            <div class="payment">
+              Payment:
+              <img
+                src="../assets/images/payment-icons.svg"
+                alt="Payment Methods"
+              />
+            </div>
+          </div>
         </div>
-
-        <button class="button-primary">Add To Cart</button>
-      </div>
-
-      <div class="payment">
-        Payment:
-        <img src="../assets/images/payment-icons.svg" alt="Payment Methods">
-      </div>
-
-    </div>
-  </div>
-</section>
+      </section>
       <section class="product-tabs container-wrapper">
         <div class="tabs-header">
-          <button
-            class="tab-button active"
-            data-tab="description"
-          >
+          <button class="tab-button active" data-tab="description">
             DESCRIPTION
           </button>
-          <button
-            class="tab-button"
-            data-tab="reviews"
-          >
-            REVIEWS
-          </button>
-          <button
-            class="tab-button"
-            data-tab="shipping"
-          >
+          <button class="tab-button" data-tab="reviews">REVIEWS</button>
+          <button class="tab-button" data-tab="shipping">
             SHIPPING POLICY
           </button>
         </div>
         <div class="tabs-content">
-          <div
-            class="tab-pane active"
-            id="description-tab"
-          >
+          <div class="tab-pane active" id="description-tab">
             <div class="product-description-content">
               <p>
                 Vestibulum commodo sapien non elit porttitor, vitae volutpat
@@ -164,31 +119,29 @@
               </p>
             </div>
           </div>
-          <div
-            class="tab-pane"
-            id="reviews-tab"
-          >
+          <div class="tab-pane" id="reviews-tab">
             <div class="reviews-container">
               <div class="existing-reviews">
-                <h4
-                  class="reviews-count"
-                  id="reviews-count"
-                ><span class="sr-only">reviews-count</span></h4>
-                <div
-                  class="reviews-list"
-                  id="reviews-list"
-                >
-              <div class="review-item">
-   <img src="../assets/images/Ella_Harper.png" alt="Ella" class="avatar">
-   <div class="review-content">
-       <div class="review-header">
-           <strong>Ella Harper</strong>
-           <span class="date">/ June 11, 2025</span>
-       </div>
-       <div class="stars">★★★★☆</div>
-       <p>Proin iaculis nibh vitae lectus mollis bibendum...</p>
-   </div>
-</div></div>
+                <h4 class="reviews-count" id="reviews-count">
+                  <span class="sr-only">reviews-count</span>
+                </h4>
+                <div class="reviews-list" id="reviews-list">
+                  <div class="review-item">
+                    <img
+                      src="../assets/images/Ella_Harper.png"
+                      alt="Ella"
+                      class="avatar"
+                    />
+                    <div class="review-content">
+                      <div class="review-header">
+                        <strong>Ella Harper</strong>
+                        <span class="date">/ June 11, 2025</span>
+                      </div>
+                      <div class="stars">★★★★☆</div>
+                      <p>Proin iaculis nibh vitae lectus mollis bibendum...</p>
+                    </div>
+                  </div>
+                </div>
               </div>
               <div class="add-review-form">
                 <h4>Add Review</h4>
@@ -200,10 +153,7 @@
                   <div class="form-group rating-group">
                     <label for="review-rating">RATE PRODUCT</label>
                     <div id="review-rating" aria-label="Product rating"></div>
-                    <span
-                      class="error-message"
-                      id="rating-error"
-                    ></span>
+                    <span class="error-message" id="rating-error"></span>
                   </div>
                   <div class="form-group">
                     <label for="review-text">Your Review *</label>
@@ -214,10 +164,7 @@
                       placeholder="Write your review here..."
                       required
                     ></textarea>
-                    <span
-                      class="error-message"
-                      id="text-error"
-                    ></span>
+                    <span class="error-message" id="text-error"></span>
                   </div>
                   <div class="form-row">
                     <div class="form-group">
@@ -229,10 +176,7 @@
                         placeholder="Enter your name"
                         required
                       />
-                      <span
-                        class="error-message"
-                        id="name-error"
-                      ></span>
+                      <span class="error-message" id="name-error"></span>
                     </div>
                     <div class="form-group">
                       <label for="reviewer-email">Your Email *</label>
@@ -243,28 +187,18 @@
                         placeholder="Enter your email"
                         required
                       />
-                      <span
-                        class="error-message"
-                        id="email-error"
-                      ></span>
+                      <span class="error-message" id="email-error"></span>
                     </div>
                   </div>
                   <div class="form-group checkbox-group">
                     <label class="checkbox-label" for="save-info">
-                      <input
-                        type="checkbox"
-                        id="save-info"
-                        name="save-info"
-                      />
+                      <input type="checkbox" id="save-info" name="save-info" />
                       <span class="checkmark"></span>
                       Save my name, email, and website in this browser for when
                       I leave another comment.
                     </label>
                   </div>
-                  <button
-                    type="submit"
-                    class="btn-sm submit-review-btn"
-                  >
+                  <button type="submit" class="btn-sm submit-review-btn">
                     SUBMIT
                   </button>
                 </form>
@@ -274,7 +208,7 @@
         </div>
       </section>
 
-    <section class="products products-may-also-like container-wrapper">
+      <section class="products products-may-also-like container-wrapper">
         <h2>You May Also Like</h2>
         <p>Duis vestibulum elit vel neque pharetra</p>
 
@@ -331,116 +265,17 @@
     </main>
 
     <!-- ======================= FOOTER ======================= -->
-    <footer class="footer">
-      <div class="benefits">
-        <div class="benefits__inner">
-          <h3 class="benefits__title">Our Benefits</h3>
-
-          <div class="benefits__items">
-            <div class="benefit">
-              <img
-                src="../assets/images/travel.svg"
-                alt="icon-travel-hospitality"
-              />
-              <p>Velit nisl sodales eget donec quis. volutpat orci.</p>
-            </div>
-
-            <div class="benefit">
-              <img src="../assets/images/truck.svg" alt="icon-truck" />
-              <p>Dolor eu varius. Morbi fermentum velit nisl.</p>
-            </div>
-
-            <div class="benefit">
-              <img src="../assets/images/coins.svg" alt="icon-coins" />
-              <p>Malesuada fames ac ante ipsum primis in faucibus.</p>
-            </div>
-
-            <div class="benefit">
-              <img
-                src="../assets/images/learning-hat.svg"
-                alt="icon-education"
-              />
-              <p>Nisi sodales eget donec quis. volutpat orci.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="footer__content">
-        <!-- LEFT SIDE -->
-        <div class="footer__left">
-          <div class="footer__links-grid">
-            <div class="footer__column">
-              <h4><a href="../html/about.html">About Us</a></h4>
-              <ul>
-                <li>Organisation</li>
-                <li>Partners</li>
-                <li>Clients</li>
-              </ul>
-            </div>
-
-            <div class="footer__column">
-              <h4>Interesting Links</h4>
-              <ul>
-                <li>Photo Gallery</li>
-                <li>Our Team</li>
-                <li>Socials</li>
-              </ul>
-            </div>
-
-            <div class="footer__column">
-              <h4>Achievements</h4>
-              <ul>
-                <li>Winning Awards</li>
-                <li>Press</li>
-                <li>Our Amazing Clients</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="footer__shipping">
-            <h4>Shipping Information</h4>
-            <p>
-              Nulla eleifend pulvinar purus, molestie euismod odio imperdiet ac.
-              Ut sit amet erat nec nibh rhoncus varius in non lorem. Donec
-              interdum, lectus in convallis pulvinar, enim elit porta sapien,
-              vel finibus erat felis sed neque. Etiam aliquet neque sagittis
-              erat tincidunt aliquam.
-            </p>
-          </div>
-        </div>
-
-        <!-- RIGHT SIDE -->
-        <div class="footer__contact">
-          <h4><a href="../html/contact.html">Contact Us</a></h4>
-          <p>
-            Bendum dolor eu varius. Morbi fermentum velit sodales egesonec.
-            volutpat orci. Sed ipsum felis, tristique egestas et, convallis ac
-            velitin consequat nec luctus.
-          </p>
-
-          <ul class="contact__info">
-            <li>
-              <img src="../assets/images/phone_icon.svg" alt="phone" /> Phone:
-              (+63) 236 6322
-            </li>
-            <li>
-              <img src="../assets/images/mail.svg" alt="mail" />
-              <a href="mailto:public@news.com">public@news.com</a>
-            </li>
-            <li>
-              <img src="../assets/images/clock.svg" alt="clock" /> Mon – Fri:
-              10am – 6pm
-              <br />
-              Sat – Sun: 10am – 6pm
-            </li>
-            <li>
-              <img src="../assets/images/pin.svg" alt="pin" /> 639 Jade Valley,
-              Washington Dc
-            </li>
-          </ul>
-        </div>
-      </div>
-    </footer>
+    <footer></footer>
     <script src="../js/product.js"></script>
+    <script type="module">
+      import { headerTemplate, footerTemplate } from "../js/components.js";
+
+      // Selects the first <header> and <footer> tags on the page
+      const headerTag = document.querySelector("header");
+      const footerTag = document.querySelector("footer");
+
+      if (headerTag) headerTag.innerHTML = headerTemplate;
+      if (footerTag) footerTag.innerHTML = footerTemplate;
+    </script>
   </body>
 </html>

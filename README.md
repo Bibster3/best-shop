@@ -6,8 +6,9 @@
 A comprehensive, multi-page responsive e‑commerce platform built entirely with **Vanilla JavaScript (ES Modules)**. 
 
 ### 💡 Project Origin
-This project was originally developed as part of the **EPAM Campus** curriculum. Due to a relocation to a different city, I transitioned to independent development. I utilized this opportunity to take full ownership of the project, architecture, and final implementation, successfully bringing the Figma design to life as a functional, logic-driven application.
-
+This was the **final project required to finish the first module of the EPAM Campus training program**, which I successfully completed. The curriculum focused heavily on front-end fundamentals and high-fidelity Figma-to-code implementation.
+The second module of the program required relocation to Sofia, which I am unable to do at this time. 
+ 
 ---
 
 ## 📖 Table of Contents
@@ -100,8 +101,8 @@ UX Design: Implementing small but crucial details like "Added!" visual feedback 
 ## 📬 Author / Contact
 Bilyana
 
-**GitHub** [Bibster3](https://github.com/Bibster3
+**GitHub** https://github.com/Bibster3
 
-**Portfolio** [View My Work](https://bibster3.github.io/bilyana-st/)
+**Portfolio** (https://bibster3.github.io/bilyana-st/)
 
 **Email** bilyana.f.st@gmail.com

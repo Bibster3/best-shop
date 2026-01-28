@@ -147,6 +147,9 @@ export const footerTemplate = `
       </div>
         </footer>
 `;
+
+
+/*******  d742e835-06bf-4309-a483-252eb1d994ab  *******/
 export function updateProductCard(cardElement, product) {
   if (!product) {
     cardElement.style.display = "none";
@@ -195,4 +198,48 @@ export function addToCart(product) {
 
   localStorage.setItem("cart", JSON.stringify(cart));
   window.dispatchEvent(new CustomEvent("cartUpdated"));
+}
+
+
+export function createProductCard(product, addToCartCallback) {
+  const card = document.createElement("div");
+  card.className = "product-card";
+
+  // Tag Logic
+  let tagHtml = "";
+  if (product.salesStatus === true) {
+    tagHtml = '<span class="product-card__tag" style="display: block;">SALE</span>';
+  } else if (product.blocks && product.blocks.includes("New Products Arrival")) {
+    tagHtml = '<span class="product-card__tag" style="display: block;">NEW</span>';
+  }
+
+  card.innerHTML = `
+    <a href="../html/product-details.html?id=${product.id}" class="product-card__image-link">
+      <div class="product-card__image-container">
+        <img src="../${product.imageUrl}" alt="${product.name}" class="product-card__image">
+        ${tagHtml}
+      </div>
+    </a>
+    <div class="product-card__details">
+      <div class="product-card__content">
+        <h3 class="product-card__name">${product.name}</h3>
+        <p class="product-card__price">$${product.price.toFixed(2)}</p>
+      </div>
+      <button class="button button-primary product-card__button">Add to Cart</button>
+    </div>`;
+
+  const btn = card.querySelector(".product-card__button");
+  btn.addEventListener("click", (e) => {
+    e.preventDefault();
+    if (addToCartCallback) {
+      addToCart(product);
+      
+      // Visual feedback
+      btn.textContent = "Added!";
+      btn.classList.add("added"); // Add a CSS class for styling
+      setTimeout(() => { btn.textContent = "Add to Cart"; btn.classList.remove("added"); }, 1000);
+    }
+  });
+
+  return card;
 }

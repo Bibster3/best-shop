@@ -36,9 +36,9 @@ async function loadHomeProducts() {
       const card = newGrid.querySelector(`[data-card-index="${index}"]`);
       if (card) {
         updateProductCard(card, product);
-        const addToCartBtn = card.querySelector(".button-secondary");
-        if (addToCartBtn) {
-          addToCartBtn.addEventListener("click", (e) => {
+        const viewProductBtn = card.querySelector(".button-secondary");
+        if (viewProductBtn) {
+          viewProductBtn.addEventListener("click", (e) => {
             e.preventDefault();
             addToCart(product);
           });

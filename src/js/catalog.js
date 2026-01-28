@@ -1,3 +1,5 @@
+import { createProductCard, addToCart } from "./components.js";
+
 document.addEventListener("DOMContentLoaded", () => {
   // --- Dropdown Menu Logic ---
   const catalogNavItem = document.querySelector(".nav-item--dropdown");
@@ -279,7 +281,8 @@ document.addEventListener("DOMContentLoaded", () => {
       productGrid.innerHTML = "<p>No products match your criteria.</p>";
     } else {
       paginatedProducts.forEach((product) => {
-        const card = createProductCard(product);
+        // Pass the imported addToCart function as the second argument
+        const card = createProductCard(product, addToCart); 
         productGrid.appendChild(card);
       });
     }
@@ -288,53 +291,7 @@ document.addEventListener("DOMContentLoaded", () => {
     updateResultsCount(start, end, totalProducts);
   }
 
-  function createProductCard(product) {
-    const card = document.createElement("div");
-    card.className = "product-card";
-
-    let tagHtml = "";
-    if (product.salesStatus === true) {
-      tagHtml =
-        '<span class="product-card__tag" style="display: block;" >SALE</span>';
-    }
-
-    card.innerHTML = `
-      <a href="../html/product-details.html?id=${
-        product.id
-      }" class="product-card__image-link">
-        <div class="product-card__image-container">
-          <img src="../${product.imageUrl}" alt="${
-      product.name
-    }" class="product-card__image">
-          ${tagHtml}
-        </div>
-      </a>
-      <div class="product-card__details">
-        <div class="product-card__content">
-          <h3 class="product-card__name">${product.name}</h3>
-          <p class="product-card__price">$${product.price.toFixed(2)}</p>
-        </div>
-        <button class="button button-primary product-card__button">Add to Cart</button>
-      </div>`;
-    const addToCartBtn = card.querySelector(".product-card__button");
-    addToCartBtn.addEventListener("click", (e) => {
-      // Prevent navigation if inside a link
-      e.preventDefault();
-      addToCart(product);
-
-      const originalText = addToCartBtn.textContent;
-      addToCartBtn.textContent = "Added!";
-      addToCartBtn.style.backgroundColor = "#504e4a";
-      addToCartBtn.disabled = true; // Prevent double clicks
-
-      setTimeout(() => {
-        addToCartBtn.textContent = originalText;
-        addToCartBtn.style.backgroundColor = "";
-        addToCartBtn.disabled = false;
-      }, 500);
-    });
-    return card;
-  }
+  
 
   function updatePaginationControls(totalPages) {
     pageIndicator.textContent = `Page ${currentPage} of ${totalPages}`;

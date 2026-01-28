@@ -147,3 +147,52 @@ export const footerTemplate = `
       </div>
         </footer>
 `;
+export function updateProductCard(cardElement, product) {
+  if (!product) {
+    cardElement.style.display = "none";
+    return;
+  }
+
+  // Detect if we are in the root (index.html) or in the html/ folder
+  const isRoot = !window.location.pathname.includes('/html/');
+  const basePath = isRoot ? 'src/' : '../';
+
+  const imgElement = cardElement.querySelector('[data-field="image"]');
+  if (imgElement) {
+    imgElement.src = `${basePath}${product.imageUrl}`;
+    imgElement.alt = product.name;
+  }
+
+  const nameEl = cardElement.querySelector('[data-field="name"]');
+  if (nameEl) nameEl.textContent = product.name;
+
+  const priceEl = cardElement.querySelector('[data-field="price"]');
+  if (priceEl) priceEl.textContent = `$${product.price.toFixed(2)}`;
+
+  const tagElement = cardElement.querySelector('[data-field="tag"]');
+  if (tagElement) {
+    if (product.salesStatus === true) {
+      tagElement.textContent = "SALE";
+      tagElement.style.display = "block";
+    } else if (product.blocks.includes("New Products Arrival")) {
+      tagElement.textContent = "NEW";
+      tagElement.style.display = "block";
+    } else {
+      tagElement.style.display = "none";
+    }
+  }
+}
+
+export function addToCart(product) {
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  const existingItemIndex = cart.findIndex((item) => item.id === product.id);
+
+  if (existingItemIndex > -1) {
+    cart[existingItemIndex].quantity += 1;
+  } else {
+    cart.push({ ...product, quantity: 1 });
+  }
+
+  localStorage.setItem("cart", JSON.stringify(cart));
+  window.dispatchEvent(new CustomEvent("cartUpdated"));
+}

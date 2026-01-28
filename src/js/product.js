@@ -1,3 +1,4 @@
+import { updateProductCard, addToCart } from "./components.js";
 const JSON_URL = "../assets/data.json";
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -30,6 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (product) {
         renderProductDetails(product);
+        
       } else {
         document.getElementById("product-details-content").innerHTML =
           "<p>Product not found.</p>";

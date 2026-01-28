@@ -1,32 +1,5 @@
+import { updateProductCard, addToCart } from "./components.js";
 const JSON_URL = "../../src/assets/data.json";
-function updateProductCard(cardElement, product) {
-  if (!product) {
-    cardElement.style.display = "none";
-    return;
-  }
-
-  const imgElement = cardElement.querySelector('[data-field="image"]');
-  imgElement.src =  `src/${product.imageUrl}`;
-  imgElement.alt = product.name;
-
-  cardElement.querySelector('[data-field="name"]').textContent = product.name;
-
-  cardElement.querySelector(
-    '[data-field="price"]'
-  ).textContent = `$${product.price.toFixed(2)}`;
-
-  const tagElement = cardElement.querySelector('[data-field="tag"]');
-
-  if (product.salesStatus === true) {
-    tagElement.textContent = "SALE";
-    tagElement.style.display = "block";
-  } else if (product.blocks.includes("New Products Arrival")) {
-    tagElement.textContent = "NEW";
-    tagElement.style.display = "block";
-  } else {
-    tagElement.style.display = "none";
-  }
-}
 
 async function loadHomeProducts() {
   try {
@@ -89,25 +62,3 @@ document.addEventListener("DOMContentLoaded", () => {
   loadHomeProducts();
   initializeSliders();
 });
-
-function addToCart(product) {
-  let cart = JSON.parse(localStorage.getItem("cart")) || [];
-
-  const existingItemIndex = cart.findIndex((item) => item.id === product.id);
-
-  if (existingItemIndex > -1) {
-    cart[existingItemIndex].quantity += 1;
-  } else {
-    cart.push({
-      id: product.id,
-      name: product.name,
-      price: product.price,
-      imageUrl: product.imageUrl,
-      quantity: 1,
-      discountValue: product.discountValue || 0,
-    });
-  }
-
-  localStorage.setItem("cart", JSON.stringify(cart));
-  window.dispatchEvent(new CustomEvent("cartUpdated"));
-}

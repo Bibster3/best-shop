@@ -6,7 +6,7 @@ function updateProductCard(cardElement, product) {
   }
 
   const imgElement = cardElement.querySelector('[data-field="image"]');
-  imgElement.src = product.imageUrl;
+  imgElement.src =  `src/${product.imageUrl}`;
   imgElement.alt = product.name;
 
   cardElement.querySelector('[data-field="name"]').textContent = product.name;

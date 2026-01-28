@@ -3,15 +3,17 @@
 **Live Demo:** [View Live Site](https://bibster3.github.io/best-shop/)  
 **Figma Design:** [Figma Template](https://www.figma.com/design/xIJCLjWNQJdM8rfzdinqRr/Best-Shop--Fundamentals-?node-id=0-1&p=f)
 
-A comprehensive, multi-page responsive e‑commerce platform built entirely with **Vanilla JavaScript (ES Modules)**. 
+A comprehensive, multi-page responsive e‑commerce platform built entirely with **Vanilla JavaScript (ES Modules)**.
 
 ### 💡 Project Origin
-This was the **final project required to finish the first module of the EPAM Campus training program**, which I successfully completed. The curriculum focused heavily on front-end fundamentals and high-fidelity Figma-to-code implementation.
-The second module of the program required relocation to Sofia, which I am unable to do at this time. 
- 
+
+This was the **final project required to finish the first module of the EPAM Campus training program**, which I successfully completed (**View certificate** [docs/certificate.pdf]). The curriculum focused heavily on front-end fundamentals and high-fidelity Figma-to-code implementation.
+The second module of the program required relocation to Sofia, which I am unable to do at this time.
+
 ---
 
 ## 📖 Table of Contents
+
 - [Features](#-features)
 - [Tech Stack](#-tech-stack)
 - [How It Works](#-how-it-works)
@@ -24,26 +26,26 @@ The second module of the program required relocation to Sofia, which I am unable
 
 ## 🚀 Features
 
-* **Modular Architecture:** Built using ES modules for maintainable and scalable code.
-* **Dynamic Product Catalog:** Features client-side filtering, sorting (price, name), and pagination (12 items per page).
-* **Intelligent Shopping Cart:** * Persistence via `LocalStorage`.
-    * Real-time UI synchronization using Custom Events.
-    * Merging logic based on product ID, size, and color.
-    * Dynamic discount calculation rules.
-* **Dynamic Routing:** Product Detail pages populated via URL parameters (`?id=...`) fetching data from a central JSON.
-* **Responsive Design:** Mobile-first approach with breakpoints at 768px, 1024px, and 1440px.
-* **Form Validation:** Client-side validation for the contact form ensuring correct email formats and required fields.
-* **Interactive UI:** High-performance sliders powered by Swiper.js.
+- **Modular Architecture:** Built using ES modules for maintainable and scalable code.
+- **Dynamic Product Catalog:** Features client-side filtering, sorting (price, name), and pagination (12 items per page).
+- **Intelligent Shopping Cart:** \* Persistence via `LocalStorage`.
+  - Real-time UI synchronization using Custom Events.
+  - Merging logic based on product ID, size, and color.
+  - Dynamic discount calculation rules.
+- **Dynamic Routing:** Product Detail pages populated via URL parameters (`?id=...`) fetching data from a central JSON.
+- **Responsive Design:** Mobile-first approach with breakpoints at 768px, 1024px, and 1440px.
+- **Form Validation:** Client-side validation for the contact form ensuring correct email formats and required fields.
+- **Interactive UI:** High-performance sliders powered by Swiper.js.
 
 ---
 
 ## 🛠 Tech Stack
 
-* **HTML5:** Semantic markup for accessibility and SEO.
-* **SCSS (Sass):** BEM naming convention, variables, mixins, and modular partials.
-* **JavaScript (ES6+):** Vanilla JS with ES modules (No frameworks used).
-* **NPM:** Development scripts for SASS compilation and live-reloading.
-* **Data Source:** Local JSON-driven product engine.
+- **HTML5:** Semantic markup for accessibility and SEO.
+- **SCSS (Sass):** BEM naming convention, variables, mixins, and modular partials.
+- **JavaScript (ES6+):** Vanilla JS with ES modules (No frameworks used).
+- **NPM:** Development scripts for SASS compilation and live-reloading.
+- **Data Source:** Local JSON-driven product engine.
 
 ---
 
@@ -54,8 +56,6 @@ The second module of the program required relocation to Sofia, which I am unable
 3.  **Persistence:** The cart state is saved to `localStorage`, ensuring the user's items remain even after a page refresh or browser restart.
 4.  **Styling:** SCSS is compiled into a single `main.css` file. Layouts utilize CSS Grid and Flexbox for high-fidelity alignment to the Figma source.
 
-
-
 ---
 
 ## 📂 Project Structure
@@ -65,7 +65,7 @@ The second module of the program required relocation to Sofia, which I am unable
 │   ├── html/       # Page templates (index, catalog, product, about, contact)
 │   ├── js/         # Logic modules (components.js, cart.js, car-badge.js)
 │   ├── scss/       # SASS architecture (abstracts, components, layouts)
-│   ├── assets/     
+│   ├── assets/
 │   │   ├── data.json     # The "Database" - Central product source
 │   │   └── images/       # Optimized SVG and PNG assets
 ├── dist/           # Production output (compiled CSS)
@@ -75,6 +75,7 @@ The second module of the program required relocation to Sofia, which I am unable
 ```
 
 ## ---🛠 Setup & Installation
+
 Prerequisites: Node.js and npm installed.
 
 Clone the repository:
@@ -89,7 +90,9 @@ Start development server:
 
 Bash
 npm run dev
+
 ## 🧠 What I Learned
+
 Vanilla State Handling: Managing complex data flow between different pages without a framework like React.
 
 Component-Based Thinking: Creating reusable HTML templates (Header/Footer) injected via JavaScript.
@@ -99,6 +102,7 @@ CSS Architecture: Structuring large-scale SCSS files to keep styles modular and 
 UX Design: Implementing small but crucial details like "Added!" visual feedback and smooth tab transitions.
 
 ## 📬 Author / Contact
+
 Bilyana
 
 **GitHub** https://github.com/Bibster3

@@ -70,7 +70,10 @@ This project was originally developed as part of the **EPAM Campus** curriculum.
 ├── dist/           # Production output (compiled CSS)
 ├── index.html      # Main entry point
 └── package.json    # Build scripts & dev dependencies
-🛠 Setup & Installation
+
+```
+
+## ---🛠 Setup & Installation
 Prerequisites: Node.js and npm installed.
 
 Clone the repository:
@@ -85,7 +88,7 @@ Start development server:
 
 Bash
 npm run dev
-🧠 What I Learned
+## 🧠 What I Learned
 Vanilla State Handling: Managing complex data flow between different pages without a framework like React.
 
 Component-Based Thinking: Creating reusable HTML templates (Header/Footer) injected via JavaScript.
@@ -94,11 +97,11 @@ CSS Architecture: Structuring large-scale SCSS files to keep styles modular and 
 
 UX Design: Implementing small but crucial details like "Added!" visual feedback and smooth tab transitions.
 
-📬 Author / Contact
+## 📬 Author / Contact
 Bilyana
 
-GitHub:[Bibster3] (https://github.com/Bibster3)
+**GitHub** [Bibster3](https://github.com/Bibster3
 
-Portfolio: [View My Work] (https://bibster3.github.io/bilyana-st/)
+**Portfolio** [View My Work](https://bibster3.github.io/bilyana-st/)
 
-Email: bilyana.f.st@gmail.com
+**Email** bilyana.f.st@gmail.com

@@ -26,6 +26,10 @@ async function loadHomeProducts() {
           addToCartBtn.addEventListener("click", (e) => {
             e.preventDefault();
             addToCart(product);
+            addToCartBtn.textContent = "Added!";
+            setTimeout(() => {
+              addToCartBtn.textContent = "Add to Cart";
+            }, 1000);
           });
         }
       }

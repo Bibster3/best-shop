@@ -31,7 +31,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (product) {
         renderProductDetails(product);
-        
       } else {
         document.getElementById("product-details-content").innerHTML =
           "<p>Product not found.</p>";
@@ -53,22 +52,25 @@ document.addEventListener("DOMContentLoaded", () => {
     productImageEl.alt = product.name;
     productPriceEl.textContent = product.price;
     renderRating(product.rating);
-    const mainAddToCartBtn = document.querySelector(".product-main__info .button-primary");
+    const mainAddToCartBtn = document.querySelector(
+      ".product-main__info .button-primary",
+    );
     if (mainAddToCartBtn) {
-        // Clear old listeners by cloning or just assigning
-        mainAddToCartBtn.onclick = () => {
-            // Get quantity if you want to support it
-            const qty = parseInt(document.querySelector(".quantity input").value) || 1;
-            
-            // Call your function (you might need to loop if addToCart only takes 1)
-            for(let i=0; i<qty; i++) {
-                addToCart(product);
-            }
-            
-            // Visual feedback
-            mainAddToCartBtn.textContent = "Added!";
-            setTimeout(() => mainAddToCartBtn.textContent = "Add To Cart", 2000);
-        };
+      // Clear old listeners by cloning or just assigning
+      mainAddToCartBtn.onclick = () => {
+        // Get quantity if you want to support it
+        const qty =
+          parseInt(document.querySelector(".quantity input").value) || 1;
+
+        // Call your function (you might need to loop if addToCart only takes 1)
+        for (let i = 0; i < qty; i++) {
+          addToCart(product);
+        }
+
+        // Visual feedback
+        mainAddToCartBtn.textContent = "Added!";
+        setTimeout(() => (mainAddToCartBtn.textContent = "Add To Cart"), 2000);
+      };
     }
   }
 
@@ -117,7 +119,7 @@ async function loadMayLikeProducts() {
     const allProducts = fullData.data || [];
 
     let mayLikeProducts = allProducts.filter((p) =>
-      p.blocks.includes("You May Also Like")
+      p.blocks.includes("You May Also Like"),
     );
 
     // Shuffle the array (Fisher–Yates shuffle)
@@ -144,6 +146,10 @@ async function loadMayLikeProducts() {
           addToCartBtn.addEventListener("click", (e) => {
             e.preventDefault();
             addToCart(product);
+            addToCartBtn.textContent = "Added!";
+            setTimeout(() => {
+              addToCartBtn.textContent = "Add to Cart";
+            }, 1000);
           });
         }
       }
@@ -152,4 +158,3 @@ async function loadMayLikeProducts() {
     console.error("Failed to load product data:", error);
   }
 }
-

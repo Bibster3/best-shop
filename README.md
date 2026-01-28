@@ -7,7 +7,7 @@ A comprehensive, multi-page responsive e‑commerce platform built entirely with
 
 ### 💡 Project Origin
 
-This was the **final project required to finish the first module of the EPAM Campus training program**, which I successfully completed (**View certificate** [docs/certificate.pdf]). The curriculum focused heavily on front-end fundamentals and high-fidelity Figma-to-code implementation.
+This was the **final project required to finish the first module of the EPAM Campus training program**, which I successfully completed ([View Certificate](docs/certificate.pdf)). The curriculum focused heavily on front-end fundamentals and high-fidelity Figma-to-code implementation.
 The second module of the program required relocation to Sofia, which I am unable to do at this time.
 
 ---

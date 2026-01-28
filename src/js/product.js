@@ -53,6 +53,23 @@ document.addEventListener("DOMContentLoaded", () => {
     productImageEl.alt = product.name;
     productPriceEl.textContent = product.price;
     renderRating(product.rating);
+    const mainAddToCartBtn = document.querySelector(".product-main__info .button-primary");
+    if (mainAddToCartBtn) {
+        // Clear old listeners by cloning or just assigning
+        mainAddToCartBtn.onclick = () => {
+            // Get quantity if you want to support it
+            const qty = parseInt(document.querySelector(".quantity input").value) || 1;
+            
+            // Call your function (you might need to loop if addToCart only takes 1)
+            for(let i=0; i<qty; i++) {
+                addToCart(product);
+            }
+            
+            // Visual feedback
+            mainAddToCartBtn.textContent = "Added!";
+            setTimeout(() => mainAddToCartBtn.textContent = "Add To Cart", 2000);
+        };
+    }
   }
 
   /**

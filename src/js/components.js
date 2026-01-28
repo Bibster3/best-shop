@@ -148,7 +148,6 @@ export const footerTemplate = `
         </footer>
 `;
 
-
 /*******  d742e835-06bf-4309-a483-252eb1d994ab  *******/
 export function updateProductCard(cardElement, product) {
   if (!product) {
@@ -156,28 +155,46 @@ export function updateProductCard(cardElement, product) {
     return;
   }
 
-  // Detect if we are in the root (index.html) or in the html/ folder
-  const isRoot = !window.location.pathname.includes('/html/');
-  const basePath = isRoot ? 'src/' : '../';
+  const isRoot = !window.location.pathname.includes("/html/");
+  const basePath = isRoot ? "src/" : "../";
+  // Adjust the product details link based on where we are
+  const detailsPath = isRoot
+    ? "src/html/product-details.html"
+    : "product-details.html";
 
+  // Update Image
   const imgElement = cardElement.querySelector('[data-field="image"]');
   if (imgElement) {
     imgElement.src = `${basePath}${product.imageUrl}`;
     imgElement.alt = product.name;
   }
 
+  // Update Name and Price
   const nameEl = cardElement.querySelector('[data-field="name"]');
   if (nameEl) nameEl.textContent = product.name;
 
   const priceEl = cardElement.querySelector('[data-field="price"]');
   if (priceEl) priceEl.textContent = `$${product.price.toFixed(2)}`;
 
+  // Update the Link (The "View Product" button)
+  const linkEl =
+    cardElement.querySelector(".button-secondary") ||
+    cardElement.querySelector('a[data-field="link"]');
+  if (linkEl) {
+    linkEl.setAttribute("href", `${detailsPath}?id=${product.id}`);
+    linkEl.onclick = null;
+  }
+
+  // Update Tags
   const tagElement = cardElement.querySelector('[data-field="tag"]');
   if (tagElement) {
     if (product.salesStatus === true) {
       tagElement.textContent = "SALE";
       tagElement.style.display = "block";
-    } else if (product.blocks.includes("New Products Arrival")) {
+    } else if (
+      product.blocks &&
+      product.blocks.includes("New Products Arrival")
+    ) {
       tagElement.textContent = "NEW";
       tagElement.style.display = "block";
     } else {
@@ -195,11 +212,11 @@ export function addToCart(product) {
   } else {
     cart.push({ ...product, quantity: 1 });
   }
+  
 
   localStorage.setItem("cart", JSON.stringify(cart));
   window.dispatchEvent(new CustomEvent("cartUpdated"));
 }
-
 
 export function createProductCard(product, addToCartCallback) {
   const card = document.createElement("div");
@@ -208,9 +225,14 @@ export function createProductCard(product, addToCartCallback) {
   // Tag Logic
   let tagHtml = "";
   if (product.salesStatus === true) {
-    tagHtml = '<span class="product-card__tag" style="display: block;">SALE</span>';
-  } else if (product.blocks && product.blocks.includes("New Products Arrival")) {
-    tagHtml = '<span class="product-card__tag" style="display: block;">NEW</span>';
+    tagHtml =
+      '<span class="product-card__tag" style="display: block;">SALE</span>';
+  } else if (
+    product.blocks &&
+    product.blocks.includes("New Products Arrival")
+  ) {
+    tagHtml =
+      '<span class="product-card__tag" style="display: block;">NEW</span>';
   }
 
   card.innerHTML = `
@@ -232,12 +254,16 @@ export function createProductCard(product, addToCartCallback) {
   btn.addEventListener("click", (e) => {
     e.preventDefault();
     if (addToCartCallback) {
-      addToCart(product);
-      
+
       // Visual feedback
       btn.textContent = "Added!";
       btn.classList.add("added"); // Add a CSS class for styling
-      setTimeout(() => { btn.textContent = "Add to Cart"; btn.classList.remove("added"); }, 1000);
+      setTimeout(() => {
+        btn.textContent = "Add to Cart";
+        btn.classList.remove("added");
+      }, 1000);
+      addToCart(product);
+
     }
   });
 

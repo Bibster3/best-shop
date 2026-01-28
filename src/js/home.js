@@ -39,8 +39,7 @@ async function loadHomeProducts() {
         const viewProductBtn = card.querySelector(".button-secondary");
         if (viewProductBtn) {
           viewProductBtn.addEventListener("click", (e) => {
-            e.preventDefault();
-            addToCart(product);
+            updateProductCard(product);
           });
         }
       }

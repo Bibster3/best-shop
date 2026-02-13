@@ -12,9 +12,7 @@ function updateCartBadge() {
   
     if (!badge && cartIconContainer) {
       badge = document.createElement("span");
-      badge.className = "cart-count";
-      badge.style.cssText =
-        "position: absolute; top: -8px; right: -8px; background: #FFFFFF; color: #b92770; font-size: 10px; font-weight: bold; border: 2px solid #b92770; border-radius: 50%; width: 18px; height: 18px; display: flex; align-items: center; justify-content: center;";
+      badge.className = "cart-count cart-count--badge";
       cartIconContainer.style.position = "relative";
       cartIconContainer.appendChild(badge);
     }

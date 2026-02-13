@@ -262,7 +262,7 @@ export function createProductCard(product, addToCartCallback) {
         btn.textContent = "Add to Cart";
         btn.classList.remove("added");
       }, 1000);
-      addToCart(product);
+      addToCartCallback(product);
 
     }
   });

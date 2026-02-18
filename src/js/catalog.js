@@ -166,11 +166,21 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    if (outcome.type === "multiple") {
-      filteredProducts = outcome.results;
-      currentPage = 1;
-      sortProducts();
-      return;
+    if (results.length > 0) {
+      if (results.length === 1) {
+        // 1. Exact Match (Single Result) -> Redirect to Product Page
+        const product = results[0];
+        // Assuming product.html is in the same directory as catalog.html
+        window.location.href = `product-details.html?id=${product.id}`;
+      } else {
+        // 2. Multiple Results -> Filter the grid
+        filteredProducts = results;
+        currentPage = 1;
+        sortProducts();
+      }
+    } else {
+      // 3. No Results -> Show Popup
+      showNotFoundPopup(searchTerm);
     }
 
     showNotFoundPopup(searchTerm);

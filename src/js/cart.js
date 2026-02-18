@@ -3,38 +3,6 @@ import { getCart, saveCart, getCartItemCount } from "./cart-store.js";
 const MIN_TOTAL_FOR_VOLUME_DISCOUNT = 3000;
 const VOLUME_DISCOUNT_RATE = 0.1;
 const SHIPPING_COST = 50;
-
-const parsePrice = (price) => parseFloat(price.toString().replace("$", "")) || 0;
-
-export const calculateCartSummary = (cart) => {
-  const subTotal = cart.reduce((sum, item) => {
-    const originalPrice = parsePrice(item.price);
-    return sum + originalPrice * (item?.quantity || 0);
-  }, 0);
-
-  const itemDiscount = cart.reduce((sum, item) => {
-    const discountPerItem = parseFloat(item.discountValue || 0);
-    return sum + discountPerItem * (item?.quantity || 0);
-  }, 0);
-
-  const subTotalAfterItemDiscount = subTotal - itemDiscount;
-  const volumeDiscount =
-    subTotalAfterItemDiscount > MIN_TOTAL_FOR_VOLUME_DISCOUNT
-      ? subTotalAfterItemDiscount * VOLUME_DISCOUNT_RATE
-      : 0;
-
-  const totalDiscount = itemDiscount + volumeDiscount;
-  const total = subTotal - totalDiscount + SHIPPING_COST;
-
-  return {
-    subTotal,
-    itemDiscount,
-    volumeDiscount,
-    totalDiscount,
-    shipping: SHIPPING_COST,
-    total,
-  };
-};
 const updateCartItemQuantity = (productId, change) => {
   let cart = getCart();
   const index = cart.findIndex((item) => item.id === productId);

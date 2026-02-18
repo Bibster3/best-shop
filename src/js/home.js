@@ -1,5 +1,5 @@
 import { updateProductCard, addToCart } from "./components.js";
-const JSON_URL = "../../src/assets/data.json";
+const JSON_URL = "src/assets/data.json";
 
 async function loadHomeProducts() {
   try {

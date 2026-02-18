@@ -1,3 +1,5 @@
+import { addItemToCart } from "./cart-store.js";
+
 export const headerTemplate = `
       <header>
 
@@ -204,18 +206,7 @@ export function updateProductCard(cardElement, product) {
 }
 
 export function addToCart(product) {
-  let cart = JSON.parse(localStorage.getItem("cart")) || [];
-  const existingItemIndex = cart.findIndex((item) => item.id === product.id);
-
-  if (existingItemIndex > -1) {
-    cart[existingItemIndex].quantity += 1;
-  } else {
-    cart.push({ ...product, quantity: 1 });
-  }
-  
-
-  localStorage.setItem("cart", JSON.stringify(cart));
-  window.dispatchEvent(new CustomEvent("cartUpdated"));
+  addItemToCart(product);
 }
 
 export function createProductCard(product, addToCartCallback) {
@@ -262,7 +253,7 @@ export function createProductCard(product, addToCartCallback) {
         btn.textContent = "Add to Cart";
         btn.classList.remove("added");
       }, 1000);
-      addToCart(product);
+      addToCartCallback(product);
 
     }
   });

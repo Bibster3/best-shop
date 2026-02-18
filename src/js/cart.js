@@ -1,19 +1,39 @@
+import { getCart, saveCart, getCartItemCount } from "./cart-store.js";
+
 const MIN_TOTAL_FOR_VOLUME_DISCOUNT = 3000;
 const VOLUME_DISCOUNT_RATE = 0.1;
 const SHIPPING_COST = 50;
-const getCart = () => {
-  try {
-    const data = JSON.parse(localStorage.getItem("cart")) || [];
-    return Array.isArray(data)
-      ? data.filter((i) => i && typeof i === "object")
-      : [];
-  } catch {
-    return [];
-  }
-};
-const saveCart = (cart) => {
-  localStorage.setItem("cart", JSON.stringify(cart));
-  updateCartBadge();
+
+const parsePrice = (price) => parseFloat(price.toString().replace("$", "")) || 0;
+
+export const calculateCartSummary = (cart) => {
+  const subTotal = cart.reduce((sum, item) => {
+    const originalPrice = parsePrice(item.price);
+    return sum + originalPrice * (item?.quantity || 0);
+  }, 0);
+
+  const itemDiscount = cart.reduce((sum, item) => {
+    const discountPerItem = parseFloat(item.discountValue || 0);
+    return sum + discountPerItem * (item?.quantity || 0);
+  }, 0);
+
+  const subTotalAfterItemDiscount = subTotal - itemDiscount;
+  const volumeDiscount =
+    subTotalAfterItemDiscount > MIN_TOTAL_FOR_VOLUME_DISCOUNT
+      ? subTotalAfterItemDiscount * VOLUME_DISCOUNT_RATE
+      : 0;
+
+  const totalDiscount = itemDiscount + volumeDiscount;
+  const total = subTotal - totalDiscount + SHIPPING_COST;
+
+  return {
+    subTotal,
+    itemDiscount,
+    volumeDiscount,
+    totalDiscount,
+    shipping: SHIPPING_COST,
+    total,
+  };
 };
 const updateCartItemQuantity = (productId, change) => {
   let cart = getCart();
@@ -41,8 +61,7 @@ const deleteCartItem = (productId) => {
   updateSummary();
 };
 const updateCartBadge = () => {
-  const cart = getCart();
-  const totalItems = cart.reduce((sum, item) => sum + (item?.quantity || 0), 0);
+  const totalItems = getCartItemCount();
   const badge = document.querySelector(".cart-count");
   if (badge) {
     if (totalItems > 0) {
@@ -56,22 +75,8 @@ const updateCartBadge = () => {
 };
 const updateSummary = () => {
   const cart = getCart();
-  const subTotal = cart.reduce((sum, item) => {
-    const originalPrice =
-      parseFloat(item.price.toString().replace("$", "")) || 0;
-    return sum + originalPrice * (item?.quantity || 0);
-  }, 0);
-  let itemDiscount = cart.reduce((sum, item) => {
-    const discountPerItem = parseFloat(item.discountValue || 0);
-    return sum + discountPerItem * (item?.quantity || 0);
-  }, 0);
-  let volumeDiscount = 0;
-  const subTotalAfterItemDiscount = subTotal - itemDiscount;
-  if (subTotalAfterItemDiscount > MIN_TOTAL_FOR_VOLUME_DISCOUNT) {
-    volumeDiscount = subTotalAfterItemDiscount * VOLUME_DISCOUNT_RATE;
-  }
-  const totalDiscount = itemDiscount + volumeDiscount;
-  const total = subTotal - totalDiscount + SHIPPING_COST;
+  const summary = calculateCartSummary(cart);
+
   const subTotalEl = document.getElementById("subtotal");
   const totalEl = document.getElementById("total");
   const shippingEl = document.querySelector(
@@ -79,12 +84,14 @@ const updateSummary = () => {
   );
   const discountLineEl = document.querySelector(".summary-line.discount");
   const discountValueEl = document.getElementById("discount-value");
-  if (subTotalEl) subTotalEl.textContent = `$${subTotal.toFixed(2)}`;
-  if (shippingEl) shippingEl.textContent = `$${SHIPPING_COST.toFixed(2)}`;
-  if (totalEl) totalEl.textContent = `$${total.toFixed(2)}`;
+
+  if (subTotalEl) subTotalEl.textContent = `$${summary.subTotal.toFixed(2)}`;
+  if (shippingEl) shippingEl.textContent = `$${summary.shipping.toFixed(2)}`;
+  if (totalEl) totalEl.textContent = `$${summary.total.toFixed(2)}`;
+
   if (discountLineEl && discountValueEl) {
-    if (totalDiscount > 0.01) {
-      discountValueEl.textContent = `-$${totalDiscount.toFixed(2)}`;
+    if (summary.totalDiscount > 0.01) {
+      discountValueEl.textContent = `-$${summary.totalDiscount.toFixed(2)}`;
       discountLineEl.style.display = "flex";
     } else {
       discountLineEl.style.display = "none";
@@ -197,8 +204,6 @@ function initCartPage() {
   updateCartBadge();
 }
 export {
-  getCart,
-  saveCart,
   updateCartBadge,
   getCartContent,
   updateSummary,

@@ -108,7 +108,7 @@ justify-content: space-between;
     }
 
     &__subtitle {
-        font-size: $font-size-base;
+        font-size: v.$font-size-base;
         color: v.$secondary-text-color;
         margin-bottom: v.$spacing-lg;
         line-height: 1.5;
@@ -131,7 +131,7 @@ justify-content: space-between;
 
     &__label {
         font-family: f.$font-family-primary;
-        font-size: $font-size-base + 1px;
+        font-size: v.$font-size-base + 1px;
         font-weight: 700;
         color: v.$color-primary;
         margin-bottom: v.$spacing-xxs;

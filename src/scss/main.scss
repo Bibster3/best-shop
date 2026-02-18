@@ -1,15 +1,79 @@
-@import "abstracts/variables";
-@import "abstracts/mixins";
-@import "base/fonts";
-@import "base/reset";
-@import "components/buttons";
-@import "components/cards";
-@import "components/forms";
-@import "components/product-card";
-@import "layouts/header";
-@import "layouts/footer";
-@import "pages/home";
-@import "pages/catalog";
-@import "pages/about";
-@import "pages/cart";
-@import "pages/product-details";
+@use "abstracts/variables";
+@use "abstracts/mixins";
+@use "base/fonts";
+@use "base/reset";
+@use "components/buttons";
+@use "components/cards";
+@use "components/forms";
+@use "components/product-card";
+@use "layouts/header";
+@use "layouts/footer";
+@use "pages/home";
+@use "pages/catalog";
+@use "pages/about";
+@use "pages/cart";
+@use "pages/product-details";
+
+
+.cart-count--badge {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: #ffffff;
+  color: #b92770;
+  font-size: 10px;
+  font-weight: bold;
+  border: 2px solid #b92770;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup-overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.popup-content {
+  position: relative;
+  background: white;
+  padding: 30px;
+  border-radius: 8px;
+  text-align: center;
+  min-width: 300px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.popup-content h3 {
+  margin-top: 0;
+  color: #333;
+}
+
+.popup-content p {
+  margin-bottom: 20px;
+  color: #666;
+}
+
+.popup-close-btn {
+  width: fit-content;
+  margin: 0 auto;
+  padding: 5px 20px;
+  cursor: pointer;
+}

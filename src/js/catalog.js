@@ -74,27 +74,7 @@ document.addEventListener("DOMContentLoaded", () => {
     return;
   }
 
-  function addToCart(product) {
-    let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-    const existingItemIndex = cart.findIndex((item) => item.id === product.id);
-
-    if (existingItemIndex > -1) {
-      cart[existingItemIndex].quantity += 1;
-    } else {
-      cart.push({
-        id: product.id,
-        name: product.name,
-        price: product.price,
-        imageUrl: product.imageUrl,
-        quantity: 1,
-        discountValue: product.discountValue || 0, // Optional: if you have discounts
-      });
-    }
-
-    localStorage.setItem("cart", JSON.stringify(cart));
-    window.dispatchEvent(new CustomEvent("cartUpdated"));
-  }
 
   // --- Data Fetching ---
   async function fetchProducts() {
@@ -170,7 +150,7 @@ document.addEventListener("DOMContentLoaded", () => {
         // 1. Exact Match (Single Result) -> Redirect to Product Page
         const product = results[0];
         // Assuming product.html is in the same directory as catalog.html
-        window.location.href = `product.html?id=${product.id}`;
+        window.location.href = `product-details.html?id=${product.id}`;
       } else {
         // 2. Multiple Results -> Filter the grid
         filteredProducts = results;
@@ -184,37 +164,32 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function showNotFoundPopup(searchTerm) {
-    // Create popup element
     const popup = document.createElement("div");
     popup.className = "search-popup";
-    popup.innerHTML = `
-      <div class="popup-overlay"></div>
-      <div class="popup-content">
-        <h3>Product Not Found</h3>
-        <p>No products found for "<strong>${searchTerm}</strong>"</p>
-        <div class="popup-close-btn button button-primary" style="width: fit-content; margin: 0 auto; padding: 5px 20px; cursor: pointer;">OK</div>
-      </div>
-    `;
+
+    const overlay = document.createElement("div");
+    overlay.className = "popup-overlay";
+
+    const content = document.createElement("div");
+    content.className = "popup-content";
+
+    const title = document.createElement("h3");
+    title.textContent = "Product Not Found";
+
+    const message = document.createElement("p");
+    message.textContent = `No products found for "${searchTerm}"`;
+
+    const closeBtn = document.createElement("button");
+    closeBtn.type = "button";
+    closeBtn.className = "popup-close-btn button button-primary";
+    closeBtn.textContent = "OK";
+
+    content.append(title, message, closeBtn);
+    popup.append(overlay, content);
     document.body.appendChild(popup);
-
-    // Styling for the popup (Dynamically added since CSS file wasn't provided for this part)
-    const style = document.createElement("style");
-    style.innerHTML = `
-      .search-popup { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 9999; display: flex; justify-content: center; align-items: center; }
-      .popup-overlay { position: absolute; width: 100%; height: 100%; background: rgba(0,0,0,0.5); }
-      .popup-content { position: relative; background: white; padding: 30px; border-radius: 8px; text-align: center; min-width: 300px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
-      .popup-content h3 { margin-top: 0; color: #333; }
-      .popup-content p { margin-bottom: 20px; color: #666; }
-    `;
-    document.head.appendChild(style);
-
-    // Close Logic
-    const closeBtn = popup.querySelector(".popup-close-btn");
-    const overlay = popup.querySelector(".popup-overlay");
 
     const closePopup = () => {
       document.body.removeChild(popup);
-      document.head.removeChild(style); // Clean up style
     };
 
     closeBtn.addEventListener("click", closePopup);

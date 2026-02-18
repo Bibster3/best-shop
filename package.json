@@ -4,10 +4,10 @@
   "description": "Capstone Project Template ",
   "license": "ISC",
   "author": "Bilyana Stefanova",
-  "type": "commonjs",
+  "type": "module",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "node --test",
     "build": "echo \"Dummy build script required for Autocode Compile\"",
     "compile:sass": "sass src/scss/main.scss dist/css/main.css",
     "watch:sass": "sass --watch src/scss/main.scss dist/css/main.css",

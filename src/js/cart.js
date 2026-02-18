@@ -1,20 +1,8 @@
+import { getCart, saveCart, getCartItemCount } from "./cart-store.js";
+
 const MIN_TOTAL_FOR_VOLUME_DISCOUNT = 3000;
 const VOLUME_DISCOUNT_RATE = 0.1;
 const SHIPPING_COST = 50;
-const getCart = () => {
-  try {
-    const data = JSON.parse(localStorage.getItem("cart")) || [];
-    return Array.isArray(data)
-      ? data.filter((i) => i && typeof i === "object")
-      : [];
-  } catch {
-    return [];
-  }
-};
-const saveCart = (cart) => {
-  localStorage.setItem("cart", JSON.stringify(cart));
-  updateCartBadge();
-};
 const updateCartItemQuantity = (productId, change) => {
   let cart = getCart();
   const index = cart.findIndex((item) => item.id === productId);
@@ -41,8 +29,7 @@ const deleteCartItem = (productId) => {
   updateSummary();
 };
 const updateCartBadge = () => {
-  const cart = getCart();
-  const totalItems = cart.reduce((sum, item) => sum + (item?.quantity || 0), 0);
+  const totalItems = getCartItemCount();
   const badge = document.querySelector(".cart-count");
   if (badge) {
     if (totalItems > 0) {
@@ -197,8 +184,6 @@ function initCartPage() {
   updateCartBadge();
 }
 export {
-  getCart,
-  saveCart,
   updateCartBadge,
   getCartContent,
   updateSummary,

@@ -1,9 +1,7 @@
+import { getCartItemCount } from "./cart-store.js";
+
 function updateCartBadge() {
-    const cart = JSON.parse(localStorage.getItem("cart")) || [];
-    const totalItems = cart.reduce(
-      (sum, item) => sum + (item.quantity || 0),
-      0
-    );
+    const totalItems = getCartItemCount();
   
     let badge = document.querySelector(".cart-count");
     const cartIconContainer = document.querySelector(

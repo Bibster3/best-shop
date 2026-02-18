@@ -1,5 +1,27 @@
+export function getSearchOutcome(products, searchTerm) {
+  if (!searchTerm.trim()) {
+    return { type: "reset", results: [] };
+  }
+
+  const searchLower = searchTerm.toLowerCase().trim();
+  const results = products.filter((product) =>
+    product.name.toLowerCase().includes(searchLower)
+  );
+
+  if (results.length === 1) {
+    return { type: "single", product: results[0], results };
+  }
+
+  if (results.length > 1) {
+    return { type: "multiple", results };
+  }
+
+  return { type: "none", results: [] };
+}
+
 import { createProductCard, addToCart } from "./components.js";
 
+if (typeof document !== "undefined") {
 document.addEventListener("DOMContentLoaded", () => {
   // --- Dropdown Menu Logic ---
   const catalogNavItem = document.querySelector(".nav-item--dropdown");
@@ -132,18 +154,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // --- Search Logic (Pressing Enter) ---
   function handleSearch(searchTerm) {
-    if (!searchTerm.trim()) {
-      // If empty, just reset to standard filters
+    const outcome = getSearchOutcome(allProducts, searchTerm);
+
+    if (outcome.type === "reset") {
       applyFilters();
       return;
     }
 
-    const searchLower = searchTerm.toLowerCase().trim();
-
-    // Filter based on name containing the keyword
-    const results = allProducts.filter((product) =>
-      product.name.toLowerCase().includes(searchLower)
-    );
+    if (outcome.type === "single") {
+      window.location.href = `product-details.html?id=${outcome.product.id}`;
+      return;
+    }
 
     if (results.length > 0) {
       if (results.length === 1) {
@@ -161,6 +182,8 @@ document.addEventListener("DOMContentLoaded", () => {
       // 3. No Results -> Show Popup
       showNotFoundPopup(searchTerm);
     }
+
+    showNotFoundPopup(searchTerm);
   }
 
   function showNotFoundPopup(searchTerm) {
@@ -389,3 +412,4 @@ document.addEventListener("DOMContentLoaded", () => {
 
   fetchProducts();
 });
+}

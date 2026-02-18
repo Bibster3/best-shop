@@ -30,7 +30,7 @@ section {
   }
   h3 {
     font-family: f.$font-family-primary;
-    font-size: $font-size-md;
+    font-size: v.$font-size-md;
     font-style: bold;
     font-weight: 900;
     margin-bottom: v.$spacing-sm + 4px; // 20px
@@ -62,7 +62,7 @@ section {
 
     h1 {
       font-family: f.$font-family-primary;
-      font-size: $font-size-lg; // 40px
+      font-size: v.$font-size-lg; // 40px
       font-style: bold;
       font-weight: 900;
       margin-bottom: v.$spacing-sm + 4px; // 20px
@@ -73,7 +73,7 @@ section {
     p {
       text-align: left;
       color: v.$secondary-text-color;
-      font-size: $font-size-base; // 17px
+      font-size: v.$font-size-base; // 17px
     }
   }
 

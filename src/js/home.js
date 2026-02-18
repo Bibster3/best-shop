@@ -1,5 +1,5 @@
 import { updateProductCard, addToCart } from "./components.js";
-const JSON_URL = "../../src/assets/data.json";
+const JSON_URL = "src/assets/data.json";
 
 async function loadHomeProducts() {
   try {
@@ -36,18 +36,14 @@ async function loadHomeProducts() {
     });
 
     const newGrid = document.getElementById("new-products-grid");
-    newProducts.forEach((product, index) => {
-      const card = newGrid.querySelector(`[data-card-index="${index}"]`);
-      if (card) {
-        updateProductCard(card, product);
-        const viewProductBtn = card.querySelector(".button-secondary");
-        if (viewProductBtn) {
-          viewProductBtn.addEventListener("click", (e) => {
-            updateProductCard(product);
-          });
+    if (newGrid) {
+      newProducts.forEach((product, index) => {
+        const card = newGrid.querySelector(`[data-card-index="${index}"]`);
+        if (card) {
+          updateProductCard(card, product);
         }
-      }
-    });
+      });
+    }
   } catch (error) {
     console.error("Failed to load product data:", error);
   }

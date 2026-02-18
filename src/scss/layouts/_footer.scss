@@ -13,7 +13,7 @@
   // ======================= BENEFITS =======================
   .benefits {
     position: relative;
-    background-color: $benfits-bg-color;
+    background-color: v.$benfits-bg-color;
     padding: 50px 0;
     width: 100vw;
     left: 50%;
@@ -47,7 +47,7 @@
       font-weight: 700;
       color: v.$color-white;
       text-align: left;
-      margin-bottom: $spacing-lg;
+      margin-bottom: v.$spacing-lg;
     }
 
     &__items {

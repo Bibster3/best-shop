@@ -21,6 +21,43 @@ export function getSearchOutcome(products, searchTerm) {
 
 import { createProductCard, addToCart } from "./components.js";
 
+if (typeof document !== "undefined") {
+document.addEventListener("DOMContentLoaded", () => {
+  // --- Dropdown Menu Logic ---
+  const catalogNavItem = document.querySelector(".nav-item--dropdown");
+  const filterMenu = document.querySelector(".filter-dropdown-menu");
+  let hideTimeout;
+
+  if (catalogNavItem && filterMenu) {
+    const showMenu = () => {
+      clearTimeout(hideTimeout);
+      filterMenu.style.display = "block";
+    };
+
+    const hideMenu = () => {
+      hideTimeout = setTimeout(() => {
+        filterMenu.style.display = "none";
+      }, 300); // 300ms delay before hiding
+    };
+
+    catalogNavItem.addEventListener("mouseenter", showMenu);
+    catalogNavItem.addEventListener("mouseleave", hideMenu);
+    filterMenu.addEventListener("mouseenter", showMenu);
+    filterMenu.addEventListener("mouseleave", hideMenu);
+
+    // Ensure the menu is hidden on initial load
+    filterMenu.style.display = "none";
+  }
+
+  if (results.length > 1) {
+    return { type: "multiple", results };
+  }
+
+  return { type: "none", results: [] };
+}
+
+import { createProductCard, addToCart } from "./components.js";
+
 export function applySearchOutcome(outcome, actions) {
   const { applyFilters, onMultiple, onNone, redirect } = actions;
 
@@ -29,15 +66,7 @@ export function applySearchOutcome(outcome, actions) {
     return;
   }
 
-  if (outcome.type === "single") {
-    redirect(`product-details.html?id=${outcome.product.id}`);
-    return;
-  }
 
-  if (outcome.type === "multiple") {
-    onMultiple(outcome.results);
-    return;
-  }
 
   onNone();
 }
@@ -96,100 +125,65 @@ if (typeof document !== "undefined") {
       ".catalog-layout__main-content .field__select"
     );
 
-    // --- State Variables ---
-    let allProducts = [];
-    let filteredProducts = [];
-    let sortedProducts = [];
-    const PRODUCTS_PER_PAGE = 9;
-    let currentPage = 1;
+  // --- Search Logic (Pressing Enter) ---
+  function handleSearch(searchTerm) {
+    const outcome = getSearchOutcome(allProducts, searchTerm);
 
-    if (
-      !productGrid ||
-      !prevButton ||
-      !nextButton ||
-      !pageIndicator ||
-      !resultsCount ||
-      !bestSetsList
-    ) {
-      console.error(
-        "Critical elements not found. Please check your HTML structure and IDs."
-      );
+    if (outcome.type === "reset") {
+      applyFilters();
       return;
     }
 
+    if (outcome.type === "single") {
+      window.location.href = `product-details.html?id=${outcome.product.id}`;
+      return;
+    }
 
-
-    // --- Data Fetching ---
-    async function fetchProducts() {
-      try {
-        const response = await fetch("../assets/data.json");
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        const data = await response.json();
-        allProducts = data.data;
-        renderBestSets(allProducts);
-        applyFilters();
-      } catch (error) {
-        console.error("Could not fetch products:", error);
-        productGrid.innerHTML =
-          "<p>Error loading products. Please try again later.</p>";
+    if (results.length > 0) {
+      if (results.length === 1) {
+        // 1. Exact Match (Single Result) -> Redirect to Product Page
+        const product = results[0];
+        // Assuming product.html is in the same directory as catalog.html
+        window.location.href = `product-details.html?id=${product.id}`;
+      } else {
+        // 2. Multiple Results -> Filter the grid
+        filteredProducts = results;
+        currentPage = 1;
+        sortProducts();
       }
     }
 
-    // --- Filtering Logic (Dropdowns) ---
-    function applyFilters() {
-      // Get current filter values
-      const size = sizeSelect?.value || "";
-      const color = colorSelect?.value || "";
-      const category = categorySelect?.value || "";
-      const sales = salesFilter?.checked || false;
+    showNotFoundPopup(searchTerm);
+  }
 
-      filteredProducts = allProducts.filter((product) => {
-        // REFACTORED: Uses optional chaining (?.)
-        // If product.size is null/undefined, it stops automatically and returns undefined (falsy).
-        // Otherwise, it proceeds to split and check the size.
-        const sizeMatch =
-          !size || product.size?.split(", ").some((s) => s.trim() === size);
+  function showNotFoundPopup(searchTerm) {
+    const popup = document.createElement("div");
+    popup.className = "search-popup";
 
-        const colorMatch = !color || product.color === color;
-        const categoryMatch = !category || product.category === category;
-        const salesMatch = !sales || product.salesStatus;
+    const overlay = document.createElement("div");
+    overlay.className = "popup-overlay";
 
-        // Checks if image exists AND excludes images with "set-"
-        const imageResolutionMatch =
-          product.imageUrl && !product.imageUrl.includes("set-");
+    const content = document.createElement("div");
+    content.className = "popup-content";
 
-        return (
-          sizeMatch &&
-          colorMatch &&
-          categoryMatch &&
-          salesMatch &&
-          imageResolutionMatch
-        );
-      });
+    const title = document.createElement("h3");
+    title.textContent = "Product Not Found";
 
-      currentPage = 1;
-      sortProducts();
-    }
+    const message = document.createElement("p");
+    message.textContent = `No products found for "${searchTerm}"`;
 
-    // --- Search Logic (Pressing Enter) ---
-    function handleSearch(searchTerm) {
-      const outcome = getSearchOutcome(allProducts, searchTerm);
+    const closeBtn = document.createElement("button");
+    closeBtn.type = "button";
+    closeBtn.className = "popup-close-btn button button-primary";
+    closeBtn.textContent = "OK";
 
-      applySearchOutcome(outcome, {
-        applyFilters,
-        onMultiple: (results) => {
-          filteredProducts = results;
-          currentPage = 1;
-          sortProducts();
-        },
-        onNone: () => showNotFoundPopup(searchTerm),
-        redirect: (url) => {
-          window.location.href = url;
-        },
-      });
-    }
+    content.append(title, message, closeBtn);
+    popup.append(overlay, content);
+    document.body.appendChild(popup);
+
+    const closePopup = () => {
+      document.body.removeChild(popup);
+    };
 
     function showNotFoundPopup(searchTerm) {
       const popup = document.createElement("div");
@@ -415,6 +409,6 @@ if (typeof document !== "undefined") {
     prevButton.addEventListener("click", () => renderPage(currentPage - 1));
     nextButton.addEventListener("click", () => renderPage(currentPage + 1));
 
-    fetchProducts();
-  });
+  fetchProducts();
+});
 }

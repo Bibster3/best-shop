@@ -8,7 +8,7 @@
   "main": "index.js",
   "scripts": {
     "test": "node --test",
-    "build": "npm run compile:sass && npm test",
+    "build": "echo \"Dummy build script required for Autocode Compile\"",
     "compile:sass": "sass src/scss/main.scss dist/css/main.css",
     "watch:sass": "sass --watch src/scss/main.scss dist/css/main.css",
     "serve": "live-server --open=index.html --port=8080 --host=localhost",

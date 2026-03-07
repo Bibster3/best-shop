@@ -169,6 +169,7 @@ export function updateProductCard(cardElement, product) {
   if (imgElement) {
     imgElement.src = `${basePath}${product.imageUrl}`;
     imgElement.alt = product.name;
+    imgElement.loading = "lazy";
   }
 
   // Update Name and Price
@@ -229,7 +230,7 @@ export function createProductCard(product, addToCartCallback) {
   card.innerHTML = `
     <a href="../html/product-details.html?id=${product.id}" class="product-card__image-link">
       <div class="product-card__image-container">
-        <img src="../${product.imageUrl}" alt="${product.name}" class="product-card__image">
+        <img src="../${product.imageUrl}" alt="${product.name}" class="product-card__image" loading="lazy">
         ${tagHtml}
       </div>
     </a>
